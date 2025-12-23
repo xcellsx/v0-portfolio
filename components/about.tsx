@@ -1,3 +1,5 @@
+"use client"
+
 export function About() {
   return (
     <section id="about" className="py-24 px-6 border-t border-border">
@@ -11,7 +13,6 @@ export function About() {
               playsInline
               preload="auto"
               className="w-[280px] h-[280px] md:w-[360px] md:h-[360px] object-contain"
-              onError={(e) => console.log("[v0] Large logo video failed to load:", e)}
             >
               <source src="/logo-c.mp4" type="video/mp4" />
             </video>

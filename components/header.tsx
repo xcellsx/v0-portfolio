@@ -7,7 +7,6 @@ export function Header() {
 
   useEffect(() => {
     if (videoRef.current) {
-      console.log("[v0] Video element found, attempting to load...")
       videoRef.current.load()
       videoRef.current.play().catch((err) => {
         console.log("[v0] Video play failed:", err)
@@ -20,21 +19,8 @@ export function Header() {
       <div className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
           <a href="#" className="flex items-center gap-2">
-            <video
-              ref={videoRef}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              className="w-10 h-10 object-contain"
-              onLoadedData={() => console.log("[v0] Video loaded successfully")}
-              onError={(e) => {
-                console.log("[v0] Video error:", e)
-                console.log("[v0] Current src:", videoRef.current?.currentSrc)
-              }}
-            >
-              <source src="/logo.mp4" type="video/mp4" />
+            <video ref={videoRef} autoPlay loop muted playsInline preload="auto" className="w-10 h-10 object-contain">
+              <source src="/logo-c.mp4" type="video/mp4" />
             </video>
             <span className="font-bold text-lg tracking-tight">CELINE.</span>
           </a>
