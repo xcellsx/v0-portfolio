@@ -8,38 +8,48 @@ import { useState } from "react"
 import { IridescentCard } from "@/components/iridescent-blob"
 
 const projectData = {
-  title: "The Keepsakes",
-  category: "web development",
+  title: "Aether™",
+  category: "branding",
   year: "2025",
-  stack: ["REACT", "TAILWIND", "SUPABASE"],
-  liveUrl: "https://v0-the-keepsakes.vercel.app/jar",
-  heroVideo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/main-video-yoK9crd8KQWPhhyKRXD0l7bKfWelCi.mp4",
+  disciplines: ["BRAND STRATEGY", "VISUAL IDENTITY", "PRODUCT MOCKUP"],
+  liveUrl: "https://aether-ebon-three.vercel.app/",
+  brandBookUrl: "/aether-brandbook.pdf", // Update with actual PDF URL
+  heroVideo: "/aether-main.mp4",
   content: {
-    heading: "DIGITIZING NOSTALGIA.",
+    heading: "DEFINING FUTURE-MINIMALISM.",
     description:
-      "Inspired by the tactile childhood ritual of folding paper stars to make wishes. I wanted to explore how a physical, intimate act of memory-keeping could translate into a web environment.",
-    goal: "To build a 'digital sanctuary'—a space that feels as personal and delicate as the paper original, but lives permanently on the blockchain/web.",
+      "To create a visual identity for AETHER™, a high-performance clinical skincare brand launching the 'Quantum Glow' serum. The brief called for an aesthetic that rejects traditional 'medical' tropes in favor of something ethereal, translucent, and scientifically precise.",
+    goal: "To synthesize a visual language that bridges the gap between clinical efficacy and ethereal beauty. The identity needed to feel like it came from a lab in the year 2050—clean, distinct, and illuminated.",
   },
   methodology: [
-    { title: "CONCEPT", description: "Paper Star in Jars" },
-    { title: "LOGIC", description: "Creating Elements & Designs" },
-    { title: "UI SYSTEM", description: "Figma Prototyping from sketching in previous step" },
-    { title: "BUILD", description: "Bringing the UI System to life" },
+    { title: "BRIEF ANALYSIS", description: "Deconstructing 'Future-Minimalism' & 'Clinical' keywords" },
+    { title: "VISUAL SYNTHESIS", description: "Exploring divergent directions: Sharp/Elegant vs. Soft/Biological" },
+    { title: "IDENTITY SYSTEM", description: "Defining the 'Quantum' color palette & typographic hierarchy" },
+    { title: "BRAND BOOK", description: "Codifying the rules for packaging and digital usage" },
   ],
   blueprints: [
     {
-      image: "/images/initial-sketch.jpg",
-      description: "Initial wireframe sketches exploring authentication flows and UI layouts",
+      image: "/images/colour-exploration.png", // Moodboard image - update path if needed
+      description: "Visual Direction Testing. We stress-tested three distinct aesthetics: Sharp & Elegant (Green), Soft & Biological (Blue), and Heavy & Bold (Pink) before selecting the final direction.",
     },
     {
-      image: "/images/figma-prototype.png",
-      description: "Figma prototype showing Sign In, Sign Up, and Keepsake Interface screens",
+      image: "/images/aether-logo-grid.png", // Logo grid - update path if needed
+      description: "Logomark geometry. Constructed to ensure legibility across small serum bottles and large digital billboards.",
     },
-    { image: "/images/code.png", description: "Three.js implementation of 3D mason jar with realistic glass material" },
+    {
+      image: "/images/aether-color-palette.png", // Color palette - update path if needed
+      description: "The 'Quantum' Palette. Moving away from standard medical blues to embrace a high-contrast, bio-luminescent color story.",
+    },
+  ],
+  brandManual: [
+    { image: "/images/brand-manual-1.png", title: "Logo Usage" },
+    { image: "/images/brand-manual-2.png", title: "Typography" },
+    { image: "/images/brand-manual-3.png", title: "Product Mockup" },
+    { image: "/images/brand-manual-4.png", title: "Social Media" },
   ],
 }
 
-export default function TheKeepsakePage() {
+export default function AetherPage() {
   const [currentBlueprint, setCurrentBlueprint] = useState(0)
 
   const nextBlueprint = () => {
@@ -77,8 +87,8 @@ export default function TheKeepsakePage() {
                 <span className="font-bold">{projectData.year}</span>
               </div>
               <div className="break-words">
-                <span className="text-muted-foreground">STACK: </span>
-                <span className="font-bold text-xs sm:text-sm">{projectData.stack.join(", ")}</span>
+                <span className="text-muted-foreground">DISCIPLINES: </span>
+                <span className="font-bold text-xs sm:text-sm">{projectData.disciplines.join(", ")}</span>
               </div>
             </div>
             <Link
@@ -99,11 +109,13 @@ export default function TheKeepsakePage() {
           {/* Content section */}
           <section className="mb-16 pt-8">
             <h2 className="text-lg font-bold mb-4">{projectData.content.heading}</h2>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-4">{projectData.content.description}</p>
-            <p className="text-sm leading-relaxed">
-              <span className="font-bold">THE GOAL: </span>
-              <span className="text-muted-foreground">{projectData.content.goal}</span>
-            </p>
+            <div className="text-sm leading-relaxed mb-4">
+              <p className="text-muted-foreground mb-4">{projectData.content.description}</p>
+              <p>
+                <span className="font-bold">THE GOAL: </span>
+                <span className="text-muted-foreground">{projectData.content.goal}</span>
+              </p>
+            </div>
           </section>
 
           {/* Methodology section */}
@@ -160,6 +172,40 @@ export default function TheKeepsakePage() {
             </div>
           </section>
 
+          {/* The Manual section */}
+          <section className="mb-12 sm:mb-16">
+            <h2 className="text-lg font-bold mb-6 sm:mb-8">THE MANUAL.</h2>
+            <div className="grid sm:grid-cols-2 gap-4 mb-6">
+              {projectData.brandManual.map((slide, index) => (
+                <div key={index} className="relative aspect-[4/3] bg-muted overflow-hidden">
+                  {slide.image ? (
+                    <Image
+                      src={slide.image}
+                      alt={slide.title}
+                      fill
+                      className="object-cover"
+                    />
+                  ) : (
+                    <IridescentCard className="w-full h-full" />
+                  )}
+                  <div className="absolute bottom-0 left-0 right-0 bg-background/80 p-2">
+                    <p className="text-xs font-bold">{slide.title}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="text-center">
+              <a
+                href={projectData.brandBookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-sm font-bold border border-foreground rounded-full px-6 py-2.5 hover:bg-foreground hover:text-background transition-colors"
+              >
+                VIEW COMPLETE BRAND BOOK
+              </a>
+            </div>
+          </section>
+
           {/* Other projects section */}
           <section>
             <h2 className="text-lg font-bold mb-8">OTHER PROJECTS</h2>
@@ -203,6 +249,6 @@ export default function TheKeepsakePage() {
 }
 
 const otherProjects = [
-  { title: "AETHER", category: "branding", year: "2025", href: "/work/aether", image: "/aether-card.png" },
+  { title: "The Keepsake", category: "web development", year: "2025", href: "/work/the-keepsake", image: "/keepsake-card.png" },
   { title: "tbd", category: "3D Modeling", year: "2025", href: "/work" },
 ]

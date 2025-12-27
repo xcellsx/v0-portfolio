@@ -28,9 +28,9 @@ export function Skills() {
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-sm font-bold mb-8 tracking-widest uppercase text-center">SKILLS.</h2>
 
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           {skills.map((skill) => (
-            <div key={skill.title} className="border border-border p-8 text-center space-y-6">
+            <div key={skill.title} className="border border-border p-6 sm:p-8 text-center space-y-4 sm:space-y-6">
               {skill.icon === "cube" ? (
                 <video autoPlay loop muted playsInline key={theme} className="w-20 h-20 mx-auto object-contain">
                   <source src={theme === "dark" ? "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/UIPVVSV334aHqxjGOuswTB/public/cube-dark.mp4" : "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/toPd5eDjuQgqhsUMhieaud/public/cube.mp4"} type="video/mp4" />

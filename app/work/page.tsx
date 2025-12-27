@@ -37,7 +37,7 @@ const sections = [
       "More than just a logo. I build cohesive visual ecosystems, defining typography, color theory, and usage guidelines that ensure the brand lives consistently across all mediums.",
     workflow: ["Strategic Discovery", "Visual Direction", "Identity System Build", "Scalable Guidelines"],
     projects: [
-      { title: "Aether", category: "branding", year: "2025", href: "#" },
+      { title: "AETHER™", category: "branding", year: "2025", image: "/aether-card.png", href: "/work/aether" },
       { title: "tbd", category: "branding", year: "2025", href: "#" },
     ],
   },
@@ -68,7 +68,7 @@ export default function WorkPage() {
       <main className="pt-28 pb-16 px-6">
         <div className="container mx-auto max-w-5xl">
           <div className="sticky top-20 z-40 bg-background/80 backdrop-blur-sm py-4 -mx-6 px-6 mb-8">
-            <div className="flex justify-center gap-8">
+            <div className="flex justify-center gap-4 sm:gap-6 md:gap-8 flex-wrap">
               {categories.map((cat) => (
                 <button
                   key={cat.id}

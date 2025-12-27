@@ -74,17 +74,17 @@ export function Hero() {
               digital experiences.
             </p>
 
-            <div className="flex gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
               <Link
                 href="/work"
-                className="px-6 py-2.5 border border-foreground text-sm font-medium hover:bg-foreground hover:text-background transition-colors rounded-full"
+                className="px-6 py-2.5 border border-foreground text-sm font-medium hover:bg-foreground hover:text-background transition-colors rounded-full text-center"
               >
                 MY WORKS.
               </Link>
               <a
                 href="/resume.pdf"
                 download
-                className="px-6 py-2.5 border border-foreground text-sm font-medium hover:bg-foreground hover:text-background transition-colors rounded-full"
+                className="px-6 py-2.5 border border-foreground text-sm font-medium hover:bg-foreground hover:text-background transition-colors rounded-full text-center"
               >
                 MY RESUME.
               </a>
@@ -92,7 +92,7 @@ export function Hero() {
           </div>
 
           <div className="flex justify-center md:justify-end">
-            <IridescentCard className="w-72 h-80 md:w-80 md:h-96" />
+            <IridescentCard className="w-full max-w-[280px] h-64 sm:w-72 sm:h-80 md:w-80 md:h-96" />
           </div>
         </div>
       </div>

@@ -27,8 +27,8 @@ export default function ContactPage() {
       <Header />
       <main className="pt-28 pb-16 px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            <IridescentCard className="w-72 h-80 md:w-80 md:h-96" />
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+            <IridescentCard className="w-full max-w-[280px] h-64 sm:w-72 sm:h-80 md:w-80 md:h-96 mx-auto md:mx-0" />
 
             {/* Right side - form */}
             <div className="space-y-8">
@@ -43,7 +43,7 @@ export default function ContactPage() {
                 <h2 className="font-bold text-sm mb-6">Contact Form</h2>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <input
                       type="text"
                       placeholder="Name"

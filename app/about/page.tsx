@@ -59,17 +59,17 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="flex justify-center gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 pt-4">
               <a
                 href="/contact"
-                className="px-6 py-2.5 border border-foreground text-sm font-medium hover:bg-foreground hover:text-background transition-colors rounded-full"
+                className="px-6 py-2.5 border border-foreground text-sm font-medium hover:bg-foreground hover:text-background transition-colors rounded-full text-center"
               >
                 LET'S COLLABORATE.
               </a>
               <a
                 href="/resume.pdf"
                 download
-                className="px-6 py-2.5 border border-foreground text-sm font-medium hover:bg-foreground hover:text-background transition-colors rounded-full"
+                className="px-6 py-2.5 border border-foreground text-sm font-medium hover:bg-foreground hover:text-background transition-colors rounded-full text-center"
               >
                 MY RESUME.
               </a>
@@ -79,32 +79,32 @@ export default function AboutPage() {
           <IridescentCard className="w-full h-64 md:h-96 mb-16" />
 
           {/* Journey timeline */}
-          <div className="mb-16">
-            <h2 className="text-sm font-bold mb-12 tracking-widest uppercase">MY JOURNEY.</h2>
+          <div className="mb-12 sm:mb-16">
+            <h2 className="text-sm font-bold mb-8 sm:mb-12 tracking-widest uppercase">MY JOURNEY.</h2>
 
             <div className="relative">
-              {/* Center line */}
-              <div className="absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2" />
+              {/* Center line - hidden on mobile */}
+              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2" />
 
-              <div className="space-y-12">
+              <div className="space-y-8 sm:space-y-12">
                 {journey.map((item) => (
                   <div key={item.year} className="relative flex items-center">
                     {/* Timeline dot */}
-                    <div className="absolute left-1/2 w-3 h-3 rounded-full border-2 border-foreground bg-background -translate-x-1/2" />
+                    <div className="hidden md:block absolute left-1/2 w-3 h-3 rounded-full border-2 border-foreground bg-background -translate-x-1/2 z-10" />
 
                     {item.side === "left" ? (
                       <>
-                        <div className="w-1/2 pr-12 text-right">
+                        <div className="w-full md:w-1/2 md:pr-12 md:text-right">
                           <p className="font-bold">{item.year}</p>
                           <p className="text-sm text-muted-foreground">{item.title}</p>
                           <p className="text-xs text-muted-foreground">{item.skills}</p>
                         </div>
-                        <div className="w-1/2" />
+                        <div className="hidden md:block w-1/2" />
                       </>
                     ) : (
                       <>
-                        <div className="w-1/2" />
-                        <div className="w-1/2 pl-12">
+                        <div className="hidden md:block w-1/2" />
+                        <div className="w-full md:w-1/2 md:pl-12">
                           <p className="font-bold">{item.year}</p>
                           <p className="text-sm text-muted-foreground">{item.title}</p>
                           <p className="text-xs text-muted-foreground">{item.skills}</p>

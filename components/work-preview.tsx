@@ -4,9 +4,10 @@ import { IridescentCard } from "./iridescent-blob"
 
 const projects = [
   {
-    title: "AETHER",
+    title: "AETHER™",
     category: "branding",
     year: "2025",
+    image: "/aether-card.png",
     slug: "aether",
   },
   {
@@ -30,7 +31,7 @@ export function WorkPreview() {
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-sm font-bold mb-8 tracking-widest uppercase">MY WORKS.</h2>
 
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           {projects.map((project) => (
             <Link key={project.title} href={project.slug ? `/work/${project.slug}` : "/work"} className="group">
               {project.image ? (
