@@ -96,20 +96,20 @@ export default function ContactPage() {
               <div className="pt-4 space-y-4">
                 <Link
                   href="mailto:hello@celine.design"
-                  className="inline-flex items-center gap-2 text-sm hover:text-muted-foreground transition-colors"
+                  className="inline-flex items-center gap-2 text-sm hover-iridescent"
                 >
                   <Mail className="w-4 h-4" />
                   hello@celine.design
                 </Link>
 
                 <div className="flex items-center gap-6">
-                  <Link href="https://linkedin.com" className="hover:text-muted-foreground transition-colors">
+                  <Link href="https://linkedin.com" className="hover-iridescent">
                     <Linkedin className="w-5 h-5" />
                   </Link>
-                  <Link href="https://github.com" className="hover:text-muted-foreground transition-colors">
+                  <Link href="https://github.com" className="hover-iridescent">
                     <Github className="w-5 h-5" />
                   </Link>
-                  <Link href="https://instagram.com" className="hover:text-muted-foreground transition-colors">
+                  <Link href="https://instagram.com" className="hover-iridescent">
                     <Instagram className="w-5 h-5" />
                   </Link>
                 </div>

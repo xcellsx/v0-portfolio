@@ -17,15 +17,25 @@ export function Hero() {
                 <span>Creating</span>
                 <Link
                   href="/work#branding"
-                  className="hover:text-muted-foreground transition-colors inline-flex items-center gap-2"
+                  className="hover-iridescent inline-flex items-center gap-2"
                 >
-                  Brands <span className="text-2xl md:text-3xl">💼</span>
+                  Brands
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    key={theme}
+                    className="w-8 h-8 md:w-10 md:h-10 object-contain inline-block"
+                  >
+                    <source src={theme === "dark" ? "/pen-dark.mp4" : "/pen.mp4"} type="video/mp4" />
+                  </video>
                 </Link>
               </div>
               <div className="flex flex-wrap items-center gap-3 text-3xl md:text-4xl lg:text-5xl font-medium">
                 <Link
                   href="/work#web"
-                  className="hover:text-muted-foreground transition-colors inline-flex items-center gap-2"
+                  className="hover-iridescent inline-flex items-center gap-2"
                 >
                   Interfaces
                   <video
@@ -42,7 +52,7 @@ export function Hero() {
                 <span className="font-script text-4xl md:text-5xl lg:text-6xl">&</span>
                 <Link
                   href="/work#modeling"
-                  className="hover:text-muted-foreground transition-colors inline-flex items-center gap-2"
+                  className="hover-iridescent inline-flex items-center gap-2"
                 >
                   Dimensions
                   <video

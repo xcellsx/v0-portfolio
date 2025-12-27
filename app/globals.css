@@ -124,3 +124,21 @@
     font-family: var(--font-script);
   }
 }
+
+@layer utilities {
+  .hover-iridescent {
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  .hover-iridescent:hover {
+    background: linear-gradient(135deg, #ffb6c1 0%, #b0e0e6 25%, #dda0dd 50%, #add8e6 75%, #ffdab9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .hover-iridescent:hover svg {
+    color: #dda0dd;
+    filter: drop-shadow(0 0 3px rgba(221, 160, 221, 0.6));
+  }
+}

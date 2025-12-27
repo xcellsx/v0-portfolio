@@ -22,7 +22,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <video key={theme} autoPlay loop muted playsInline className="w-8 h-8 object-contain">
-              <source src={theme === "light" ? "/logo-light.mp4" : "/logo-dark.mp4"} type="video/mp4" />
+              <source src={theme === "light" ? "/logo.mp4" : "/logo-dark.mp4"} type="video/mp4" />
             </video>
             <span className="font-bold text-xl tracking-tight">CELINE.</span>
           </Link>
@@ -32,7 +32,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-sm font-medium tracking-wider transition-colors hover:text-muted-foreground ${
+                  className={`text-sm font-medium tracking-wider hover-iridescent ${
                     pathname === item.href ? "underline underline-offset-4" : ""
                   }`}
                 >

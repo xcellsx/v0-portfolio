@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "A multidisciplinary design and development practice bridging the gap between flat strategy and immersive digital experiences.",
   generator: "v0.app",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/logo.png",
     apple: "/apple-icon.png",
   },
 }
@@ -31,7 +31,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${greatVibes.variable} font-sans antialiased`}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

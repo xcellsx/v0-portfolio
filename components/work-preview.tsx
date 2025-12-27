@@ -21,7 +21,7 @@ const projects = [
 
 export function WorkPreview() {
   return (
-    <section id="work" className="py-16 px-6 border-t border-border">
+    <section id="work" className="py-16 px-6">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-sm font-bold mb-8 tracking-widest uppercase">MY WORKS.</h2>
 

@@ -66,7 +66,7 @@ export default function WorkPage() {
                 <button
                   key={cat.id}
                   onClick={() => scrollToSection(cat.id)}
-                  className="text-xs tracking-wider hover:text-muted-foreground transition-colors"
+                  className="text-xs tracking-wider hover-iridescent"
                 >
                   {cat.label}
                 </button>
