@@ -13,7 +13,7 @@ const projects = [
     title: "The Keepsake",
     category: "web development",
     year: "2025",
-    image: "/kwwpsake-card.png",
+    image: "/keepsake-card.png",
     slug: "the-keepsake",
   },
   {
