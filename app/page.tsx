@@ -1,8 +1,8 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
-import { Work } from "@/components/work"
 import { About } from "@/components/about"
-import { Capabilities } from "@/components/capabilities"
+import { Skills } from "@/components/skills"
+import { WorkPreview } from "@/components/work-preview"
 import { Footer } from "@/components/footer"
 
 export default function Page() {
@@ -11,9 +11,9 @@ export default function Page() {
       <Header />
       <main>
         <Hero />
-        <Work />
         <About />
-        <Capabilities />
+        <Skills />
+        <WorkPreview />
       </main>
       <Footer />
     </div>

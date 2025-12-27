@@ -1,49 +1,88 @@
+"use client"
+
+import Link from "next/link"
+import { IridescentCard } from "./iridescent-blob"
+import { useTheme } from "./theme-provider"
+
 export function Hero() {
+  const { theme } = useTheme()
+
   return (
-    <section className="pt-32 pb-24 px-6">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center space-y-8">
-          <div className="flex items-center justify-center gap-8 text-5xl md:text-6xl lg:text-7xl">
-            <span className="font-script">I'm</span>
-            <div className="w-48 h-48 md:w-64 md:h-64 bg-secondary" />
-            <span className="font-script">Celine</span>
-          </div>
+    <section className="pt-28 pb-16 px-6 relative overflow-hidden">
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <div className="flex flex-wrap items-center gap-3 text-3xl md:text-4xl lg:text-5xl font-medium">
+                <span>Creating</span>
+                <Link
+                  href="/work#branding"
+                  className="hover:text-muted-foreground transition-colors inline-flex items-center gap-2"
+                >
+                  Brands <span className="text-2xl md:text-3xl">💼</span>
+                </Link>
+              </div>
+              <div className="flex flex-wrap items-center gap-3 text-3xl md:text-4xl lg:text-5xl font-medium">
+                <Link
+                  href="/work#web"
+                  className="hover:text-muted-foreground transition-colors inline-flex items-center gap-2"
+                >
+                  Interfaces
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    key={theme}
+                    className="w-8 h-8 md:w-10 md:h-10 object-contain inline-block"
+                  >
+                    <source src={theme === "dark" ? "/code-dark.mp4" : "/code.mp4"} type="video/mp4" />
+                  </video>
+                </Link>
+                <span className="font-script text-4xl md:text-5xl lg:text-6xl">&</span>
+                <Link
+                  href="/work#modeling"
+                  className="hover:text-muted-foreground transition-colors inline-flex items-center gap-2"
+                >
+                  Dimensions
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    key={theme}
+                    className="w-8 h-8 md:w-10 md:h-10 object-contain inline-block"
+                  >
+                    <source src={theme === "dark" ? "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cube-dark-vqCbjHzP70oCq0lYYHdxyIPeaPYm4A.mp4" : "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cube-d3Usk4sIKjLcmmEvhnJLJOsvDzAOk4.mp4"} type="video/mp4" />
+                  </video>
+                </Link>
+              </div>
+            </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 text-3xl md:text-4xl lg:text-5xl font-bold">
-            <span>Creating</span>
-            <a
-              href="#brand"
-              className="group inline-flex items-center gap-3 hover:text-muted-foreground transition-colors"
-            >
-              <span>Brands</span>
-              <span className="text-4xl group-hover:scale-110 transition-transform">💼</span>
-            </a>
-            <span>,</span>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-6 text-3xl md:text-4xl lg:text-5xl font-bold">
-            <a
-              href="#interfaces"
-              className="group inline-flex items-center gap-3 hover:text-muted-foreground transition-colors"
-            >
-              <span>Interfaces</span>
-              <span className="text-4xl group-hover:scale-110 transition-transform">💻</span>
-            </a>
-            <span className="text-6xl md:text-7xl">&</span>
-            <a
-              href="#dimensions"
-              className="group inline-flex items-center gap-3 hover:text-muted-foreground transition-colors"
-            >
-              <span>Dimensions</span>
-              <span className="text-4xl group-hover:scale-110 transition-transform">🔧</span>
-            </a>
-          </div>
-
-          <div className="pt-8 border-t border-border max-w-4xl mx-auto">
-            <p className="text-base md:text-lg leading-relaxed text-muted-foreground">
+            <p className="text-sm text-muted-foreground max-w-md leading-relaxed">
               A multidisciplinary design and development practice bridging the gap between flat strategy and immersive
               digital experiences.
             </p>
+
+            <div className="flex gap-4 pt-4">
+              <Link
+                href="/work"
+                className="px-6 py-2.5 border border-foreground text-sm font-medium hover:bg-foreground hover:text-background transition-colors rounded-full"
+              >
+                MY WORKS.
+              </Link>
+              <a
+                href="/resume.pdf"
+                download
+                className="px-6 py-2.5 border border-foreground text-sm font-medium hover:bg-foreground hover:text-background transition-colors rounded-full"
+              >
+                MY RESUME.
+              </a>
+            </div>
+          </div>
+
+          <div className="flex justify-center md:justify-end">
+            <IridescentCard className="w-72 h-80 md:w-80 md:h-96" />
           </div>
         </div>
       </div>

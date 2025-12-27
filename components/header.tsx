@@ -1,49 +1,55 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { Moon, Sun } from "lucide-react"
+import { useTheme } from "./theme-provider"
 
 export function Header() {
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const pathname = usePathname()
+  const { theme, toggleTheme, mounted } = useTheme()
 
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.load()
-      videoRef.current.play().catch((err) => {
-        console.log("[v0] Video play failed:", err)
-      })
-    }
-  }, [])
+  const navItems = [
+    { href: "/", label: "HOME" },
+    { href: "/about", label: "ABOUT" },
+    { href: "/work", label: "WORK" },
+    { href: "/contact", label: "CONTACT" },
+  ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
-      <div className="container mx-auto px-6 py-3">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
+      <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2">
-            <video ref={videoRef} autoPlay loop muted playsInline preload="auto" className="w-10 h-10 object-contain">
-              <source src="/logo-c.mp4" type="video/mp4" />
+          <Link href="/" className="flex items-center gap-2">
+            <video key={theme} autoPlay loop muted playsInline className="w-8 h-8 object-contain">
+              <source src={theme === "light" ? "/logo-light.mp4" : "/logo-dark.mp4"} type="video/mp4" />
             </video>
-            <span className="font-bold text-lg tracking-tight">CELINE.</span>
-          </a>
-          <nav className="flex items-center gap-8">
-            <a
-              href="#about"
-              className="text-sm font-medium hover:text-muted-foreground transition-colors uppercase tracking-wider"
-            >
-              About.
-            </a>
-            <a
-              href="#work"
-              className="text-sm font-medium hover:text-muted-foreground transition-colors uppercase tracking-wider"
-            >
-              Work.
-            </a>
-            <a
-              href="#contact"
-              className="text-sm font-medium hover:text-muted-foreground transition-colors uppercase tracking-wider"
-            >
-              Contact.
-            </a>
-          </nav>
+            <span className="font-bold text-xl tracking-tight">CELINE.</span>
+          </Link>
+          <div className="flex items-center gap-8">
+            <nav className="flex items-center gap-8">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`text-sm font-medium tracking-wider transition-colors hover:text-muted-foreground ${
+                    pathname === item.href ? "underline underline-offset-4" : ""
+                  }`}
+                >
+                  {item.label}.
+                </Link>
+              ))}
+            </nav>
+            {mounted && (
+              <button
+                onClick={toggleTheme}
+                className="p-2 hover:bg-muted/50 rounded-full transition-all hover:scale-110"
+                aria-label="Toggle theme"
+              >
+                {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </header>

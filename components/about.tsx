@@ -1,41 +1,39 @@
 "use client"
 
+import { useTheme } from "./theme-provider"
+
 export function About() {
+  const { theme } = useTheme()
+
   return (
-    <section id="about" className="py-24 px-6 border-t border-border">
-      <div className="container mx-auto max-w-6xl">
-        <div className="grid md:grid-cols-[400px,1fr] gap-16 items-start">
-          <div className="flex items-center justify-center">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              className="w-[280px] h-[280px] md:w-[360px] md:h-[360px] object-contain"
-            >
-              <source src="/logo-c.mp4" type="video/mp4" />
+    <section id="about" className="py-16 px-6 border-t border-border relative overflow-hidden">
+
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <h2 className="text-sm font-bold mb-8 tracking-widest uppercase">ABOUT ME.</h2>
+
+        <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start">
+          <div className="text-[120px] md:text-[150px] font-bold leading-none text-secondary select-none shrink-0">
+            <video key={theme} autoPlay loop muted playsInline className="w-8 h-8 object-contain">
+              <source src={theme === "light" ? "/new-logo-light.mp4" : "/logo-dark.mp4"} type="video/mp4" />
             </video>
           </div>
 
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-sm font-bold mb-6 tracking-widest uppercase">About Me.</h2>
-              <div className="h-px bg-border mb-8" />
-            </div>
+          <div className="space-y-4">
+            <h3 className="text-2xl md:text-3xl">
+              Hi, I'm <span className="font-script text-4xl md:text-5xl">Celine.</span>
+            </h3>
 
-            <div className="space-y-6 text-base leading-relaxed">
+            <div className="space-y-4 text-sm leading-relaxed text-muted-foreground max-w-xl">
               <p>
-                I believe the best design happens when boundaries blur. I don't subscribe to the idea that a designer
-                should only stick to one medium. My work spans the entire digital spectrum: from the strategic precision
-                of Branding to the technical complexity of Web Development and the immersive depth of 3D Visualization.
+                I think the web has become a little too flat, so I'm on a mission to give it some depth. I specialize in
+                two things that usually don't go together: Rebranding and 3D Web Development. I love the fresh energy of
+                giving a brand a new face, but I don't stop there. I use code and 3D modeling to build a digital world
+                for that brand to live in.
               </p>
               <p>
-                At Studio Celine, I approach every project with a holistic mindset. Whether modeling a product or coding
-                a responsive interface, the goal is the same: to build work that is functionally robust and
-                distinctively future-forward.
+                Whether it's spinning up a new identity or coding a website with interactive 3D elements, I build things
+                that don't just sit on the screen — they invite you in.
               </p>
-              <p className="font-medium">I don't just design the surface; I build the structure underneath.</p>
             </div>
           </div>
         </div>
