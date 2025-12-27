@@ -20,8 +20,14 @@ const sections = [
       "From atomic design systems to responsive component architecture. I translate static Figma mockups into scalable, reactive code environments.",
     workflow: ["System Architecture", "Component Design", "React Implementation", "Interaction Polish"],
     projects: [
-      { title: "The Keepsake", category: "web development", year: "2025", image: "/kwwpsake-card.png" },
-      { title: "tbd", category: "web development", year: "2025" },
+      {
+        title: "The Keepsake",
+        category: "web development",
+        year: "2025",
+        image: "/keepsake-card.png",
+        href: "/work/the-keepsake",
+      },
+      { title: "tbd", category: "web development", year: "2025", href: "#" },
     ],
   },
   {
@@ -31,8 +37,8 @@ const sections = [
       "More than just a logo. I build cohesive visual ecosystems, defining typography, color theory, and usage guidelines that ensure the brand lives consistently across all mediums.",
     workflow: ["Strategic Discovery", "Visual Direction", "Identity System Build", "Scalable Guidelines"],
     projects: [
-      { title: "Aether", category: "branding", year: "2025" },
-      { title: "tbd", category: "branding", year: "2025" },
+      { title: "Aether", category: "branding", year: "2025", href: "#" },
+      { title: "tbd", category: "branding", year: "2025", href: "#" },
     ],
   },
   {
@@ -42,8 +48,8 @@ const sections = [
       "Sculpting digital form. My workflow moves from raw geometry to material synthesis and lighting, optimizing high-fidelity assets for real-time web performance.",
     workflow: ["Geometric Conception", "Topology & Texturing", "Lighting & Atmosphere", "Render Optimization"],
     projects: [
-      { title: "tbd", category: "3d model", year: "2025" },
-      { title: "tbd", category: "3d model", year: "2025" },
+      { title: "tbd", category: "3d model", year: "2025", href: "#" },
+      { title: "tbd", category: "3d model", year: "2025", href: "#" },
     ],
   },
 ]
@@ -99,11 +105,11 @@ export default function WorkPage() {
                 {/* Projects grid */}
                 <div className="grid md:grid-cols-2 gap-4">
                   {section.projects.map((project, index) => (
-                    <Link key={`${project.title}-${index}`} href="#" className="group">
+                    <Link key={`${project.title}-${index}`} href={project.href || "#"} className="group">
                       {project.image ? (
                         <div className="aspect-[16/9] mb-4 overflow-hidden group-hover:opacity-80 transition-opacity relative">
-                          <Image 
-                            src={project.image} 
+                          <Image
+                            src={project.image || "/placeholder.svg"}
                             alt={project.title}
                             fill
                             className="object-cover"

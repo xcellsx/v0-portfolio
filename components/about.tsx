@@ -14,7 +14,7 @@ export function About() {
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-stretch">
           <div className="text-[120px] md:text-[150px] font-bold leading-none text-secondary select-none shrink-0 flex items-center">
             <video key={theme} autoPlay loop muted playsInline className="w-[120px] md:w-[150px] h-full object-contain">
-              <source src={theme === "light" ? "/logo.mp4" : "/logo-dark.mp4"} type="video/mp4" />
+              <source src={theme === "light" ? "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/yCLX7IP-M6HrDxzJjMuHQL/public/logo.mp4" : "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/20cWL6q9DkE-9mOfNktUqs/public/logo-dark.mp4"} type="video/mp4" />
             </video>
           </div>
 

@@ -28,7 +28,7 @@ export function Hero() {
                     key={theme}
                     className="w-8 h-8 md:w-10 md:h-10 object-contain inline-block"
                   >
-                    <source src={theme === "dark" ? "/pen-dark.mp4" : "/pen.mp4"} type="video/mp4" />
+                    <source src={theme === "dark" ? "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/QG3T0PYzPQUU8coHRQv0kJ/public/pen-dark.mp4" : "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/OeEyApR-f--2BJpy_R1lSf/public/pen.mp4"} type="video/mp4" />
                   </video>
                 </Link>
               </div>
@@ -46,7 +46,7 @@ export function Hero() {
                     key={theme}
                     className="w-8 h-8 md:w-10 md:h-10 object-contain inline-block"
                   >
-                    <source src={theme === "dark" ? "/code-dark.mp4" : "/code.mp4"} type="video/mp4" />
+                    <source src={theme === "dark" ? "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/xt-vBGh6apHHAhAwSOCkLH/public/code-dark.mp4" : "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/fgx7_Kspqt8z-Vxsu2QEaq/public/code.mp4"} type="video/mp4" />
                   </video>
                 </Link>
                 <span className="font-script text-4xl md:text-5xl lg:text-6xl">&</span>

@@ -22,7 +22,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <video key={theme} autoPlay loop muted playsInline className="w-8 h-8 object-contain">
-              <source src={theme === "light" ? "/logo.mp4" : "/logo-dark.mp4"} type="video/mp4" />
+              <source src={theme === "light" ? "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/yCLX7IP-M6HrDxzJjMuHQL/public/logo.mp4" : "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/20cWL6q9DkE-9mOfNktUqs/public/logo-dark.mp4"} type="video/mp4" />
             </video>
             <span className="font-bold text-xl tracking-tight">CELINE.</span>
           </Link>

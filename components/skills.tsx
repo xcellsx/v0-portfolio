@@ -33,15 +33,15 @@ export function Skills() {
             <div key={skill.title} className="border border-border p-8 text-center space-y-6">
               {skill.icon === "cube" ? (
                 <video autoPlay loop muted playsInline key={theme} className="w-20 h-20 mx-auto object-contain">
-                  <source src={theme === "dark" ? "/cube-dark.mp4" : "/cube.mp4"} type="video/mp4" />
+                  <source src={theme === "dark" ? "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/UIPVVSV334aHqxjGOuswTB/public/cube-dark.mp4" : "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/toPd5eDjuQgqhsUMhieaud/public/cube.mp4"} type="video/mp4" />
                 </video>
               ) : skill.icon === "code" ? (
                 <video autoPlay loop muted playsInline key={theme} className="w-20 h-20 mx-auto object-contain">
-                  <source src={theme === "dark" ? "/code-dark.mp4" : "/code.mp4"} type="video/mp4" />
+                  <source src={theme === "dark" ? "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/xt-vBGh6apHHAhAwSOCkLH/public/code-dark.mp4" : "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/fgx7_Kspqt8z-Vxsu2QEaq/public/code.mp4"} type="video/mp4" />
                 </video>
               ) : skill.icon === "pen" ? (
                 <video autoPlay loop muted playsInline key={theme} className="w-20 h-20 mx-auto object-contain">
-                  <source src={theme === "dark" ? "/pen-dark.mp4" : "/pen.mp4"} type="video/mp4" />
+                  <source src={theme === "dark" ? "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/QG3T0PYzPQUU8coHRQv0kJ/public/pen-dark.mp4" : "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/OeEyApR-f--2BJpy_R1lSf/public/pen.mp4"} type="video/mp4" />
                 </video>
               ) : null}
 
