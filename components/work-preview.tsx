@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { IridescentCard } from "./iridescent-blob"
 
 const projects = [
@@ -6,16 +7,20 @@ const projects = [
     title: "AETHER",
     category: "branding",
     year: "2025",
+    slug: "aether",
   },
   {
-    title: "The Keepsakes",
+    title: "The Keepsake",
     category: "web development",
     year: "2025",
+    image: "/kwwpsake-card.png",
+    slug: "the-keepsake",
   },
   {
     title: "tbd",
     category: "3d model",
     year: "2025",
+    slug: "tbd",
   },
 ]
 
@@ -27,8 +32,19 @@ export function WorkPreview() {
 
         <div className="grid md:grid-cols-3 gap-4">
           {projects.map((project) => (
-            <Link key={project.title} href="/work" className="group">
-              <IridescentCard className="aspect-[4/3] mb-4 group-hover:opacity-80 transition-opacity" />
+            <Link key={project.title} href={project.slug ? `/work/${project.slug}` : "/work"} className="group">
+              {project.image ? (
+                <div className="aspect-[16/9] mb-4 overflow-hidden group-hover:opacity-80 transition-opacity relative">
+                  <Image 
+                    src={project.image} 
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ) : (
+                <IridescentCard className="aspect-[16/9] mb-4 group-hover:opacity-80 transition-opacity" />
+              )}
 
               <div className="flex justify-between items-start">
                 <div>

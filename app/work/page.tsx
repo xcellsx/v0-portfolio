@@ -3,6 +3,7 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import Link from "next/link"
+import Image from "next/image"
 import { IridescentCard } from "@/components/iridescent-blob"
 
 const categories = [
@@ -19,7 +20,7 @@ const sections = [
       "From atomic design systems to responsive component architecture. I translate static Figma mockups into scalable, reactive code environments.",
     workflow: ["System Architecture", "Component Design", "React Implementation", "Interaction Polish"],
     projects: [
-      { title: "The Keepsakes", category: "web development", year: "2025" },
+      { title: "The Keepsake", category: "web development", year: "2025", image: "/kwwpsake-card.png" },
       { title: "tbd", category: "web development", year: "2025" },
     ],
   },
@@ -99,7 +100,18 @@ export default function WorkPage() {
                 <div className="grid md:grid-cols-2 gap-4">
                   {section.projects.map((project, index) => (
                     <Link key={`${project.title}-${index}`} href="#" className="group">
-                      <IridescentCard className="aspect-[4/3] mb-4 group-hover:opacity-80 transition-opacity" />
+                      {project.image ? (
+                        <div className="aspect-[16/9] mb-4 overflow-hidden group-hover:opacity-80 transition-opacity relative">
+                          <Image 
+                            src={project.image} 
+                            alt={project.title}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      ) : (
+                        <IridescentCard className="aspect-[16/9] mb-4 group-hover:opacity-80 transition-opacity" />
+                      )}
                       <div className="flex justify-between items-start">
                         <div>
                           <h3 className="font-bold text-sm">{project.title}</h3>
