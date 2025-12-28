@@ -7,14 +7,14 @@ const projects = [
     title: "AETHER™",
     category: "branding",
     year: "2025",
-    image: "/aether-card.png",
+    image: "/images/aether/aether-card.png",
     slug: "aether",
   },
   {
     title: "The Keepsake",
     category: "web development",
     year: "2025",
-    image: "/keepsake-card.png",
+    image: "/images/keepsake/keepsake-card.png",
     slug: "the-keepsake",
   },
   {

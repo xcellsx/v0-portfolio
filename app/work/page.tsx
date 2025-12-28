@@ -24,7 +24,7 @@ const sections = [
         title: "The Keepsake",
         category: "web development",
         year: "2025",
-        image: "/keepsake-card.png",
+        image: "/images/keepsake/keepsake-card.png",
         href: "/work/the-keepsake",
       },
       { title: "tbd", category: "web development", year: "2025", href: "#" },
@@ -37,7 +37,7 @@ const sections = [
       "More than just a logo. I build cohesive visual ecosystems, defining typography, color theory, and usage guidelines that ensure the brand lives consistently across all mediums.",
     workflow: ["Strategic Discovery", "Visual Direction", "Identity System Build", "Scalable Guidelines"],
     projects: [
-      { title: "AETHER™", category: "branding", year: "2025", image: "/aether-card.png", href: "/work/aether" },
+      { title: "AETHER™", category: "branding", year: "2025", image: "/images/aether/aether-card.png", href: "/work/aether" },
       { title: "tbd", category: "branding", year: "2025", href: "#" },
     ],
   },

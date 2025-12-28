@@ -28,14 +28,14 @@ const projectData = {
   ],
   blueprints: [
     {
-      image: "/images/initial-sketch.jpg",
-      description: "Initial wireframe sketches exploring authentication flows and UI layouts",
+      image: "/images/keepsake/keepsake-sketch.jpg",
+      description: "Logic Mapping. Schematic exploration of the user journey, defining the structural requirements for secure authentication and the memory-creation flow.",
     },
     {
-      image: "/images/figma-prototype.png",
-      description: "Figma prototype showing Sign In, Sign Up, and Keepsake Interface screens",
+      image: "/images/keepsake/figma-prototype.png",
+      description: "Interface Systems. High-fidelity UI architecture establishing the 'Digital Sanctuary' aesthetic, prioritizing negative space and calming interaction states.",
     },
-    { image: "/images/code.png", description: "Three.js implementation of 3D mason jar with realistic glass material" },
+    { image: "/images/keepsake/code.png", description: "Material Synthesis. Custom Three.js implementation of the central Mason Jar asset." },
   ],
 }
 
@@ -111,14 +111,16 @@ export default function TheKeepsakePage() {
             <h2 className="text-lg font-bold mb-8 sm:mb-12">METHODOLOGY.</h2>
             <div className="relative">
               {/* Timeline line */}
-              <div className="hidden sm:block absolute top-3 left-0 right-0 h-px bg-border" />
+              <div className="hidden lg:block absolute top-3 left-0 right-0 h-px bg-border" />
 
               {/* Timeline steps */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-4">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-4">
                 {projectData.methodology.map((step, index) => (
                   <div key={step.title} className="relative">
-                    {/* Circle marker */}
-                    <div className="w-6 h-6 rounded-full border-2 border-foreground bg-background mb-3 sm:mb-4 relative z-10" />
+                    {/* Circle marker with number */}
+                    <div className="w-6 h-6 rounded-full border-2 border-foreground bg-background mb-3 sm:mb-4 relative z-10 flex items-center justify-center">
+                      <span className="text-xs font-bold">{index + 1}</span>
+                    </div>
                     <h3 className="font-bold text-sm mb-2">{step.title}</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed">{step.description}</p>
                   </div>
@@ -203,6 +205,6 @@ export default function TheKeepsakePage() {
 }
 
 const otherProjects = [
-  { title: "AETHER", category: "branding", year: "2025", href: "/work/aether", image: "/aether-card.png" },
+  { title: "AETHER", category: "branding", year: "2025", href: "/work/aether", image: "/images/aether/aether-card.png" },
   { title: "tbd", category: "3D Modeling", year: "2025", href: "/work" },
 ]

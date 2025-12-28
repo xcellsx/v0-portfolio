@@ -13,13 +13,13 @@ const projectData = {
   year: "2025",
   disciplines: ["BRAND STRATEGY", "VISUAL IDENTITY", "PRODUCT MOCKUP"],
   liveUrl: "https://aether-ebon-three.vercel.app/",
-  brandBookUrl: "/aether-brandbook.pdf", // Update with actual PDF URL
-  heroVideo: "/aether-main.mp4",
+  brandBookUrl: "/images/aether/aether-brandbook.pdf", // Update with actual PDF URL
+  heroVideo: "/images/aether/aether-main.mp4",
   content: {
-    heading: "DEFINING FUTURE-MINIMALISM.",
+    heading: "DISRUPTING THE CLINICAL STANDARD.",
     description:
-      "To create a visual identity for AETHER™, a high-performance clinical skincare brand launching the 'Quantum Glow' serum. The brief called for an aesthetic that rejects traditional 'medical' tropes in favor of something ethereal, translucent, and scientifically precise.",
-    goal: "To synthesize a visual language that bridges the gap between clinical efficacy and ethereal beauty. The identity needed to feel like it came from a lab in the year 2050—clean, distinct, and illuminated.",
+      "The clinical skincare market is saturated with 'sterile blue' and 'medical green' tropes. AETHER™ needed to signal potency, energy, and a new era of scientific beauty. The brief was to create a visual language that felt like it came from a lab in the year 2050—clean, distinct, and illuminated.",
+    goal: "Category norms were rejected in favor of a 'High-Frequency' identity. Utilizing a Hyper-Magenta and Deep Charcoal palette, the brand communicates activation and efficacy. The typography pairs the editorial elegance of Fraunces with the raw data precision of JetBrains Mono, bridging the gap between luxury beauty and lab data.",
   },
   methodology: [
     { title: "BRIEF ANALYSIS", description: "Deconstructing 'Future-Minimalism' & 'Clinical' keywords" },
@@ -29,28 +29,46 @@ const projectData = {
   ],
   blueprints: [
     {
-      image: "/images/colour-exploration.png", // Moodboard image - update path if needed
+      image: "/images/aether/colour-exploration.png", // Moodboard image - update path if needed
       description: "Visual Direction Testing. We stress-tested three distinct aesthetics: Sharp & Elegant (Green), Soft & Biological (Blue), and Heavy & Bold (Pink) before selecting the final direction.",
     },
     {
-      image: "/images/aether-logo-grid.png", // Logo grid - update path if needed
+      image: "/images/aether/logo.png", // Logo grid - update path if needed
       description: "Logomark geometry. Constructed to ensure legibility across small serum bottles and large digital billboards.",
     },
     {
-      image: "/images/aether-color-palette.png", // Color palette - update path if needed
-      description: "The 'Quantum' Palette. Moving away from standard medical blues to embrace a high-contrast, bio-luminescent color story.",
+      image: "/images/aether/colour.png", // Color palette - update path if needed
+      description: "Digital Translation. The 'High-Frequency' system applied to a responsive environment, utilizing Hyper-Magenta exclusively as a functional interaction color to guide user focus.",
     },
   ],
   brandManual: [
-    { image: "/images/brand-manual-1.png", title: "Logo Usage" },
-    { image: "/images/brand-manual-2.png", title: "Typography" },
-    { image: "/images/brand-manual-3.png", title: "Product Mockup" },
-    { image: "/images/brand-manual-4.png", title: "Social Media" },
+    { 
+      images: ["/images/aether/primary-logo.png", "/images/aether/second-logo.png"], 
+      title: "Logo Usage",
+      isCarousel: true
+    },
+    { 
+      images: ["/images/aether/pri-type.png", "/images/aether/second-type.png"], 
+      title: "Typography",
+      isCarousel: true
+    },
+    { 
+      image: "/images/aether/product-mockup.png", 
+      title: "Product Mockup",
+      isCarousel: false
+    },
+    { 
+      image: "/images/aether/patterns.png", 
+      title: "Patterns",
+      isCarousel: false
+    },
   ],
 }
 
 export default function AetherPage() {
   const [currentBlueprint, setCurrentBlueprint] = useState(0)
+  const [currentLogoIndex, setCurrentLogoIndex] = useState(0)
+  const [currentTypeIndex, setCurrentTypeIndex] = useState(0)
 
   const nextBlueprint = () => {
     setCurrentBlueprint((prev) => (prev + 1) % projectData.blueprints.length)
@@ -123,14 +141,16 @@ export default function AetherPage() {
             <h2 className="text-lg font-bold mb-8 sm:mb-12">METHODOLOGY.</h2>
             <div className="relative">
               {/* Timeline line */}
-              <div className="hidden sm:block absolute top-3 left-0 right-0 h-px bg-border" />
+              <div className="hidden lg:block absolute top-3 left-0 right-0 h-px bg-border" />
 
               {/* Timeline steps */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-4">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-4">
                 {projectData.methodology.map((step, index) => (
                   <div key={step.title} className="relative">
-                    {/* Circle marker */}
-                    <div className="w-6 h-6 rounded-full border-2 border-foreground bg-background mb-3 sm:mb-4 relative z-10" />
+                    {/* Circle marker with number */}
+                    <div className="w-6 h-6 rounded-full border-2 border-foreground bg-background mb-3 sm:mb-4 relative z-10 flex items-center justify-center">
+                      <span className="text-xs font-bold">{index + 1}</span>
+                    </div>
                     <h3 className="font-bold text-sm mb-2">{step.title}</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed">{step.description}</p>
                   </div>
@@ -177,16 +197,90 @@ export default function AetherPage() {
             <h2 className="text-lg font-bold mb-6 sm:mb-8">THE MANUAL.</h2>
             <div className="grid sm:grid-cols-2 gap-4 mb-6">
               {projectData.brandManual.map((slide, index) => (
-                <div key={index} className="relative aspect-[4/3] bg-muted overflow-hidden">
-                  {slide.image ? (
-                    <Image
-                      src={slide.image}
-                      alt={slide.title}
-                      fill
-                      className="object-cover"
-                    />
+                <div key={index} className="relative aspect-[4/3] bg-muted overflow-hidden group">
+                  {slide.isCarousel ? (
+                    <>
+                      {/* Carousel for logo and typography */}
+                      <div className="relative w-full h-full">
+                        {slide.images?.map((img, imgIndex) => {
+                          const isActive = (slide.title === "Logo Usage" && imgIndex === currentLogoIndex) ||
+                                         (slide.title === "Typography" && imgIndex === currentTypeIndex)
+                          return (
+                            <div
+                              key={imgIndex}
+                              className={`absolute inset-0 transition-opacity duration-300 ${
+                                isActive ? "opacity-100" : "opacity-0"
+                              }`}
+                            >
+                              <Image
+                                src={img}
+                                alt={`${slide.title} ${imgIndex + 1}`}
+                                fill
+                                className="object-cover"
+                              />
+                            </div>
+                          )
+                        })}
+                      </div>
+                      {/* Carousel controls */}
+                      <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <button
+                          onClick={() => {
+                            if (slide.title === "Logo Usage") {
+                              setCurrentLogoIndex((prev) => (prev - 1 + slide.images!.length) % slide.images!.length)
+                            } else if (slide.title === "Typography") {
+                              setCurrentTypeIndex((prev) => (prev - 1 + slide.images!.length) % slide.images!.length)
+                            }
+                          }}
+                          className="p-1.5 bg-background/80 hover:bg-background rounded-full transition-colors"
+                          aria-label="Previous image"
+                        >
+                          <ChevronLeft className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={() => {
+                            if (slide.title === "Logo Usage") {
+                              setCurrentLogoIndex((prev) => (prev + 1) % slide.images!.length)
+                            } else if (slide.title === "Typography") {
+                              setCurrentTypeIndex((prev) => (prev + 1) % slide.images!.length)
+                            }
+                          }}
+                          className="p-1.5 bg-background/80 hover:bg-background rounded-full transition-colors"
+                          aria-label="Next image"
+                        >
+                          <ChevronRight className="w-4 h-4" />
+                        </button>
+                      </div>
+                      {/* Image indicators */}
+                      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-1.5">
+                        {slide.images?.map((_, imgIndex) => {
+                          const isActive = (slide.title === "Logo Usage" && imgIndex === currentLogoIndex) ||
+                                         (slide.title === "Typography" && imgIndex === currentTypeIndex)
+                          return (
+                            <div
+                              key={imgIndex}
+                              className={`w-1.5 h-1.5 rounded-full transition-colors ${
+                                isActive ? "bg-foreground" : "bg-muted-foreground/50"
+                              }`}
+                            />
+                          )
+                        })}
+                      </div>
+                    </>
                   ) : (
-                    <IridescentCard className="w-full h-full" />
+                    <>
+                      {/* Single image for other items */}
+                      {slide.image ? (
+                        <Image
+                          src={slide.image}
+                          alt={slide.title}
+                          fill
+                          className="object-cover"
+                        />
+                      ) : (
+                        <IridescentCard className="w-full h-full" />
+                      )}
+                    </>
                   )}
                   <div className="absolute bottom-0 left-0 right-0 bg-background/80 p-2">
                     <p className="text-xs font-bold">{slide.title}</p>
@@ -249,6 +343,6 @@ export default function AetherPage() {
 }
 
 const otherProjects = [
-  { title: "The Keepsake", category: "web development", year: "2025", href: "/work/the-keepsake", image: "/keepsake-card.png" },
+  { title: "The Keepsake", category: "web development", year: "2025", href: "/work/the-keepsake", image: "/images/keepsake/keepsake-card.png" },
   { title: "tbd", category: "3D Modeling", year: "2025", href: "/work" },
 ]
