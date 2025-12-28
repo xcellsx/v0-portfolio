@@ -6,12 +6,14 @@ import Image from "next/image"
 import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react"
 import { useState } from "react"
 import { IridescentCard } from "@/components/iridescent-blob"
+import { ToolkitIcon } from "@/components/toolkit-icons"
 
 const projectData = {
   title: "The Keepsakes",
   category: "web development",
   year: "2025",
   stack: ["REACT", "TAILWIND", "SUPABASE"],
+  toolkit: ["figma", "typescript"],
   liveUrl: "https://v0-the-keepsakes.vercel.app/jar",
   heroVideo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/main-video-yoK9crd8KQWPhhyKRXD0l7bKfWelCi.mp4",
   content: {
@@ -80,6 +82,16 @@ export default function TheKeepsakePage() {
                 <span className="text-muted-foreground">STACK: </span>
                 <span className="font-bold text-xs sm:text-sm">{projectData.stack.join(", ")}</span>
               </div>
+              {projectData.toolkit && (
+                <div className="flex items-center gap-2">
+                  <span className="text-muted-foreground">TOOLKIT: </span>
+                  <div className="flex gap-1.5">
+                    {projectData.toolkit.map((tool) => (
+                      <ToolkitIcon key={tool} tool={tool} className="w-4 h-4" />
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
             <Link
               href={projectData.liveUrl}

@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer"
 import Link from "next/link"
 import Image from "next/image"
 import { IridescentCard } from "@/components/iridescent-blob"
+import { ToolkitIcon } from "@/components/toolkit-icons"
 
 const categories = [
   { id: "web", label: "WEB DEVELOPMENT" },
@@ -26,6 +27,7 @@ const sections = [
         year: "2025",
         image: "/images/keepsake/keepsake-card.png",
         href: "/work/the-keepsake",
+        toolkit: ["figma", "typescript"],
       },
       { title: "tbd", category: "web development", year: "2025", href: "#" },
     ],
@@ -37,8 +39,8 @@ const sections = [
       "More than just a logo. I build cohesive visual ecosystems, defining typography, color theory, and usage guidelines that ensure the brand lives consistently across all mediums.",
     workflow: ["Strategic Discovery", "Visual Direction", "Identity System Build", "Scalable Guidelines"],
     projects: [
-      { title: "AETHER™", category: "branding", year: "2025", image: "/images/aether/aether-card.png", href: "/work/aether" },
-      { title: "tbd", category: "branding", year: "2025", href: "#" },
+      { title: "AETHER™", category: "branding", year: "2025", image: "/images/aether/aether-card.png", href: "/work/aether", toolkit: ["figma", "illustrator", "blender"] },
+      { title: "Quiet Café", category: "branding", year: "2025", image: "/images/quiet-cafe/quiet-cafe-card.png", href: "/work/quiet-cafe", toolkit: ["illustrator", "pinterest"] },
     ],
   },
   {
@@ -123,7 +125,16 @@ export default function WorkPage() {
                           <h3 className="font-bold text-sm">{project.title}</h3>
                           <p className="text-xs text-muted-foreground">[{project.category}]</p>
                         </div>
-                        <span className="text-sm">{project.year}</span>
+                        <div className="text-right">
+                          <span className="text-sm block">{project.year}</span>
+                          {project.toolkit && (
+                            <div className="flex gap-1.5 mt-1.5 justify-end">
+                              {project.toolkit.map((tool) => (
+                                <ToolkitIcon key={tool} tool={tool} className="w-3.5 h-3.5" />
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </Link>
                   ))}

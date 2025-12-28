@@ -9,68 +9,59 @@ import { IridescentCard } from "@/components/iridescent-blob"
 import { ToolkitIcon } from "@/components/toolkit-icons"
 
 const projectData = {
-  title: "Aether™",
+  title: "Quiet Café",
   category: "branding",
   year: "2025",
-  disciplines: ["BRAND STRATEGY", "VISUAL IDENTITY", "PRODUCT MOCKUP"],
-  toolkit: ["figma", "illustrator", "blender"],
-  liveUrl: "https://aether-ebon-three.vercel.app/",
-  brandBookUrl: "/images/aether/aether-brandbook.pdf", // Update with actual PDF URL
-  heroVideo: "/images/aether/aether-main.mp4",
+  toolkit: ["illustrator", "pinterest"],
+  disciplines: ["BRAND STRATEGY", "VISUAL IDENTITY"],
+  brandBookUrl: "/images/quiet-cafe/quiet-cafe-brandbook.pdf", // Update with actual PDF URL
+  heroVideo: "/images/quiet-cafe/quiet-cafe-card.png", // Optional - update if you have a video
   content: {
-    heading: "DISRUPTING THE CLINICAL STANDARD.",
+    heading: "SILENCE IS LUXURY.",
     description:
-      "The clinical skincare market is saturated with 'sterile blue' and 'medical green' tropes. AETHER™ needed to signal potency, energy, and a new era of scientific beauty. The brief was to create a visual language that felt like it came from a lab in the year 2050—clean, distinct, and illuminated.",
-    goal: "Category norms were rejected in favor of a 'High-Frequency' identity. Utilizing a Hyper-Magenta and Deep Charcoal palette, the brand communicates activation and efficacy. The typography pairs the editorial elegance of Fraunces with the raw data precision of JetBrains Mono, bridging the gap between luxury beauty and lab data.",
+      "In a world of constant notification and noise, Quiet Café is a sanctuary for the mind. The brief was not to design a coffee shop, but to design a 'pause button'. The brand identity needed to provide the space, the silence, and the tools for uninterrupted creation.",
+    goal: "To visualize the concept: 'We do not sell coffee; we sell focus.' The identity balances heritage with modern minimalism, acting as the 'blank page' waiting for the ink. It rejects loud trends in favor of architectural stability and deep focus.",
   },
   methodology: [
-    { title: "BRIEF ANALYSIS", description: "Deconstructing 'Future-Minimalism' & 'Clinical' keywords" },
-    { title: "VISUAL SYNTHESIS", description: "Exploring divergent directions: Sharp/Elegant vs. Soft/Biological" },
-    { title: "IDENTITY SYSTEM", description: "Defining the 'Quantum' color palette & typographic hierarchy" },
-    { title: "BRAND BOOK", description: "Codifying the rules for packaging and digital usage" },
+    { title: "ATMOSPHERIC STRATEGY", description: "Defining the manifesto: 'Silence is Luxury'" },
+    { title: "TYPOGRAPHIC SCULPTING", description: "Customizing the 'Nib & Diamond' geometry of the Q" },
+    { title: "MATERIAL PALETTE", description: "Selecting Stucco, Onyx, and Walnut for tactile warmth" },
+    { title: "SPATIAL APPLICATION", description: "Applying the 'Seal of Quality' to physical signage & embossing" },
   ],
   blueprints: [
     {
-      image: "/images/aether/colour-exploration.png", // Moodboard image - update path if needed
-      description: "Visual Direction Testing. We stress-tested three distinct aesthetics: Sharp & Elegant (Green), Soft & Biological (Blue), and Heavy & Bold (Pink) before selecting the final direction.",
+      image: "/images/quiet-cafe/moodboard.jpg",
+      description: "Atmospheric Research. Establishing the 'Interior Silence' aesthetic. We moved away from high-contrast blacks towards grounding earth tones like Deep Moss and Walnut.",
     },
     {
-      image: "/images/aether/logo.png", // Logo grid - update path if needed
-      description: "Logomark geometry. Constructed to ensure legibility across small serum bottles and large digital billboards.",
+      image: "/images/quiet-cafe/Logo-Design.jpg",
+      description: "Symbol Construction. The 'Q' is designed with a geometric 'Nib' tail and a diamond tittle, symbolizing the ink of creation and the precision of deep focus.",
     },
     {
-      image: "/images/aether/colour.png", // Color palette - update path if needed
-      description: "Digital Translation. The 'High-Frequency' system applied to a responsive environment, utilizing Hyper-Magenta exclusively as a functional interaction color to guide user focus.",
+      image: "/images/quiet-cafe/Type-System.jpg",
+      description: "Typographic Voice. Pairing 'Felix Titling' (The Ink) for commanding elegance with 'Inter' (The Paper) for utilitarian invisibility.",
     },
   ],
   brandManual: [
+    { image: "/images/quiet-cafe/Primary-Logo.jpg", title: "Primary Wordmark" },
+    { image: "/images/quiet-cafe/Colours.jpg", title: "Colour Palette" },
     { 
-      images: ["/images/aether/primary-logo.png", "/images/aether/second-logo.png"], 
-      title: "Logo Usage",
+      images: ["/images/quiet-cafe/Brand-Pattern.jpg", "/images/quiet-cafe/Brand-Pattern-II.jpg"], 
+      title: "Pattern System",
       isCarousel: true
     },
     { 
-      images: ["/images/aether/pri-type.png", "/images/aether/second-type.png"], 
-      title: "Typography",
+      images: ["/images/quiet-cafe/book-mockup.png", "/images/quiet-cafe/card-mockup.png", "/images/quiet-cafe/cup-mockup.png", "/images/quiet-cafe/frame-mockup.png"], 
+      title: "Mockups",
       isCarousel: true
-    },
-    { 
-      image: "/images/aether/product-mockup.png", 
-      title: "Product Mockup",
-      isCarousel: false
-    },
-    { 
-      image: "/images/aether/patterns.png", 
-      title: "Patterns",
-      isCarousel: false
     },
   ],
 }
 
-export default function AetherPage() {
+export default function QuietCafePage() {
   const [currentBlueprint, setCurrentBlueprint] = useState(0)
-  const [currentLogoIndex, setCurrentLogoIndex] = useState(0)
-  const [currentTypeIndex, setCurrentTypeIndex] = useState(0)
+  const [currentPatternIndex, setCurrentPatternIndex] = useState(0)
+  const [currentMockupIndex, setCurrentMockupIndex] = useState(0)
 
   const nextBlueprint = () => {
     setCurrentBlueprint((prev) => (prev + 1) % projectData.blueprints.length)
@@ -121,20 +112,19 @@ export default function AetherPage() {
                 </div>
               )}
             </div>
-            <Link
-              href={projectData.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs sm:text-sm font-bold border border-foreground rounded-full px-4 py-2 hover:bg-foreground hover:text-background transition-colors w-full sm:w-auto text-center"
-            >
-              LIVE SITE.
-            </Link>
           </div>
 
-          {/* Hero video */}
-          <div className="aspect-video bg-muted mb-4 relative overflow-hidden">
-            <video src={projectData.heroVideo} autoPlay loop muted playsInline className="w-full h-full object-cover" />
-          </div>
+          {/* Hero image */}
+          {projectData.heroVideo && (
+            <div className="aspect-video bg-muted mb-4 relative overflow-hidden">
+              <Image
+                src={projectData.heroVideo}
+                alt={projectData.title}
+                fill
+                className="object-cover"
+              />
+            </div>
+          )}
 
           {/* Content section */}
           <section className="mb-16 pt-8">
@@ -212,11 +202,11 @@ export default function AetherPage() {
                 <div key={index} className="relative aspect-[4/3] bg-muted overflow-hidden group">
                   {slide.isCarousel ? (
                     <>
-                      {/* Carousel for logo and typography */}
+                      {/* Carousel for Pattern System and Mockups */}
                       <div className="relative w-full h-full">
                         {slide.images?.map((img, imgIndex) => {
-                          const isActive = (slide.title === "Logo Usage" && imgIndex === currentLogoIndex) ||
-                                         (slide.title === "Typography" && imgIndex === currentTypeIndex)
+                          const isActive = (slide.title === "Pattern System" && imgIndex === currentPatternIndex) ||
+                                         (slide.title === "Mockups" && imgIndex === currentMockupIndex)
                           return (
                             <div
                               key={imgIndex}
@@ -237,11 +227,12 @@ export default function AetherPage() {
                       {/* Carousel controls */}
                       <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button
-                          onClick={() => {
-                            if (slide.title === "Logo Usage") {
-                              setCurrentLogoIndex((prev) => (prev - 1 + slide.images!.length) % slide.images!.length)
-                            } else if (slide.title === "Typography") {
-                              setCurrentTypeIndex((prev) => (prev - 1 + slide.images!.length) % slide.images!.length)
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            if (slide.title === "Pattern System") {
+                              setCurrentPatternIndex((prev) => (prev - 1 + slide.images!.length) % slide.images!.length)
+                            } else if (slide.title === "Mockups") {
+                              setCurrentMockupIndex((prev) => (prev - 1 + slide.images!.length) % slide.images!.length)
                             }
                           }}
                           className="p-1.5 bg-background/80 hover:bg-background rounded-full transition-colors"
@@ -250,11 +241,12 @@ export default function AetherPage() {
                           <ChevronLeft className="w-4 h-4" />
                         </button>
                         <button
-                          onClick={() => {
-                            if (slide.title === "Logo Usage") {
-                              setCurrentLogoIndex((prev) => (prev + 1) % slide.images!.length)
-                            } else if (slide.title === "Typography") {
-                              setCurrentTypeIndex((prev) => (prev + 1) % slide.images!.length)
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            if (slide.title === "Pattern System") {
+                              setCurrentPatternIndex((prev) => (prev + 1) % slide.images!.length)
+                            } else if (slide.title === "Mockups") {
+                              setCurrentMockupIndex((prev) => (prev + 1) % slide.images!.length)
                             }
                           }}
                           className="p-1.5 bg-background/80 hover:bg-background rounded-full transition-colors"
@@ -266,8 +258,8 @@ export default function AetherPage() {
                       {/* Image indicators */}
                       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-1.5">
                         {slide.images?.map((_, imgIndex) => {
-                          const isActive = (slide.title === "Logo Usage" && imgIndex === currentLogoIndex) ||
-                                         (slide.title === "Typography" && imgIndex === currentTypeIndex)
+                          const isActive = (slide.title === "Pattern System" && imgIndex === currentPatternIndex) ||
+                                         (slide.title === "Mockups" && imgIndex === currentMockupIndex)
                           return (
                             <div
                               key={imgIndex}
@@ -355,6 +347,7 @@ export default function AetherPage() {
 }
 
 const otherProjects = [
+  { title: "AETHER™", category: "branding", year: "2025", href: "/work/aether", image: "/images/aether/aether-card.png" },
   { title: "The Keepsake", category: "web development", year: "2025", href: "/work/the-keepsake", image: "/images/keepsake/keepsake-card.png" },
-  { title: "tbd", category: "3D Modeling", year: "2025", href: "/work" },
 ]
+
