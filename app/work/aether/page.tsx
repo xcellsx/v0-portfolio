@@ -16,7 +16,7 @@ const projectData = {
   toolkit: ["figma", "illustrator", "blender"],
   liveUrl: "https://aether-ebon-three.vercel.app/",
   brandBookUrl: "/images/aether/aether-brandbook.pdf", // Update with actual PDF URL
-  heroVideo: "/images/aether/aether-main.mp4",
+  heroVideo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/yP1oVr4zZ-1zLZX5INDTBS/public/images/aether/aether-main.mp4",
   content: {
     heading: "DISRUPTING THE CLINICAL STANDARD.",
     description:

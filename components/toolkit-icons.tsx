@@ -25,4 +25,3 @@ export function ToolkitIcon({ tool, className = "w-4 h-4" }: ToolkitIconProps) {
 
   return <span className="inline-block" title={tool}>{icon}</span>
 }
-
