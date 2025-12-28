@@ -51,7 +51,14 @@ const sections = [
     workflow: ["Geometric Conception", "Topology & Texturing", "Lighting & Atmosphere", "Render Optimization"],
     projects: [
       { title: "tbd", category: "3d model", year: "2025", href: "#" },
-      { title: "tbd", category: "3d model", year: "2025", href: "#" },
+      { 
+        title: "Cayra:", 
+        category: "3d model", 
+        year: "2025", 
+        image: "/images/cayra/final.png",
+        href: "/work/cayra", 
+        toolkit: ["Fusion 360"] 
+      },
     ],
   },
 ]
