@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { IridescentCard } from "./iridescent-blob"
+import { ModelViewer } from "./model-viewer"
 import { useTheme } from "./theme-provider"
 
 export function Hero() {
@@ -92,7 +92,9 @@ export function Hero() {
           </div>
 
           <div className="flex justify-center md:justify-end">
-            <IridescentCard className="w-full max-w-[280px] h-64 sm:w-72 sm:h-80 md:w-80 md:h-96" />
+            <div className="w-full max-w-[420px] h-64 sm:w-[432px] sm:h-80 md:w-[480px] md:h-96 rounded-lg overflow-hidden">
+              <ModelViewer modelPath="/models/cinna.glb" className="w-full h-full" />
+            </div>
           </div>
         </div>
       </div>
