@@ -57,4 +57,3 @@ function ModelViewer({ modelPath, className }: { modelPath: string; className?: 
 }
 
 export { ModelViewer }
-

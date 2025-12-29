@@ -14,7 +14,7 @@ const cayraProjectData = {
   year: "2025",
   toolkit: ["Fusion 360"],
   disciplines: ["MECHANICAL ENGINEERING", "RAPID PROTOTYPING", "FLIGHT DYNAMICS"],
-  heroVideo: "/images/cayra/final.mp4", 
+  heroVideo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/fBRjhH_ADBBsBKky_4CkLU/public/images/cayra/final.mp4", 
   
   // NARRATIVE: Focused purely on the Design Challenge
   content: {
@@ -62,17 +62,17 @@ const cayraProjectData = {
       caption: "The definitive toolless configuration. A fully integrated system that resolves previous weight and stability failure modes through a unified friction-lock architecture."
     },
     { 
-      video: "/images/cayra/dronebody.mp4", 
+      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/_NyxCoBtrc_VzNaz9hafs1/public/images/cayra/dronebody.mp4", 
       title: "Airframe Architecture",
       caption: "Optimized X-Frame geometry. Retains the aerodynamic profile of the OEM chassis while integrating a custom pin-and-socket interface for rapid battery module swapping."
     },
     { 
-      video: "/images/cayra/camera.mp4", 
+      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/SdqEKL2xYYaAZT-mz8T6s2/public/images/cayra/camera.mp4", 
       title: "Payload Integration",
       caption: "Sensor housing. Features a custom twist-lock mechanism engineered to secure the optical sensor without hardware, ensuring zero-play alignment during flight."
     },
     { 
-      video: "/images/cayra/battholder.mp4", 
+      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/tsQNly0WFVZsIdftL_SMhN/public/images/cayra/battholder.mp4", 
       title: "Energy Retention",
       caption: "Topology-optimized chassis. Engineered with minimal material volume to reduce mass, while maintaining the structural rigidity required to support the power cell under high-G loads."
     },
