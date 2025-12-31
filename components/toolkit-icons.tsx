@@ -1,5 +1,5 @@
 import React from "react"
-import { SiFigma, SiAdobeillustrator, SiBlender, SiTypescript, SiTailwindcss, SiPinterest } from "react-icons/si"
+import { SiFigma, SiAdobeillustrator, SiBlender, SiTypescript, SiTailwindcss, SiPinterest, SiThreedotjs } from "react-icons/si"
 
 interface ToolkitIconProps {
   tool: string
@@ -32,6 +32,8 @@ export function ToolkitIcon({ tool, className = "w-4 h-4" }: ToolkitIconProps) {
     typescript: <SiTypescript className={className} />,
     tailwind: <SiTailwindcss className={className} />,
     pinterest: <SiPinterest className={className} />,
+    "three.js": <SiThreedotjs className={className} />,
+    "threejs": <SiThreedotjs className={className} />,
     "fusion 360": <Fusion360Icon className={className} />,
     fusion: <Fusion360Icon className={className} />,
   }

@@ -18,13 +18,15 @@ const projects = [
     year: "2025",
     image: "/images/keepsake/keepsake-card.png",
     slug: "the-keepsake",
-    toolkit: ["figma", "typescript", "tailwind"],
+    toolkit: ["figma", "typescript"],
   },
   {
-    title: "tbd",
+    title: "Spirit Sprite",
     category: "3d model",
     year: "2025",
-    slug: "tbd",
+    image: "/images/spirit-sprite/card.png",
+    slug: "spirit-sprite",
+    toolkit: ["blender"],
   },
 ]
 

@@ -8,86 +8,82 @@ import { useState } from "react"
 import { IridescentCard } from "@/components/iridescent-blob"
 import { ToolkitIcon } from "@/components/toolkit-icons"
 
-const cayraProjectData = {
-  title: "Cayra",
+const spiritSpriteProjectData = {
+  title: "Spirit Sprite",
   category: "3d model",
   year: "2025",
-  toolkit: ["Fusion 360"],
-  disciplines: ["MECHANICAL ENGINEERING", "RAPID PROTOTYPING", "FLIGHT DYNAMICS"],
-  heroVideo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/fBRjhH_ADBBsBKky_4CkLU/public/images/cayra/final.mp4", 
+  toolkit: ["blender"],
+  disciplines: ["3D MODELING", "CHARACTER ANIMATION", "ENVIRONMENTAL DESIGN"],
+  heroVideo: "/images/spirit-sprite/spirit-sprite.mp4", // Add your video URL here - recommended over GLB for compositor effects
   
-  // NARRATIVE: Focused purely on the Design Challenge
   content: {
-    heading: "ENGINEERING THE TOOLLESS FRAME.",
+    heading: "A SPIRITUAL JOURNEY AROUND THE TREE OF LIFE.",
     description:
-      "The standard BetaFPV drone architecture is heavily reliant on micro-fasteners. A simple motor replacement requires removing 12+ screws, creating a maintenance bottleneck that creates significant downtime. The design challenge was to reimagine the airframe assembly to be completely toolless without sacrificing structural rigidity.",
-    goal: "To democratize repairability. We re-engineered the chassis to utilize a central compression lock system. This allows the structural arms to be detached and swapped instantly by hand, converting a complex mechanical assembly into a friction-based modular system.",
+      "Inspired by the mystical world of Avatar, this project brings to life a spirit sprite gracefully moving around the Tree of Life. The scene captures the ethereal beauty of nature's connection with spiritual entities, showcasing fluid animation and atmospheric lighting.",
+    goal: "To create an immersive 3D scene that combines organic character movement with environmental storytelling. The spirit sprite's dance around the ancient tree represents the harmony between nature and spirit, rendered with cinematic quality using Blender's advanced material and compositing workflows.",
   },
 
-  // METHODOLOGY: Your specific workflow
   methodology: [
-    { title: "PROBLEM IDENTIFICATION", description: "Analyzing the OEM BetaFPV frame to isolate maintenance pain points" },
-    { title: "REDESIGN IDEATION", description: "Sketching and modeling alternative locking mechanisms in Fusion 360" },
-    { title: "ITERATING DESIGN", description: "Refining geometry based on weight constraints and printability" },
-    { title: "FLIGHT VALIDATION", description: "Live testing the chassis to ensure aerodynamics and vibration dampening" },
+    { title: "CONCEPT & REFERENCE", description: "Studying Avatar's visual language and tree of life symbolism" },
+    { title: "MODELING & TOPOLOGY", description: "Creating the tree structure and spirit sprite character geometry" },
+    { title: "MATERIALS & TEXTURING", description: "Developing organic materials and ethereal sprite shaders" },
+    { title: "ANIMATION & RENDERING", description: "Animating the sprite's movement and final compositing" },
   ],
 
-  // EVOLUTION: The Story of Failure & Learning (Numbering Removed)
   evolution: [
     {
-      phase: "ANALYSIS: PAIN POINTS",
-      image: "/images/cayra/problem.png", 
-      description: "Baseline Analysis. The OEM frame required high-precision tools for disassembly. Small screws were easily lost in field conditions, making rapid repair impossible.",
-      status: "BASELINE"
+      phase: "THE ATRONIKA",
+      video: "/images/spirit-sprite/spirit-sprite-v1.mp4",
+      description: "Creating the Atronika (spirit sprite) and bringing it to life through animation. This phase focused on modeling the ethereal entity and crafting its graceful, organic movement patterns.",
+      status: "COMPLETE"
     },
     {
-      phase: "V1: WEIGHT FAILURE",
-      image: "/images/cayra/weight-fail.png", 
-      description: "First Toolless Concept. Modularity was achieved using thick snap-fit mechanisms. However, the added material mass exceeded the motor thrust capacity, preventing successful lift-off.",
-      status: "FAILED"
+      phase: "THE SCENE",
+      image: "/images/spirit-sprite/scene.png", // Add your scene image path
+      description: "Building the environment for the sprite to inhabit. Creating the Tree of Life and its surrounding ecosystem, establishing the atmospheric lighting and environmental details that would serve as the sprite's home.",
+      status: "COMPLETE"
     },
     {
-      phase: "V2: FLIGHT FAILURE",
-      image: "/images/cayra/flight-fail.png", 
-      description: "Weight Optimization. Wall thickness was reduced to minimize mass. This modification introduced structural flex, resulting in severe harmonic vibration and flight instability during testing.",
-      status: "FAILED"
+      phase: "THE CONVERGENCE",
+      video: "/images/spirit-sprite/initial-render.mp4",
+      description: "Uniting the Atrokirina with its environment. Combining both elements to create the final harmonious scene where the spirit sprite moves around the Tree of Life, achieving the complete narrative vision.",
+      status: "COMPLETE"
     },
   ],
 
-  // THE MANUAL: Technical definitions based on your specific design features
   manual: [
     { 
-      image: "/images/cayra/final.png", 
-      title: "Final Assembly",
-      caption: "The definitive toolless configuration. A fully integrated system that resolves previous weight and stability failure modes through a unified friction-lock architecture."
+      image: "/images/spirit-sprite/spirit-sprite-v2.png", // Add your image path
+      title: "Final Render",
+      caption: "The completed scene showcasing the spirit sprite's graceful movement around the Tree of Life, rendered with full compositor effects."
     },
     { 
-      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/_NyxCoBtrc_VzNaz9hafs1/public/images/cayra/dronebody.mp4", 
-      title: "Airframe Architecture",
-      caption: "Optimized X-Frame geometry. Retains the aerodynamic profile of the OEM chassis while integrating a custom pin-and-socket interface for rapid battery module swapping."
+      image: "/images/spirit-sprite/spirit-detail.png", // Add your video URL for sprite close-up
+      title: "Sprite Detail",
+      caption: "Close-up view of the spirit sprite, highlighting the ethereal material properties and organic movement."
     },
     { 
-      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/SdqEKL2xYYaAZT-mz8T6s2/public/images/cayra/camera.mp4", 
-      title: "Payload Integration",
-      caption: "Sensor housing. Features a custom twist-lock mechanism engineered to secure the optical sensor without hardware, ensuring zero-play alignment during flight."
+      image: "/images/spirit-sprite/tree.png", // Add your video URL for tree detail
+      title: "Tree of Life",
+      caption: "Detailed view of the Tree of Life, showcasing the intricate bark textures and environmental lighting."
     },
     { 
-      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/tsQNly0WFVZsIdftL_SMhN/public/images/cayra/battholder.mp4", 
-      title: "Energy Retention",
-      caption: "Topology-optimized chassis. Engineered with minimal material volume to reduce mass, while maintaining the structural rigidity required to support the power cell under high-G loads."
+      video: "/images/spirit-sprite/spirit-sprite.mp4", // Add your video URL for full scene
+      title: "Full Scene Animation",
+      caption: "Complete animation sequence showing the spirit sprite's journey around the tree, demonstrating the full narrative arc."
     },
   ],
 }
 
-export default function CayraPage() {
+export default function SpiritSpritePage() {
   const [currentEvolution, setCurrentEvolution] = useState(0)
 
   const nextEvolution = () => {
-    setCurrentEvolution((prev) => (prev + 1) % cayraProjectData.evolution.length)
+    setCurrentEvolution((prev) => (prev + 1) % spiritSpriteProjectData.evolution.length)
   }
 
   const prevEvolution = () => {
-    setCurrentEvolution((prev) => (prev - 1 + cayraProjectData.evolution.length) % cayraProjectData.evolution.length)
+    setCurrentEvolution((prev) => (prev - 1 + spiritSpriteProjectData.evolution.length) % spiritSpriteProjectData.evolution.length)
   }
 
   return (
@@ -101,12 +97,12 @@ export default function CayraPage() {
               <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </Link>
             <div className="text-center flex-1 min-w-0">
-              <h1 className="font-script text-3xl sm:text-4xl md:text-5xl lg:text-6xl break-words">{cayraProjectData.title}</h1>
+              <h1 className="font-script text-3xl sm:text-4xl md:text-5xl lg:text-6xl break-words">{spiritSpriteProjectData.title}</h1>
             </div>
-            <span className="text-xs text-muted-foreground mt-2 shrink-0 hidden sm:inline">[{cayraProjectData.category}]</span>
+            <span className="text-xs text-muted-foreground mt-2 shrink-0 hidden sm:inline">[{spiritSpriteProjectData.category}]</span>
           </div>
           <div className="sm:hidden text-center mb-4">
-            <span className="text-xs text-muted-foreground">[{cayraProjectData.category}]</span>
+            <span className="text-xs text-muted-foreground">[{spiritSpriteProjectData.category}]</span>
           </div>
 
           {/* Project metadata */}
@@ -114,17 +110,17 @@ export default function CayraPage() {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-sm">
               <div>
                 <span className="text-muted-foreground">YEAR: </span>
-                <span className="font-bold">{cayraProjectData.year}</span>
+                <span className="font-bold">{spiritSpriteProjectData.year}</span>
               </div>
               <div className="break-words">
                 <span className="text-muted-foreground">DISCIPLINES: </span>
-                <span className="font-bold text-xs sm:text-sm">{cayraProjectData.disciplines.join(", ")}</span>
+                <span className="font-bold text-xs sm:text-sm">{spiritSpriteProjectData.disciplines.join(", ")}</span>
               </div>
-              {cayraProjectData.toolkit && (
+              {spiritSpriteProjectData.toolkit && (
                 <div className="flex items-center gap-2">
                   <span className="text-muted-foreground">TOOLKIT: </span>
                   <div className="flex gap-1.5">
-                    {cayraProjectData.toolkit.map((tool) => (
+                    {spiritSpriteProjectData.toolkit.map((tool) => (
                       <ToolkitIcon key={tool} tool={tool} className="w-4 h-4" />
                     ))}
                   </div>
@@ -133,30 +129,40 @@ export default function CayraPage() {
             </div>
           </div>
 
-          {/* Hero image/video */}
-          {cayraProjectData.heroVideo && (
+          {/* Hero video */}
+          {/* Note: Using video instead of GLB model because Blender compositor effects 
+              and complex materials don't export well to GLB format. Video preserves 
+              the full rendered quality with all post-processing effects. */}
+          {spiritSpriteProjectData.heroVideo ? (
             <div className="aspect-video bg-muted mb-4 relative overflow-hidden">
-              {cayraProjectData.heroVideo.endsWith('.mp4') || cayraProjectData.heroVideo.endsWith('.avi') || cayraProjectData.heroVideo.endsWith('.mov') || cayraProjectData.heroVideo.endsWith('.webm') ? (
-                <video src={cayraProjectData.heroVideo} autoPlay loop muted playsInline className="w-full h-full object-cover" />
+              {spiritSpriteProjectData.heroVideo.endsWith('.mp4') || 
+               spiritSpriteProjectData.heroVideo.endsWith('.avi') || 
+               spiritSpriteProjectData.heroVideo.endsWith('.mov') || 
+               spiritSpriteProjectData.heroVideo.endsWith('.webm') ? (
+                <video src={spiritSpriteProjectData.heroVideo} autoPlay loop muted playsInline className="w-full h-full object-cover" />
               ) : (
                 <Image
-                  src={cayraProjectData.heroVideo}
-                  alt={cayraProjectData.title}
+                  src={spiritSpriteProjectData.heroVideo}
+                  alt={spiritSpriteProjectData.title}
                   fill
                   className="object-cover"
                 />
               )}
             </div>
+          ) : (
+            <div className="aspect-video bg-muted mb-4 relative overflow-hidden flex items-center justify-center">
+              <p className="text-sm text-muted-foreground">Add hero video URL to spiritSpriteProjectData.heroVideo</p>
+            </div>
           )}
 
           {/* Content section */}
           <section className="mb-16 pt-8">
-            <h2 className="text-lg font-bold mb-4">{cayraProjectData.content.heading}</h2>
+            <h2 className="text-lg font-bold mb-4">{spiritSpriteProjectData.content.heading}</h2>
             <div className="text-sm leading-relaxed mb-4">
-              <p className="text-muted-foreground mb-4">{cayraProjectData.content.description}</p>
+              <p className="text-muted-foreground mb-4">{spiritSpriteProjectData.content.description}</p>
               <p>
                 <span className="font-bold">THE GOAL: </span>
-                <span className="text-muted-foreground">{cayraProjectData.content.goal}</span>
+                <span className="text-muted-foreground">{spiritSpriteProjectData.content.goal}</span>
               </p>
             </div>
           </section>
@@ -170,7 +176,7 @@ export default function CayraPage() {
 
               {/* Timeline steps */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-4">
-                {cayraProjectData.methodology.map((step, index) => (
+                {spiritSpriteProjectData.methodology.map((step, index) => (
                   <div key={step.title} className="relative">
                     {/* Circle marker with number */}
                     <div className="w-6 h-6 rounded-full border-2 border-foreground bg-background mb-3 sm:mb-4 relative z-10 flex items-center justify-center">
@@ -184,9 +190,9 @@ export default function CayraPage() {
             </div>
           </section>
 
-          {/* Evolution section (replaces Blueprint) */}
+          {/* Evolution section */}
           <section className="mb-12 sm:mb-16">
-            <h2 className="text-lg font-bold mb-6 sm:mb-8">THE EVOLUTION.</h2>
+            <h2 className="text-lg font-bold mb-6 sm:mb-8">THE CONVERGENCE.</h2>
             <div className="flex items-center gap-4 sm:gap-8">
               <button onClick={prevEvolution} className="text-2xl hover-iridescent p-2 shrink-0" aria-label="Previous evolution">
                 <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -194,10 +200,19 @@ export default function CayraPage() {
 
               <div className="flex-1 min-w-0">
                 <div className="aspect-video bg-muted relative overflow-hidden mb-4">
-                  {cayraProjectData.evolution[currentEvolution]?.image ? (
+                  {spiritSpriteProjectData.evolution[currentEvolution]?.video ? (
+                    <video
+                      src={spiritSpriteProjectData.evolution[currentEvolution].video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  ) : spiritSpriteProjectData.evolution[currentEvolution]?.image ? (
                     <Image
-                      src={cayraProjectData.evolution[currentEvolution].image || "/placeholder.svg"}
-                      alt={cayraProjectData.evolution[currentEvolution].phase}
+                      src={spiritSpriteProjectData.evolution[currentEvolution].image || "/placeholder.svg"}
+                      alt={spiritSpriteProjectData.evolution[currentEvolution].phase}
                       fill
                       className="object-cover"
                     />
@@ -207,20 +222,24 @@ export default function CayraPage() {
                 </div>
                 <div className="mb-2">
                   <div className="flex flex-col items-center gap-2 mb-2">
-                    <h3 className="font-bold text-sm text-center">{cayraProjectData.evolution[currentEvolution]?.phase}</h3>
+                    <h3 className="font-bold text-sm text-center">{spiritSpriteProjectData.evolution[currentEvolution]?.phase}</h3>
                     <span className={`text-xs px-2 py-0.5 rounded ${
-                      cayraProjectData.evolution[currentEvolution]?.status === "DEPLOYED" 
+                      spiritSpriteProjectData.evolution[currentEvolution]?.status === "COMPLETE" 
                         ? "bg-green-500/20 text-green-500" 
-                        : cayraProjectData.evolution[currentEvolution]?.status === "REJECTED"
+                        : spiritSpriteProjectData.evolution[currentEvolution]?.status === "DEPLOYED" 
+                        ? "bg-green-500/20 text-green-500" 
+                        : spiritSpriteProjectData.evolution[currentEvolution]?.status === "REJECTED"
                         ? "bg-yellow-500/20 text-yellow-500"
+                        : spiritSpriteProjectData.evolution[currentEvolution]?.status === "IN PROGRESS"
+                        ? "bg-blue-500/20 text-blue-500"
                         : "bg-red-500/20 text-red-500"
                     }`}>
-                      {cayraProjectData.evolution[currentEvolution]?.status}
+                      {spiritSpriteProjectData.evolution[currentEvolution]?.status}
                     </span>
                   </div>
                 </div>
                 <p className="text-xs sm:text-sm text-muted-foreground text-center px-2">
-                  {cayraProjectData.evolution[currentEvolution]?.description ||
+                  {spiritSpriteProjectData.evolution[currentEvolution]?.description ||
                     `description of evolution ${currentEvolution + 1}`}
                 </p>
               </div>
@@ -233,9 +252,9 @@ export default function CayraPage() {
 
           {/* The Manual section */}
           <section className="mb-12 sm:mb-16">
-            <h2 className="text-lg font-bold mb-6 sm:mb-8">FINAL PROTOTYPE.</h2>
+            <h2 className="text-lg font-bold mb-6 sm:mb-8">FINAL RENDER.</h2>
             <div className="grid sm:grid-cols-2 gap-4 mb-6">
-              {cayraProjectData.manual.map((slide, index) => (
+              {spiritSpriteProjectData.manual.map((slide, index) => (
                 <div key={index} className="relative aspect-[4/3] bg-muted overflow-hidden group">
                   {slide.image ? (
                     <Image
@@ -310,6 +329,7 @@ export default function CayraPage() {
 }
 
 const otherProjects = [
-  { title: "The Keepsake", category: "web development", year: "2025", href: "/work/the-keepsake", image: "/images/keepsake/keepsake-card.png" },
-  { title: "Quiet Café", category: "branding", year: "2025", href: "/work/quiet-cafe", image: "/images/quiet-cafe/quiet-cafe-card.png" },
+  { title: "AETHER™", category: "branding", year: "2025", href: "/work/aether", image: "/images/aether/aether-card.png" },
+  { title: "Digital Shelf", category: "web development", year: "2025", href: "/work/digital-shelf", image: "/images/digital-shelf/digital-shelf-card.png" },
 ]
+

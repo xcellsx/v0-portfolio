@@ -355,6 +355,6 @@ export default function AetherPage() {
 }
 
 const otherProjects = [
-  { title: "The Keepsake", category: "web development", year: "2025", href: "/work/the-keepsake", image: "/images/keepsake/keepsake-card.png" },
-  { title: "tbd", category: "3D Modeling", year: "2025", href: "/work" },
+  { title: "Digital Shelf", category: "web development", year: "2025", href: "/work/digital-shelf", image: "/images/digital-shelf/digital-shelf-card.png" },
+  { title: "Cayra", category: "3d model", year: "2025", href: "/work/cayra", image: "/images/cayra/final.png" },
 ]

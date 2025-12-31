@@ -29,7 +29,14 @@ const sections = [
         href: "/work/the-keepsake",
         toolkit: ["figma", "typescript"],
       },
-      { title: "tbd", category: "web development", year: "2025", href: "#" },
+      { 
+        title: "Digital Shelf", 
+        category: "web development", 
+        year: "2025", 
+        image: "/images/digital-shelf/digital-shelf-card.png",
+        href: "/work/digital-shelf", 
+        toolkit: ["figma", "typescript", "three.js"] 
+      },
     ],
   },
   {
@@ -50,7 +57,14 @@ const sections = [
       "Sculpting digital form. My workflow moves from raw geometry to material synthesis and lighting, optimizing high-fidelity assets for real-time web performance.",
     workflow: ["Geometric Conception", "Topology & Texturing", "Lighting & Atmosphere", "Render Optimization"],
     projects: [
-      { title: "tbd", category: "3d model", year: "2025", href: "#" },
+      { 
+        title: "Spirit Sprite", 
+        category: "3d model", 
+        year: "2025", 
+        image: "/images/spirit-sprite/card.png",
+        href: "/work/spirit-sprite", 
+        toolkit: ["blender"] 
+      },
       { 
         title: "Cayra:", 
         category: "3d model", 

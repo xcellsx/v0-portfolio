@@ -347,6 +347,6 @@ export default function QuietCafePage() {
 }
 
 const otherProjects = [
-  { title: "AETHER™", category: "branding", year: "2025", href: "/work/aether", image: "/images/aether/aether-card.png" },
+  { title: "Spirit Sprite", category: "3d model", year: "2025", href: "/work/spirit-sprite", image: "/images/spirit-sprite/spirit-sprite-card.png" },
   { title: "The Keepsake", category: "web development", year: "2025", href: "/work/the-keepsake", image: "/images/keepsake/keepsake-card.png" },
 ]
