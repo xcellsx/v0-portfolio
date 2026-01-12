@@ -9,70 +9,73 @@ import { IridescentCard } from "@/components/iridescent-blob"
 import { ToolkitIcon } from "@/components/toolkit-icons"
 
 const digitalShelfProjectData = {
-  title: "Digital Shelf",
+  title: "Perfume Collection",
   category: "web development",
-  year: "2025",
-  toolkit: ["figma", "typescript", "three.js"],
-  disciplines: ["3D WEB DEVELOPMENT", "INTERACTIVE NAVIGATION", "MODEL VIEWER"],
-  liveUrl: "", // Add your live URL when ready
-  heroVideo: "", // Add hero video or image URL
+  year: "2026",
+  toolkit: ["blender", "tailwind", "typescript"],
+  disciplines: ["3D MODELING", "GLASS EFFECT RENDERING", "DIGITAL COLLECTION"],
+  liveUrl: "https://v0-perfume-collection.vercel.app/", // Update with your live URL
+  heroVideo: "/images/digital-shelf/perfume-collection-card.jpg",
   
   content: {
-    heading: "A 3D SHOWCASE FOR 3D WORK.",
+    heading: "A DIGITAL COLLECTION OF PERSONAL PERFUME DISPLAYED WITH THE GLASS EFFECT.",
     description:
-      "Building a digital shelf to display 3D models requires a 3D interface. This project explores immersive navigation in three-dimensional space, where users can interact with a virtual shelf that houses my 3D creations. The navigation itself becomes part of the experience—moving through space to discover models.",
-    goal: "To create an intuitive 3D navigation system that feels natural and engaging. The shelf acts as both a portfolio and an interactive experience, allowing visitors to explore models in their native dimension while maintaining smooth performance and accessibility.",
+      "This project showcases a digital collection of my personal perfume collection, featuring stunning glass effect rendering. The process began with creating wireframes in Figma, followed by modeling each perfume bottle in Blender, and finally creating a backdrop in Blender as well. The glass effect brings each bottle to life, capturing the transparency, reflections, and refractions that make perfume bottles so visually captivating.",
+    goal: "To create an immersive digital showcase that displays my personal perfume collection with photorealistic glass effects. The collection serves as both a visual archive and an interactive experience, allowing visitors to explore each bottle in detail while appreciating the craftsmanship of both the physical bottles and their digital representations.",
   },
 
   methodology: [
-    { title: "CONCEPT & ARCHITECTURE", description: "Designing the 3D shelf structure and navigation flow" },
-    { title: "3D NAVIGATION SYSTEM", description: "Building immersive camera controls and spatial movement" },
-    { title: "MODEL INTEGRATION", description: "Implementing GLB/GLTF loading and interactive model viewers" },
-    { title: "OPTIMIZATION & POLISH", description: "Performance tuning and interaction refinement" },
+    { title: "WIREFRAME DESIGN", description: "Creating wireframes on Figma to plan the layout and structure" },
+    { title: "3D MODELING", description: "Creating models in Blender for each perfume bottle" },
+    { title: "BACKDROP CREATION", description: "Designing and creating the backdrop in Blender (blueprint)" },
+    { title: "GLASS EFFECT & RENDERING", description: "Implementing glass materials and rendering the final collection" },
   ],
 
   blueprints: [
     {
-      image: "", // Add your blueprint image
-      description: "3D Navigation Concept. Exploring camera movement patterns and spatial relationships between models on the shelf.",
+      image: "/images/digital-shelf/final-design.jpg",
+      description: "(1) Wireframe Design. Creating wireframes on Figma to plan the layout and structure of the perfume collection display.",
     },
     {
-      image: "", // Add your blueprint image
-      description: "Shelf Architecture. Designing the virtual shelf structure and model placement system.",
+      image: "/images/digital-shelf/render-1.png",
+      description: "(2) Modeling of Product (Perfumes) in Blender. Creating detailed 3D models of each perfume bottle with glass materials.",
     },
     {
-      image: "", // Add your blueprint image
-      description: "Interaction Design. Defining how users interact with models—hover states, selection, and detail views.",
+      image: "/images/digital-shelf/tree.png",
+      description: "(3) Creating the backdrop. Designing and creating the backdrop environment in Blender to complement the perfume collection.",
     },
   ],
 
   brandManual: [
     { 
-      image: "", // Add your image
-      title: "3D Navigation",
-      isCarousel: false
+      images: ["/images/digital-shelf/design-1.jpg", "/images/digital-shelf/design-2.jpg", "/images/digital-shelf/final-design.jpg"],
+      title: "Design Iterations",
+      isCarousel: true
     },
     { 
-      image: "", // Add your image
-      title: "Model Viewer",
-      isCarousel: false
+      images: ["/images/digital-shelf/blooming-bouquet.png", "/images/digital-shelf/rosenroses.png", "/images/digital-shelf/parfum.png", "/images/digital-shelf/roller-perfume.png"],
+      title: "Different Models",
+      isCarousel: true
     },
     { 
-      image: "", // Add your image
-      title: "Shelf Interface",
-      isCarousel: false
+      images: ["/images/digital-shelf/render-1.png", "/images/digital-shelf/render-2.png", "/images/digital-shelf/render-3.png", "/images/digital-shelf/render-4.png"],
+      title: "Different Models Rendered",
+      isCarousel: true
     },
     { 
-      image: "", // Add your image
-      title: "Interaction States",
-      isCarousel: false
+      images: ["/images/digital-shelf/tree.png", "/images/digital-shelf/tree-blender.png"],
+      title: "Backdrop",
+      isCarousel: true
     },
   ],
 }
 
 export default function DigitalShelfPage() {
   const [currentBlueprint, setCurrentBlueprint] = useState(0)
-  const [currentManualIndex, setCurrentManualIndex] = useState(0)
+  const [currentDesignIndex, setCurrentDesignIndex] = useState(0)
+  const [currentModelsIndex, setCurrentModelsIndex] = useState(0)
+  const [currentRenderedIndex, setCurrentRenderedIndex] = useState(0)
+  const [currentBackdropIndex, setCurrentBackdropIndex] = useState(0)
 
   const nextBlueprint = () => {
     setCurrentBlueprint((prev) => (prev + 1) % digitalShelfProjectData.blueprints.length)
@@ -232,15 +235,100 @@ export default function DigitalShelfPage() {
             <div className="grid sm:grid-cols-2 gap-4 mb-6">
               {digitalShelfProjectData.brandManual.map((slide, index) => (
                 <div key={index} className="relative aspect-[4/3] bg-muted overflow-hidden group">
-                  {slide.image ? (
-                    <Image
-                      src={slide.image}
-                      alt={slide.title}
-                      fill
-                      className="object-cover"
-                    />
+                  {slide.isCarousel ? (
+                    <>
+                      {/* Carousel for multiple images */}
+                      <div className="relative w-full h-full">
+                        {slide.images?.map((img, imgIndex) => {
+                          const isActive = (slide.title === "Design Iterations" && imgIndex === currentDesignIndex) ||
+                                         (slide.title === "Different Models" && imgIndex === currentModelsIndex) ||
+                                         (slide.title === "Different Models Rendered" && imgIndex === currentRenderedIndex) ||
+                                         (slide.title === "Backdrop" && imgIndex === currentBackdropIndex)
+                          return (
+                            <div
+                              key={imgIndex}
+                              className={`absolute inset-0 transition-opacity duration-300 ${
+                                isActive ? "opacity-100" : "opacity-0"
+                              }`}
+                            >
+                              <Image
+                                src={img}
+                                alt={`${slide.title} ${imgIndex + 1}`}
+                                fill
+                                className="object-cover"
+                              />
+                            </div>
+                          )
+                        })}
+                      </div>
+                      {/* Carousel controls */}
+                      <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            if (slide.title === "Design Iterations") {
+                              setCurrentDesignIndex((prev) => (prev - 1 + slide.images!.length) % slide.images!.length)
+                            } else if (slide.title === "Different Models") {
+                              setCurrentModelsIndex((prev) => (prev - 1 + slide.images!.length) % slide.images!.length)
+                            } else if (slide.title === "Different Models Rendered") {
+                              setCurrentRenderedIndex((prev) => (prev - 1 + slide.images!.length) % slide.images!.length)
+                            } else if (slide.title === "Backdrop") {
+                              setCurrentBackdropIndex((prev) => (prev - 1 + slide.images!.length) % slide.images!.length)
+                            }
+                          }}
+                          className="p-1.5 bg-background/80 hover:bg-background rounded-full transition-colors"
+                          aria-label="Previous image"
+                        >
+                          <ChevronLeft className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            if (slide.title === "Design Iterations") {
+                              setCurrentDesignIndex((prev) => (prev + 1) % slide.images!.length)
+                            } else if (slide.title === "Different Models") {
+                              setCurrentModelsIndex((prev) => (prev + 1) % slide.images!.length)
+                            } else if (slide.title === "Different Models Rendered") {
+                              setCurrentRenderedIndex((prev) => (prev + 1) % slide.images!.length)
+                            } else if (slide.title === "Backdrop") {
+                              setCurrentBackdropIndex((prev) => (prev + 1) % slide.images!.length)
+                            }
+                          }}
+                          className="p-1.5 bg-background/80 hover:bg-background rounded-full transition-colors"
+                          aria-label="Next image"
+                        >
+                          <ChevronRight className="w-4 h-4" />
+                        </button>
+                      </div>
+                      {/* Image indicators */}
+                      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-1.5">
+                        {slide.images?.map((_, imgIndex) => {
+                          const isActive = (slide.title === "Design Iterations" && imgIndex === currentDesignIndex) ||
+                                         (slide.title === "Different Models" && imgIndex === currentModelsIndex) ||
+                                         (slide.title === "Different Models Rendered" && imgIndex === currentRenderedIndex) ||
+                                         (slide.title === "Backdrop" && imgIndex === currentBackdropIndex)
+                          return (
+                            <div
+                              key={imgIndex}
+                              className={`w-1.5 h-1.5 rounded-full transition-colors ${
+                                isActive ? "bg-foreground" : "bg-muted-foreground/50"
+                              }`}
+                            />
+                          )
+                        })}
+                      </div>
+                    </>
                   ) : (
-                    <IridescentCard className="w-full h-full" />
+                    'image' in slide && typeof slide.image === 'string' ? (
+                      <Image
+                        src={slide.image}
+                        alt={slide.title}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <IridescentCard className="w-full h-full" />
+                    )
                   )}
                   <div className="absolute bottom-0 left-0 right-0 bg-background/80 p-2">
                     <p className="text-xs font-bold">{slide.title}</p>

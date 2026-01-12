@@ -330,6 +330,6 @@ export default function SpiritSpritePage() {
 
 const otherProjects = [
   { title: "AETHER™", category: "branding", year: "2025", href: "/work/aether", image: "/images/aether/aether-card.png" },
-  { title: "Digital Shelf", category: "web development", year: "2025", href: "/work/digital-shelf", image: "/images/digital-shelf/digital-shelf-card.png" },
+  { title: "Perfume Collection", category: "web development", year: "2026", href: "/work/digital-shelf", image: "/images/digital-shelf/perfume-collection-card.jpg" },
 ]
 

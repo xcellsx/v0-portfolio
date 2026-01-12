@@ -30,12 +30,12 @@ const sections = [
         toolkit: ["figma", "typescript"],
       },
       { 
-        title: "Digital Shelf", 
+        title: "Perfume Collection", 
         category: "web development", 
-        year: "2025", 
-        image: "/images/digital-shelf/digital-shelf-card.png",
+        year: "2026", 
+        image: "/images/digital-shelf/perfume-collection-card.jpg",
         href: "/work/digital-shelf", 
-        toolkit: ["figma", "typescript", "three.js"] 
+        toolkit: ["blender", "tailwind", "typescript"] 
       },
     ],
   },
