@@ -15,11 +15,11 @@ export function Footer() {
           </p>
 
           <Link
-            href="mailto:celstudiosx@gmail.com"
+            href="mailto:hello@celine.design"
             className="inline-flex items-center gap-2 text-sm hover-iridescent"
           >
             <Mail className="w-4 h-4" />
-            celstudiosx@gmail.com
+            hello@celine.design
           </Link>
 
           <div className="flex items-center justify-center gap-6 pb-8">

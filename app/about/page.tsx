@@ -67,8 +67,8 @@ export default function AboutPage() {
                 LET'S COLLABORATE.
               </a>
               <a
-                href="/CV_Celine%20Goh%20Hui%20Ling_180126.pdf"
-                download="CV_Celine Goh Hui Ling_180126.pdf"
+                href="/resume.pdf"
+                download
                 className="px-6 py-2.5 border border-foreground text-sm font-medium hover:bg-foreground hover:text-background transition-colors rounded-full text-center"
               >
                 MY RESUME.

@@ -14,7 +14,7 @@ const spiritSpriteProjectData = {
   year: "2025",
   toolkit: ["blender"],
   disciplines: ["3D MODELING", "CHARACTER ANIMATION", "ENVIRONMENTAL DESIGN"],
-  heroVideo: "/images/spirit-sprite/spirit-sprite.mp4", // Add your video URL here - recommended over GLB for compositor effects
+  heroVideo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/03mZJlVCklSGgRa4b3Zl8S/public/images/spirit-sprite/spirit-sprite.mp4", // Add your video URL here - recommended over GLB for compositor effects
   
   content: {
     heading: "A SPIRITUAL JOURNEY AROUND THE TREE OF LIFE.",
@@ -33,7 +33,7 @@ const spiritSpriteProjectData = {
   evolution: [
     {
       phase: "THE ATRONIKA",
-      video: "/images/spirit-sprite/spirit-sprite-v1.mp4",
+      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/QWdIGhtfVQUYUD-OBaVV1o/public/images/spirit-sprite/spirit-sprite-v1.mp4",
       description: "Creating the Atronika (spirit sprite) and bringing it to life through animation. This phase focused on modeling the ethereal entity and crafting its graceful, organic movement patterns.",
       status: "COMPLETE"
     },
@@ -45,7 +45,7 @@ const spiritSpriteProjectData = {
     },
     {
       phase: "THE CONVERGENCE",
-      video: "/images/spirit-sprite/initial-render.mp4",
+      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/oqfJx-VCqCTEbW69a80al3/public/images/spirit-sprite/initial-render.mp4",
       description: "Uniting the Atrokirina with its environment. Combining both elements to create the final harmonious scene where the spirit sprite moves around the Tree of Life, achieving the complete narrative vision.",
       status: "COMPLETE"
     },
@@ -68,7 +68,7 @@ const spiritSpriteProjectData = {
       caption: "Detailed view of the Tree of Life, showcasing the intricate bark textures and environmental lighting."
     },
     { 
-      video: "/images/spirit-sprite/spirit-sprite.mp4", // Add your video URL for full scene
+      video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/03mZJlVCklSGgRa4b3Zl8S/public/images/spirit-sprite/spirit-sprite.mp4", // Add your video URL for full scene
       title: "Full Scene Animation",
       caption: "Complete animation sequence showing the spirit sprite's journey around the tree, demonstrating the full narrative arc."
     },
@@ -330,6 +330,5 @@ export default function SpiritSpritePage() {
 
 const otherProjects = [
   { title: "AETHER™", category: "branding", year: "2025", href: "/work/aether", image: "/images/aether/aether-card.png" },
-  { title: "The Twin Pagodas", category: "web development", year: "2026", href: "/work/twin-pagodas", image: "/images/pagoda/twin-pagodas-card.png" },
+  { title: "Perfume Collection", category: "web development", year: "2026", href: "/work/digital-shelf", image: "/images/digital-shelf/perfume-collection-card.jpg" },
 ]
-

@@ -8,10 +8,6 @@ import Link from "next/link"
 import { Linkedin, Github, Instagram, Mail } from "lucide-react"
 import { IridescentCard } from "@/components/iridescent-blob"
 
-const FORMSPREE_ENDPOINT =
-  process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID
-    ? `https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID}`
-    : "https://formspree.io/f/mzdvzlzl"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -20,35 +16,10 @@ export default function ContactPage() {
     projectType: "",
     description: "",
   })
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!FORMSPREE_ENDPOINT) {
-      setStatus("error")
-      return
-    }
-    setStatus("loading")
-    try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          "Project Type": formData.projectType,
-          message: formData.description,
-        }),
-      })
-      if (res.ok) {
-        setStatus("success")
-        setFormData({ name: "", email: "", projectType: "", description: "" })
-      } else {
-        setStatus("error")
-      }
-    } catch {
-      setStatus("error")
-    }
+    console.log(formData)
   }
 
   return (
@@ -111,33 +82,24 @@ export default function ContactPage() {
                     className="w-full px-4 py-3 border border-foreground bg-transparent text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground resize-none rounded-2xl"
                   />
 
-                  <div className="flex flex-col items-center gap-3">
+                  <div className="flex justify-center">
                     <button
                       type="submit"
-                      disabled={status === "loading"}
-                      className="px-8 py-2.5 border border-foreground text-sm font-medium hover:bg-foreground hover:text-background transition-colors rounded-full disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="px-8 py-2.5 border border-foreground text-sm font-medium hover:bg-foreground hover:text-background transition-colors rounded-full"
                     >
-                      {status === "loading" ? "SENDING…" : "SUBMIT."}
+                      SUBMIT.
                     </button>
-                    {status === "success" && (
-                      <p className="text-sm text-green-600 dark:text-green-400">Thanks! Your message was sent.</p>
-                    )}
-                    {status === "error" && (
-                      <p className="text-sm text-red-600 dark:text-red-400">
-                        Something went wrong. Please try again or email celstudiosx@gmail.com.
-                      </p>
-                    )}
                   </div>
                 </form>
               </div>
 
               <div className="pt-4 space-y-4">
                 <Link
-                  href="mailto:celstudiosx@gmail.com"
+                  href="mailto:hello@celine.design"
                   className="inline-flex items-center gap-2 text-sm hover-iridescent"
                 >
                   <Mail className="w-4 h-4" />
-                  celstudiosx@gmail.com
+                  hello@celine.design
                 </Link>
 
                 <div className="flex items-center gap-6">
