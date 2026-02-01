@@ -23,13 +23,13 @@ export function Footer() {
           </Link>
 
           <div className="flex items-center justify-center gap-6 pb-8">
-            <Link href="https://linkedin.com" className="hover-iridescent">
+            <Link href="https://www.linkedin.com/in/celineghl/" className="hover-iridescent">
               <Linkedin className="w-5 h-5" />
             </Link>
-            <Link href="https://github.com" className="hover-iridescent">
+            <Link href="https://github.com/xcellsx" className="hover-iridescent">
               <Github className="w-5 h-5" />
             </Link>
-            <Link href="https://instagram.com" className="hover-iridescent">
+            <Link href="https://www.instagram.com/celstudiosx?igsh=MWMzaW10dWdvcGZyYg%3D%3D&utm_source=qr" className="hover-iridescent">
               <Instagram className="w-5 h-5" />
             </Link>
           </div>
