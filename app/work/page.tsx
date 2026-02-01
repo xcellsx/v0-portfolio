@@ -30,12 +30,12 @@ const sections = [
         toolkit: ["figma", "typescript"],
       },
       { 
-        title: "The Twin Pagodas", 
+        title: "Perfume Collection", 
         category: "web development", 
         year: "2026", 
-        image: "/images/twin-pagodas/pagoda-background.png",
-        href: "/work/twin-pagodas", 
-        toolkit: ["react", "three.js", "blender", "gsap"] 
+        image: "/images/digital-shelf/perfume-collection-card.jpg",
+        href: "/work/digital-shelf", 
+        toolkit: ["blender", "tailwind", "typescript"] 
       },
     ],
   },
