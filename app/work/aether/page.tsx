@@ -355,6 +355,6 @@ export default function AetherPage() {
 }
 
 const otherProjects = [
-  { title: "The Twin Pagodas", category: "web development", year: "2026", href: "/work/twin-pagodas", image: "/images/pagoda/twin-pagodas-card.png" },
+  { title: "Perfume Collection", category: "web development", year: "2026", href: "/work/digital-shelf", image: "/images/digital-shelf/perfume-collection-card.jpg" },
   { title: "Cayra", category: "3d model", year: "2025", href: "/work/cayra", image: "/images/cayra/final.png" },
 ]
