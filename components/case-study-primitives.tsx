@@ -145,12 +145,50 @@ export function ContextSplit({
   )
 }
 
+function DeepDiveMedia({
+  item,
+}: {
+  item: {
+    title: string
+    src?: string
+    video?: string
+    width: number
+    height: number
+  }
+}) {
+  if (item.video) {
+    return (
+      <video
+        src={item.video}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="mx-auto h-auto w-full object-contain"
+      />
+    )
+  }
+
+  if (!item.src) return null
+
+  return (
+    <CaseStudyGraphic
+      src={item.src}
+      alt={item.title}
+      width={item.width}
+      height={item.height}
+      className="mx-auto h-auto w-full object-contain"
+    />
+  )
+}
+
 export function DeepDiveRows({
   items,
 }: {
   items: readonly {
     title: string
-    src: string
+    src?: string
+    video?: string
     width: number
     height: number
     quote: string
@@ -166,13 +204,7 @@ export function DeepDiveRows({
           }`}
         >
           <div className="flex items-center justify-center px-[clamp(1.5rem,4vw,5rem)] py-[clamp(2rem,5vh,3.5rem)]">
-            <CaseStudyGraphic
-              src={item.src}
-              alt={item.title}
-              width={item.width}
-              height={item.height}
-              className="mx-auto h-auto w-full object-contain"
-            />
+            <DeepDiveMedia item={item} />
           </div>
           <div className="flex flex-col justify-center px-[clamp(1.5rem,4vw,5rem)] py-[clamp(2rem,5vh,3.5rem)]">
             <SectionLabel className="text-[11px] tracking-[0.12em]">

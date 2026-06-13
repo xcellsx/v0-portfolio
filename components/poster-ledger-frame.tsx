@@ -15,6 +15,12 @@ interface PosterLedgerFrameProps {
   compact?: boolean
 }
 
+function videoMimeType(src: string) {
+  if (src.endsWith(".webm")) return "video/webm"
+  if (src.endsWith(".mov")) return "video/quicktime"
+  return "video/mp4"
+}
+
 export function PosterLedgerFrame({
   image,
   hoverImage,
@@ -65,14 +71,16 @@ export function PosterLedgerFrame({
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
     >
-      <div className="relative w-full">
+      <div
+        className="relative w-full overflow-hidden"
+        style={{ aspectRatio: `${width} / ${height}` }}
+      >
         <Image
           src={image}
           alt={alt}
-          width={width}
-          height={height}
+          fill
           priority={priority}
-          className={`h-auto w-full object-contain transition-opacity duration-500 ${
+          className={`object-contain transition-opacity duration-500 ${
             showAlternate ? "opacity-0" : "opacity-100"
           }`}
           sizes={imageSizes}
@@ -82,9 +90,8 @@ export function PosterLedgerFrame({
           <Image
             src={hoverImage}
             alt={`${alt} — alternate state`}
-            width={width}
-            height={height}
-            className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-500 ${
+            fill
+            className={`object-contain transition-opacity duration-500 ${
               isActive ? "opacity-100" : "pointer-events-none opacity-0"
             }`}
             sizes={imageSizes}
@@ -112,8 +119,10 @@ export function PosterLedgerFrame({
               isActive && videoReady ? "opacity-100" : "pointer-events-none opacity-0"
             }`}
           >
-            <source src={video} type="video/webm" />
-            {videoFallback ? <source src={videoFallback} type="video/quicktime" /> : null}
+            <source src={video} type={videoMimeType(video)} />
+            {videoFallback ? (
+              <source src={videoFallback} type={videoMimeType(videoFallback)} />
+            ) : null}
           </video>
         ) : null}
 

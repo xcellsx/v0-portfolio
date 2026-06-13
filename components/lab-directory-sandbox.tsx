@@ -11,9 +11,9 @@ const ModelViewer = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="flex h-full min-h-[12rem] items-center justify-center">
-        <p className="font-mono text-[10px] tracking-[0.12em] text-offwhite/40 uppercase">
-          Loading mesh…
+      <div className="viewport-skeleton h-full min-h-[12rem]">
+        <p className="font-mono text-[10px] tracking-[0.12em] text-offblack/40 uppercase">
+          [ Loading Archive_Asset… ]
         </p>
       </div>
     ),
@@ -23,9 +23,10 @@ const ModelViewer = dynamic(
 function viewportFrameStyle(asset: LabAsset): CSSProperties {
   const scale = asset.viewportScale ?? 1
   return {
-    maxHeight: `min(${28 * scale}vh, ${Math.round(240 * scale)}px)`,
     aspectRatio: "16 / 9",
     width: "100%",
+    maxHeight: `min(${32 * scale}vh, ${Math.round(280 * scale)}px)`,
+    minHeight: "12rem",
   }
 }
 
@@ -48,7 +49,7 @@ function SandboxViewport({ asset }: { asset: LabAsset }) {
 
   if (asset.mediaType === "model" && asset.modelPath) {
     return (
-      <div style={frameStyle}>
+      <div className="overflow-hidden" style={frameStyle}>
         <ModelViewer modelPath={asset.modelPath} className="h-full w-full" />
       </div>
     )
@@ -133,7 +134,7 @@ function MetadataLog({ asset }: { asset: LabAsset }) {
       {rows.map((row) => (
         <div
           key={row.key}
-          className="grid gap-2 border-b border-[#E5E7EB] py-3 sm:grid-cols-[minmax(6rem,22%)_1fr] sm:gap-6"
+          className="ledger-stat-row"
         >
           <p className="font-mono text-[10px] tracking-[0.12em] text-terracotta uppercase">
             {row.key}
@@ -162,9 +163,9 @@ export function LabDirectorySandbox({ assets }: LabDirectorySandboxProps) {
   if (!activeAsset) return null
 
   return (
-    <div className="grid min-h-0 border border-offblack/10 lg:grid-cols-[2fr_3fr]">
+    <div className="grid min-h-0 border border-offblack/10 lg:grid-cols-12">
       {/* Left — Lab Index */}
-      <div className="border-b border-offblack/10 lg:border-b-0 lg:border-r lg:border-offblack/10">
+      <div className="border-b border-offblack/10 lg:col-span-5 lg:border-b-0 lg:border-r lg:border-offblack/10">
         <div className="border-b border-offblack/10 px-4 py-3 sm:px-5">
           <SectionLabel className="text-[10px] tracking-[0.14em]">
             [ Lab_Index // Vol_01 ]
@@ -212,7 +213,7 @@ export function LabDirectorySandbox({ assets }: LabDirectorySandboxProps) {
       </div>
 
       {/* Right — Sandbox */}
-      <div className="flex flex-col">
+      <div className="flex flex-col lg:col-span-7">
         <div className="border-b border-offblack/10 px-4 py-3 sm:px-5">
           <SectionLabel className="text-[10px] tracking-[0.14em]">
             [ Sandbox // System_View ]

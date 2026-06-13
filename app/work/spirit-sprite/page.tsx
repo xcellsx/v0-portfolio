@@ -330,7 +330,7 @@ export default function SpiritSpritePage() {
 }
 
 const otherProjects = [
-  { title: "AETHER™", category: "branding", year: "2025", href: "/work/aether", image: "/images/aether/aether-card.png" },
-  { title: "The Twin Pagodas", category: "web development", year: "2026", href: "/work/twin-pagodas", image: "/images/pagoda/twin-pagodas-card.png" },
+  { title: "Cayra", category: "3d model", year: "2025", href: "/work/cayra", image: "/images/cayra/final.png" },
+  { title: "The Twin Pagodas", category: "web development", year: "2026", href: "/work/twin-pagodas", image: "/images/twin-pagodas/tp.png" },
 ]
 

@@ -100,13 +100,13 @@ export function LandingContent() {
   return (
     <div className="flex min-h-0 min-w-0 w-full flex-1 flex-col justify-between gap-10 px-[clamp(1.5rem,4vw,5rem)] py-[clamp(2rem,5vh,4rem)] lg:min-h-screen">
       <div className="w-full space-y-[clamp(1rem,2.5vh,1.5rem)]">
-        <h1 className="w-full font-serif text-[clamp(2rem,4.5vw,3.75rem)] font-medium leading-[1.08] tracking-[-0.02em]">
+        <h1 className="w-full font-serif text-[clamp(2rem,4.5vw,3.75rem)] font-medium leading-[0.95] tracking-[-0.02em]">
           {HEADLINE_LINES.map((line, index) => {
             const accentLine = typingDone && (index === 1 || index === 4)
             return (
             <span
               key={line}
-              className={`block min-h-[1.08em] ${accentLine ? "text-terracotta" : ""}`}
+              className={`block min-h-[0.95em] ${accentLine ? "text-terracotta" : ""}`}
             >
               {displayedLines[index]}
               {index === activeLineIndex && !typingDone && (
@@ -120,7 +120,7 @@ export function LandingContent() {
           })}
         </h1>
         <p
-          className={`w-full font-sans text-[clamp(0.875rem,1.5vw,1rem)] leading-relaxed ${fadeClass(showBio)}`}
+          className={`max-w-xl font-sans text-[clamp(0.875rem,1.5vw,1rem)] leading-relaxed text-offblack/80 ${fadeClass(showBio)}`}
         >
           Designing intuitive user flows, modeling architectural spaces and organic 3D visuals,
           and developing responsive front-end applications.

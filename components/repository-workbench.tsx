@@ -18,7 +18,7 @@ function StackPill({ label }: { label: string }) {
 
 function BrowserPreview({ repo }: { repo: WebDevRepository }) {
   return (
-    <div className="flex min-h-[clamp(14rem,38vh,28rem)] flex-1 flex-col overflow-hidden border border-offblack/15 bg-offwhite">
+    <div className="flex flex-1 flex-col overflow-hidden border border-offblack/15 bg-offwhite">
       <div className="flex shrink-0 items-center gap-2 border-b border-offblack/10 px-3 py-2">
         <span className="size-2 rounded-full bg-offblack/15" aria-hidden />
         <span className="size-2 rounded-full bg-offblack/15" aria-hidden />
@@ -27,13 +27,13 @@ function BrowserPreview({ repo }: { repo: WebDevRepository }) {
           system_live_preview // {repo.title.toLowerCase().replace(/\s+/g, "_")}
         </p>
       </div>
-      <div className="flex min-h-0 flex-1 items-center justify-center bg-offblack/[0.03] p-3">
+      <div className="relative aspect-video min-h-[12rem] w-full bg-offblack/[0.03] p-3">
         <Image
           src={repo.previewImage}
           alt={`${repo.title} preview`}
           width={repo.previewWidth ?? 1200}
           height={repo.previewHeight ?? 800}
-          className="max-h-full w-auto max-w-full object-contain"
+          className="h-full w-full object-contain"
           sizes="(max-width: 1024px) 100vw, 40vw"
         />
       </div>
@@ -50,10 +50,10 @@ function RepositoryBlock({ repo, index }: { repo: WebDevRepository; index: numbe
   return (
     <article
       ref={ref}
-      className={`grid border border-offblack/10 lg:grid-cols-[2fr_3fr] ${fadeInFromTopClass(isVisible)}`}
+      className={`grid border border-offblack/10 lg:grid-cols-12 ${fadeInFromTopClass(isVisible)}`}
       style={fadeDelayStyle(index * 80)}
     >
-      <div className="border-b border-offblack/10 p-4 sm:p-5 lg:border-b-0 lg:border-r lg:border-offblack/10">
+      <div className="border-b border-offblack/10 p-4 sm:p-5 lg:col-span-5 lg:border-b-0 lg:border-r lg:border-offblack/10">
         <p className="font-mono text-xs tracking-[0.12em] text-terracotta uppercase">
           💾 {repo.repoId}
         </p>
@@ -83,7 +83,7 @@ function RepositoryBlock({ repo, index }: { repo: WebDevRepository; index: numbe
         </ul>
       </div>
 
-      <div className="flex min-h-[clamp(18rem,42vh,32rem)] flex-col p-4 sm:p-5">
+      <div className="flex flex-col p-4 sm:p-5 lg:col-span-7">
         <SectionLabel className="mb-3 text-[10px] tracking-[0.14em]">
           [ System_Live_Preview ]
         </SectionLabel>

@@ -42,8 +42,7 @@ export const alphabeticalPosters: AlphabetPoster[] = [
     caption:
       "Organic wing geometry meets rigid typographic framing. Hover energizes the loop — texture and motion collapse into a single editorial artifact.",
     image: "/images/projects/poster-a-day/butter.png",
-    video: "/butta0001-0240.webm",
-    videoFallback: "/butta0001-0240.mov",
+    video: "/images/projects/poster-a-day/butter.mp4",
     alt: "Alphabetical Order poster B — Butterfly",
     width: 1080,
     height: 1350,

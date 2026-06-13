@@ -29,9 +29,9 @@ const ModelViewer = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="flex h-full min-h-[16rem] items-center justify-center">
+      <div className="viewport-skeleton aspect-square h-full w-full">
         <p className="font-mono text-[10px] tracking-[0.12em] text-offblack/40 uppercase">
-          Loading sculpt…
+          [ Loading Archive_Asset… ]
         </p>
       </div>
     ),
@@ -270,7 +270,11 @@ export function AboutPageContent() {
             className={`relative aspect-square w-full max-w-md justify-self-center lg:justify-self-end ${fadeInFromTopClass(factVisible)}`}
             style={fadeDelayStyle(120)}
           >
-            <ModelViewer modelPath={funFact.modelPath} className="h-full w-full" />
+            <ModelViewer
+              modelPath={funFact.modelPath}
+              className="h-full w-full"
+              scrollFriendly
+            />
           </div>
         </div>
       </section>

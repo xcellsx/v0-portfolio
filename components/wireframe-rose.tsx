@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 
 const ROSE_SRC = "/images/rose-wire.png"
+const TERRACOTTA_RGB = "174, 34, 23"
 const OFFBLACK_RGB = "28, 27, 24"
 const DOT_SPACING = 4
 const MOUSE_RADIUS = 36
@@ -204,14 +205,16 @@ export function WireframeRose() {
         const breath = 1 + Math.sin(elapsed * BREATH_SPEED + particle.phase) * BREATH_AMOUNT
         let size = BASE_SIZE * breath
         let alpha = 0.22 * breath
+        let rgb = OFFBLACK_RGB
 
         const force = getTrailInfluence(particle.x, particle.y)
         if (force > 0) {
           size = BASE_SIZE * breath + force * MAX_SWELL
-          alpha = 0.25 + force * 0.55
+          alpha = 0.35 + force * 0.6
+          rgb = TERRACOTTA_RGB
         }
 
-        ctx.fillStyle = `rgba(${OFFBLACK_RGB}, ${alpha})`
+        ctx.fillStyle = `rgba(${rgb}, ${alpha})`
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, size, 0, Math.PI * 2)
         ctx.fill()

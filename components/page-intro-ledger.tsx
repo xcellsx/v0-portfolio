@@ -17,7 +17,7 @@ export function PageIntroLedger({
         {stats.map((row) => (
           <div
             key={row.label}
-            className="grid gap-2 border-b border-[#E5E7EB] py-3 sm:grid-cols-[minmax(5.5rem,22%)_1fr] sm:gap-6"
+            className="ledger-stat-row"
           >
             <dt className="font-mono text-[10px] tracking-[0.12em] text-terracotta uppercase">
               {row.label}
