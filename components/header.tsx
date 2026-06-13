@@ -26,7 +26,7 @@ export function Header() {
             <video key={theme} autoPlay loop muted playsInline className="w-6 h-6 sm:w-8 sm:h-8 object-contain">
               <source src={theme === "light" ? "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/yCLX7IP-M6HrDxzJjMuHQL/public/logo.mp4" : "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/git-blob/prj_UvuPpMgGQ9TqHj42l5kehJk2QmGr/20cWL6q9DkE-9mOfNktUqs/public/logo-dark.mp4"} type="video/mp4" />
             </video>
-            <span className="font-bold text-lg sm:text-xl tracking-tight">CELINE.</span>
+            <span className="font-bold text-lg sm:text-xl tracking-tight">Celine</span>
           </Link>
           <div className="flex items-center gap-4 sm:gap-8">
             <nav className="hidden md:flex items-center gap-6 lg:gap-8">

@@ -1,2 +1,6 @@
 node_modules
 .next
+
+# Large video fallbacks — exceed GitHub 100MB limit; keep locally, deploy via host/CDN
+public/butta0001-0240.mov
+public/images/projects/rose-wire0001-0120.mov

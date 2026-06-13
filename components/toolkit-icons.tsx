@@ -37,12 +37,29 @@ export function ToolkitIcon({ tool, className = "w-4 h-4" }: ToolkitIconProps) {
     react: <SiReact className={className} />,
     "fusion 360": <Fusion360Icon className={className} />,
     fusion: <Fusion360Icon className={className} />,
+    affinity: (
+      <img src="/images/toolkit/affinity.png" alt="Affinity" className={`${className} object-contain`} />
+    ),
   }
 
   const icon = iconMap[toolKey]
 
   if (!icon) {
-    return null
+    const initials = tool
+      .split(/\s+/)
+      .map((word) => word[0])
+      .join("")
+      .slice(0, 2)
+      .toUpperCase()
+
+    return (
+      <span
+        className="inline-flex items-center justify-center font-mono text-[0.5rem] font-medium uppercase leading-none tracking-wide text-offblack/70"
+        title={tool}
+      >
+        {initials}
+      </span>
+    )
   }
 
   return <span className="inline-block" title={tool}>{icon}</span>

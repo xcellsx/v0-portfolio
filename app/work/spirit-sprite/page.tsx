@@ -93,8 +93,9 @@ export default function SpiritSpritePage() {
         <div className="container mx-auto max-w-5xl">
           {/* Back button and title row */}
           <div className="flex items-start justify-between mb-6 sm:mb-8 gap-2">
-            <Link href="/work" className="flex items-center gap-2 hover-iridescent mt-2 shrink-0">
+            <Link href="/work/3d-design" className="flex items-center gap-2 hover-iridescent mt-2 shrink-0 font-mono text-xs uppercase tracking-[0.12em]">
               <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+              Back
             </Link>
             <div className="text-center flex-1 min-w-0">
               <h1 className="font-script text-3xl sm:text-4xl md:text-5xl lg:text-6xl break-words">{spiritSpriteProjectData.title}</h1>
