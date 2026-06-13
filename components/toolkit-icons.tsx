@@ -1,5 +1,5 @@
 import React from "react"
-import { SiFigma, SiAdobeillustrator, SiBlender, SiTypescript, SiTailwindcss, SiPinterest, SiThreedotjs, SiReact } from "react-icons/si"
+import { SiFigma, SiBlender, SiTypescript, SiTailwindcss, SiPinterest, SiThreedotjs, SiReact } from "react-icons/si"
 
 interface ToolkitIconProps {
   tool: string
@@ -27,7 +27,9 @@ export function ToolkitIcon({ tool, className = "w-4 h-4" }: ToolkitIconProps) {
   
   const iconMap: Record<string, React.ReactNode> = {
     figma: <SiFigma className={className} />,
-    illustrator: <SiAdobeillustrator className={className} />,
+    illustrator: (
+      <img src="/images/toolkit/illustrator.png" alt="Adobe Illustrator" className={`${className} object-contain`} />
+    ),
     blender: <SiBlender className={className} />,
     typescript: <SiTypescript className={className} />,
     tailwind: <SiTailwindcss className={className} />,
