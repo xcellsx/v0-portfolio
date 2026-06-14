@@ -26,7 +26,6 @@ export const metadata: Metadata = {
   title: "Celine",
   description:
     "A multidisciplinary design and development practice bridging the gap between flat strategy and immersive digital experiences.",
-  generator: "v0.app",
   icons: {
     icon: [
       {

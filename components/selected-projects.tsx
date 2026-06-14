@@ -6,16 +6,7 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import { ProjectMockups } from "@/components/project-mockups"
 import { ProjectToolkitStack } from "@/components/project-toolkit-stack"
 import { selectedProjects } from "@/lib/selected-projects-data"
-
-function fadeInFromTopClass(visible: boolean, duration = "duration-[900ms]") {
-  return `transition-all ${duration} ease-out ${
-    visible ? "translate-y-0 opacity-100" : "-translate-y-10 opacity-0"
-  }`
-}
-
-function fadeDelayStyle(delayMs: number): React.CSSProperties {
-  return { transitionDelay: `${delayMs}ms` }
-}
+import { fadeDelayStyle, fadeInFromTopClass } from "@/lib/scroll-reveal"
 
 function backgroundNumberClass(visible: boolean) {
   return `transition-all duration-[900ms] ease-out ${

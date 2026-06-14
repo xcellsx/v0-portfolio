@@ -1,30 +1,65 @@
-# Portfolio structure
+# CELSTUDIOSX Portfolio
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+Portfolio site for **Celine Goh Hui Ling** — interaction design, web development, and 3D work presented as a cohesive editorial archive.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/xcellsxs-projects/v0-portfolio)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/bxOMhMqsWpb)
+**Stack:** Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · Three.js / React Three Fiber
 
-## Overview
+## Getting started
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+```bash
+npm install
+npm run dev
+```
 
-## Deployment
+Open [http://localhost:3000](http://localhost:3000).
 
-Your project is live at:
+```bash
+npm run build   # production build
+npm run start   # serve production build
+```
 
-**[https://vercel.com/xcellsxs-projects/v0-portfolio](https://vercel.com/xcellsxs-projects/v0-portfolio)**
+## Environment
 
-## Build your app
+Copy `.env.example` to `.env.local` and set your Formspree form ID for the contact form:
 
-Continue building your app on:
+```
+NEXT_PUBLIC_FORMSPREE_FORM_ID=your_form_id
+```
 
-**[https://v0.app/chat/bxOMhMqsWpb](https://v0.app/chat/bxOMhMqsWpb)**
+## Project structure
 
-## How It Works
+```
+app/          Route pages (thin wrappers)
+components/   UI, case studies, shared layout primitives
+lib/          Content and data (case studies, resume, project lists)
+hooks/        Shared client hooks (scroll reveal, typewriter)
+public/       Static assets (images, models, PDFs)
+```
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## Routes
+
+| Route | Description |
+|-------|-------------|
+| `/` | Home |
+| `/about` | About |
+| `/resume` | Resume |
+| `/contact` | Contact form |
+| `/work/3d-design` | 3D playground index |
+| `/work/graphic-design` | Poster A Day gallery |
+| `/work/web-development` | Web dev workbench |
+| `/work/serenity` | Serenity case study |
+| `/work/the-keepsake` | Keepsake case study |
+| `/work/twin-pagodas` | Twin Pagodas case study |
+| `/work/cayra` | Cayra case study |
+| `/work/spirit-sprite` | Spirit Sprite case study |
+
+## Assets
+
+Large video fallbacks (`.mov` files over 100MB) are gitignored. The site uses `.webm` / `.mp4` versions committed to `public/`. Some Cayra and header media are hosted on Vercel Blob storage.
+
+## Links
+
+- GitHub: [xcellsx](https://github.com/xcellsx)
+- LinkedIn: [celineghl](https://www.linkedin.com/in/celineghl/)
+- Instagram: [@celstudiosx](https://www.instagram.com/celstudiosx)
+- Email: celstudiosx@gmail.com

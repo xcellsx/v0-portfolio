@@ -61,7 +61,7 @@ export default function ContactPage() {
 
             {/* Right side - form */}
             <div className="space-y-8">
-              <h1 className="text-5xl md:text-6xl font-script">Let's Collaborate</h1>
+              <h1 className="text-5xl md:text-6xl font-serif">Let's Collaborate</h1>
 
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Got a project that needs depth? I'm currently available for freelance work. If you're looking for a

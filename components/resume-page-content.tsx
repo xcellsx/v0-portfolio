@@ -263,7 +263,7 @@ export function ResumePageContent() {
               </span>
             )
 
-            if (build.href) {
+            if ("href" in build && build.href) {
               return (
                 <Link
                   key={build.filename}
