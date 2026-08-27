@@ -32,7 +32,7 @@ export const site = {
   resumeDownload: "CV_Celine Goh Hui Ling_130626.pdf",
   tagline: "UI/UX design, research first.",
   lede:
-    "An editorial portfolio of interface work — problem framing, validation, journeys, and wireframes before polish.",
+    "An editorial portfolio of interface work — problem framing, validation, journeys, and wireframes before polish. Built with a mobile-first lens.",
   process: [
     {
       step: "01",
@@ -42,7 +42,7 @@ export const site = {
     {
       step: "02",
       title: "Research / validation",
-      body: "Interviews, competitive benchmarks, and evidence that the pain is real — not just personal preference.",
+      body: "Client consults, interviews, and evidence that the pain is real — not just personal preference.",
     },
     {
       step: "03",
@@ -62,182 +62,96 @@ export const site = {
   ],
 } as const
 
+/**
+ * Order tuned for a mobile-focused interview read:
+ * Serenity (mobile product) → Shopee (mobile challenge) → Ninkatec → GXS → Amazon
+ */
 export const caseStudies: CaseStudy[] = [
   {
-    id: "ninkatec",
-    slug: "ninkatec",
+    id: "serenity",
+    slug: "serenity",
     number: "01",
-    title: "Ninkatec onboarding",
-    org: "School project · 0 → 1",
-    context: "Healthcare onboarding website built from scratch",
-    tags: ["0→1", "Persona", "Journey", "Wireframes"],
+    title: "Serenity",
+    org: "Personal · mobile product",
+    context: "AI task architecture for executive dysfunction — designed as a native mobile experience",
+    tags: ["Mobile", "UI / UX", "AI", "Research"],
     summary:
-      "Identified user pain points for a healthcare onboarding experience, built persona and journey maps, then wireframed and designed against industry standards.",
+      "A mobile-first sanctuary that turns chaotic brain-dumps into calm, chunked checklists — research on cognitive load drove every interface cut.",
     researchFocus:
-      "Pain-point discovery → persona + journey → wireframes benchmarked to healthcare UX norms.",
+      "Cognitive-load research → strip corporate chrome → brain-dump → ambient parse → crystalline checklist.",
     problem:
-      "New patients and caregivers hit unclear onboarding paths — what to do first, what information mattered, and how care access actually worked.",
+      "Neurodivergent users abandoned productivity apps because organizing created more executive dysfunction than the tasks themselves.",
     constraint:
-      "School timeline with a 0-to-1 brief: no legacy product, limited stakeholder access, and a need to look credible against real healthcare digital standards.",
+      "Ship a calm mobile-first experience without recreating dashboard patterns users already rejected.",
     outcome:
-      "A structured onboarding narrative grounded in a validated persona and journey map, with wireframes and UI aligned to industry patterns for clarity and trust.",
-    role: "End-to-end UX / UI (research through visual design)",
-    timeline: "Academic sprint",
+      "A three-step mobile loop — unconstrained input, ambient processing, singular micro-actions — with chrome stripped to protect energy.",
+    role: "Lead end-to-end product designer & UI engineer",
+    timeline: "4-week sprint",
     methods: [
-      { method: "Pain-point interviews & desk research", why: "Surface where onboarding actually failed before inventing screens." },
-      { method: "Persona synthesis", why: "Keep the product honest to one primary user job, not a generic visitor." },
-      { method: "User journey mapping", why: "Locate drop-offs between awareness, signup, and first care action." },
-      { method: "Industry benchmarking", why: "Pressure-test wireframes against healthcare onboarding norms for trust and accessibility." },
+      {
+        method: "Cognitive-load / pattern teardown",
+        why: "Name which UI patterns (alerts, taxonomy-first forms) tax working memory.",
+      },
+      {
+        method: "Story mapping",
+        why: "Map the emotional arc from chaotic thought to one doable next step.",
+      },
+      {
+        method: "Prototype walkthroughs",
+        why: "Test whether an ambient wait felt calmer than instant checklist dumps.",
+      },
     ],
     insights: [
       {
-        finding: "Users needed orientation before forms — “what happens next” beat feature lists.",
-        decision: "Lead with a guided onboarding path and plain-language expectations before account creation.",
+        finding: "Capture fails when the UI demands categories first.",
+        decision: "Single unconstrained brain-dump field — structure comes after parsing.",
       },
       {
-        finding: "Trust cues mattered as much as task completion in healthcare contexts.",
-        decision: "Benchmark information hierarchy and reassurance patterns against industry standards before hi-fi.",
+        finding: "Instant results still felt like pressure.",
+        decision: "Intentional processing moment so the system visibly does the hard part.",
+      },
+      {
+        finding: "Corporate chrome restarts the stress loop.",
+        decision: "Remove persistent nav chrome; keep layout rigid and predictable.",
       },
     ],
     journey: [
-      { stage: "Discover", detail: "Understand care offering and eligibility without medical jargon overload." },
-      { stage: "Orient", detail: "See the path: what to prepare, who it’s for, how long onboarding takes." },
-      { stage: "Commit", detail: "Complete signup with confidence that the next clinical step is clear." },
-      { stage: "Begin care", detail: "Land in a first action that feels like progress, not another admin wall." },
+      { stage: "Overwhelm", detail: "User holds a messy pile of thoughts with nowhere safe to put them." },
+      { stage: "Dump", detail: "One field — no tags, no projects, no formatting tax." },
+      { stage: "Offload", detail: "Ambient processing signals the system is chunking the work." },
+      { stage: "Act", detail: "One micro-action at a time — checklist without alert theater." },
     ],
     fidelity: [
-      { step: "Research synthesis", detail: "Pain points clustered into persona goals and journey breaks." },
-      { step: "Wireframes", detail: "Low-fi flows for orient → commit before visual styling." },
-      { step: "Standards pass", detail: "Compared structure to industry onboarding patterns for healthcare trust." },
-      { step: "Hi-fi UI", detail: "Final screens with calm hierarchy and accessible form patterns." },
+      { step: "Research → principles", detail: "Non-negotiables: no red dots, no first-open taxonomy." },
+      { step: "Mobile flow wires", detail: "Three-step loop prototyped for thumb reach and calm pacing." },
+      { step: "Hi-fi UI", detail: "Frosted checklist cards, shape markers over color alerts." },
+      { step: "Live prototype", detail: "Web build for visualization; product framed as native mobile." },
     ],
     reflection:
-      "0-to-1 work taught me to earn every screen with evidence — persona and journey weren’t deliverables; they were the filter for what got designed.",
-  },
-  {
-    id: "amazon",
-    slug: "amazon",
-    number: "02",
-    title: "Amazon redesign",
-    org: "Personal project",
-    context: "Flow redesign around a validated friction point",
-    tags: ["Research", "Competitive audit", "Flow redesign"],
-    summary:
-      "Spotted a real friction point in the shopping experience, validated it wasn’t just personal taste through research, benchmarked competitors, then redesigned the flow.",
-    researchFocus:
-      "Personal friction → research validation → competitor benchmarks → redesigned flow.",
-    problem:
-      "A high-frequency shopping moment created avoidable friction — easy to dismiss as preference until research showed others hit the same wall.",
-    constraint:
-      "No internal Amazon data access; validation had to come from secondary research, competitive teardown, and structured critique.",
-    outcome:
-      "A redesigned flow that targets the validated friction with clearer decision support, informed by competitor patterns that already solved adjacent problems.",
-    role: "Solo UX research + interaction design",
-    timeline: "Self-directed study",
-    methods: [
-      { method: "Friction journaling", why: "Capture the exact moment the flow failed in real use." },
-      { method: "Secondary research / forums & reviews", why: "Check whether the pain was shared, not anecdotal." },
-      { method: "Competitive benchmarking", why: "Learn how peer products handle the same decision moment." },
-      { method: "Flow redesign + wireframes", why: "Propose a tighter path once the problem was validated." },
-    ],
-    insights: [
-      {
-        finding: "The friction wasn’t aesthetics — it was decision support at a critical commit step.",
-        decision: "Redesign around comparison and confidence, not a visual skin of the existing page.",
-      },
-      {
-        finding: "Competitors solved adjacent moments with progressive disclosure instead of denser pages.",
-        decision: "Borrow structure patterns, not visual clones — keep the redesign Amazon-plausible.",
-      },
-    ],
-    journey: [
-      { stage: "Intent", detail: "User arrives with a goal and incomplete certainty." },
-      { stage: "Friction", detail: "Existing UI buries the signal needed to commit." },
-      { stage: "Validation", detail: "Research confirms others stall at the same step." },
-      { stage: "Redesign", detail: "New flow surfaces the missing signal earlier." },
-    ],
-    fidelity: [
-      { step: "Problem brief", detail: "Named the friction with evidence, not taste." },
-      { step: "Benchmark boards", detail: "Competitor patterns for the same decision moment." },
-      { step: "Wireframes", detail: "Alternate flow structures stress-tested against the brief." },
-      { step: "Hi-fi proposal", detail: "Polished redesign communicating the new decision path." },
-    ],
-    reflection:
-      "Personal projects only count when research proves the pain. Validation was the difference between a redesign rant and a design argument.",
-  },
-  {
-    id: "gxs",
-    slug: "gxs",
-    number: "03",
-    title: "GXS Bank",
-    org: "Product Design Intern",
-    context: "Existing digital banking product · team collaboration",
-    tags: ["Internship", "A/B testing", "Preference tests", "UX writing"],
-    summary:
-      "Joined an existing product, flagged gaps against real user workflows in a shared Figma file, helped run A/B and preference tests, wrote questionnaires, and consolidated findings.",
-    researchFocus:
-      "Workflow gap critique → collaborative Figma feedback → A/B & preference testing → questionnaire design & synthesis.",
-    problem:
-      "Live product flows didn’t always match how users actually completed banking tasks — gaps that only show up when you watch workflows, not just screens.",
-    constraint:
-      "Internship inside an existing system: design tokens, shared Figma ownership, cross-functional prioritization, and research that had to be actionable for the team.",
-    outcome:
-      "Documented workflow gaps in shared Figma, contributed to A/B and preference testing once new screens landed, and turned questionnaire responses into consolidated insights for prioritization.",
-    role: "Product Design Intern — critique, testing support, research synthesis, UX microcopy",
-    timeline: "Sep 2024 — Jan 2025",
-    methods: [
-      { method: "Workflow gap analysis", why: "Compare designed flows to real task paths users take." },
-      { method: "Collaborative Figma critique", why: "Make feedback visible and discussable with the squad." },
-      { method: "A/B & preference tests", why: "Let users choose and behave — not just comment." },
-      { method: "Questionnaire design + synthesis", why: "Capture structured signal and consolidate themes for the team." },
-    ],
-    insights: [
-      {
-        finding: "Gaps lived between screens — handoffs and microcopy — more than in isolated UI blocks.",
-        decision: "Annotate end-to-end workflows in Figma so engineering and design debate the same seams.",
-      },
-      {
-        finding: "Preference tests alone weren’t enough; pairing with A/B framed trade-offs for stakeholders.",
-        decision: "Support both evaluative methods and write questionnaires that produce comparable findings.",
-      },
-    ],
-    journey: [
-      { stage: "Observe", detail: "Map real user workflows against current product paths." },
-      { stage: "Annotate", detail: "Log gaps in shared Figma for team visibility." },
-      { stage: "Test", detail: "Run A/B and preference tests when candidate screens are ready." },
-      { stage: "Synthesize", detail: "Consolidate questionnaire and test findings into priorities." },
-    ],
-    fidelity: [
-      { step: "Existing UI audit", detail: "Critique live flows against workflow reality." },
-      { step: "Shared Figma notes", detail: "Team-readable annotations, not private opinions." },
-      { step: "Test materials", detail: "Questionnaires and preference setups for new screens." },
-      { step: "Insight readout", detail: "Consolidated findings that feed prioritization." },
-    ],
-    reflection:
-      "Internship UX is less “own the file” and more “make the truth visible.” Shared critique and clean research synthesis moved the product more than solo polish.",
+      "Mobile UX here wasn’t smaller desktop — it was fewer decisions per screen. Research gave permission to delete.",
   },
   {
     id: "shopee",
     slug: "shopee",
-    number: "04",
+    number: "02",
     title: "Shopee design test",
-    org: "Design challenge",
-    context: "Timed problem-first case with mentor feedback",
-    tags: ["Design test", "Prioritization", "Depth over breadth"],
+    org: "Design challenge · mobile",
+    context: "Timed problem-first case on a mobile commerce experience",
+    tags: ["Mobile", "Design test", "Prioritization"],
     summary:
-      "Applied the same problem-first approach under challenge constraints — and received feedback that I’d tried to fix too many issues at once instead of going deep on one. That lesson now shapes how I scope work.",
+      "Problem-first approach under time pressure — with feedback that I’d tried to fix too many issues at once. That lesson now shapes how I scope every case.",
     researchFocus:
-      "Problem framing under time pressure → the hard lesson: depth on one issue beats shallow fixes across many.",
+      "Rapid issue inventory → mentor critique → depth on one mobile friction instead of shallow fixes across many.",
     problem:
-      "The challenge surfaced multiple legitimate UX issues. The trap was treating all of them as equally urgent inside a fixed window.",
+      "The challenge surfaced multiple legitimate mobile UX issues. Treating all of them as equal diluted the case.",
     constraint:
-      "Design-test timebox: limited research depth, need to show judgment, not just volume of proposed fixes.",
+      "Design-test timebox: limited research depth; judgment mattered more than volume of proposed screens.",
     outcome:
-      "A strong problem-first attempt plus a durable practice change — scope to the highest-leverage issue, go deep, and leave a clear trail of what was deferred.",
+      "A durable practice change — pick the highest-leverage mobile problem, go deep, and park the rest as an explicit backlog.",
     role: "Candidate · end-to-end design test",
     timeline: "Challenge window",
     methods: [
-      { method: "Rapid problem framing", why: "Show thinking under time pressure." },
+      { method: "Rapid problem framing", why: "Show thinking under time pressure on a mobile flow." },
       { method: "Issue inventory", why: "List friction points before proposing UI." },
       { method: "Prioritization (post-feedback)", why: "Pick one issue and defend why it comes first." },
       { method: "Deep-flow redesign", why: "Spend the wireframe budget where impact is highest." },
@@ -245,27 +159,220 @@ export const caseStudies: CaseStudy[] = [
     insights: [
       {
         finding: "Mentor feedback: fixing too many issues at once diluted the case.",
-        decision: "Now I force a single primary problem statement and park the rest as a backlog.",
+        decision: "Force a single primary problem statement; park the rest as backlog.",
       },
       {
         finding: "Breadth reads as energy; depth reads as judgment.",
-        decision: "Case studies and tests lead with one ordeal, one decision chain, one outcome.",
+        decision: "Cases lead with one ordeal, one decision chain, one outcome.",
       },
     ],
     journey: [
-      { stage: "Scan", detail: "Inventory issues in the prompt experience." },
+      { stage: "Scan", detail: "Inventory issues in the mobile prompt experience." },
       { stage: "Overreach", detail: "Earlier instinct: address everything visible." },
       { stage: "Feedback", detail: "Mentorship flags depth vs. breadth." },
-      { stage: "Reframe", detail: "Practice becomes: one problem, deep solution, explicit deferrals." },
+      { stage: "Reframe", detail: "One problem, deep solution, explicit deferrals." },
     ],
     fidelity: [
       { step: "Issue map", detail: "All frictions listed honestly." },
-      { step: "Priority cut", detail: "One primary problem selected." },
+      { step: "Priority cut", detail: "One primary mobile problem selected." },
       { step: "Deep wireframes", detail: "Full attention on the chosen flow." },
       { step: "Backlog note", detail: "Deferred issues documented — not ignored." },
     ],
     reflection:
-      "The Shopee test is in this portfolio because the feedback changed my process. Good UX isn’t covering every wound — it’s choosing the one that matters most and healing it well.",
+      "Good mobile UX isn’t covering every wound — it’s choosing the one that matters most and healing it well.",
+  },
+  {
+    id: "ninkatec",
+    slug: "ninkatec",
+    number: "03",
+    title: "Ninkatec onboarding",
+    org: "School · client project",
+    context: "0→1 onboarding web experience consolidating a mostly manual workflow",
+    tags: ["0→1", "Client consult", "Persona", "Preference test"],
+    summary:
+      "Designed an onboarding web experience that replaced scattered manual forms — grounded in client consults, internal interviews, and a primary persona (Jane).",
+    researchFocus:
+      "Client problem-sourcing consult → internal pain-point interviews → Jane persona → preference testing on direction.",
+    problem:
+      "Onboarding lived in manual workflows — fragmented forms and handoffs made it hard to consolidate patient, nurse, and operational information in one place.",
+    constraint:
+      "Four-month school engagement with a real client: digitize without breaking trust, and stay NDA-safe in how process is shared publicly.",
+    outcome:
+      "Handed over an onboarding web flow backed by a structured database for staff, patients, and nurses. Live production status after handover is unknown.",
+    role: "Designer",
+    timeline: "4 months",
+    methods: [
+      {
+        method: "Client consult (problem sourcing)",
+        why: "Align on the real onboarding pain before proposing screens.",
+      },
+      {
+        method: "Internal interviews",
+        why: "Hear pain points across roles inside the company — not only the briefing slide.",
+      },
+      {
+        method: "Persona — Jane (primary user)",
+        why: "Keep the flow honest to the main platform user rather than designing for everyone equally.",
+      },
+      {
+        method: "Preference testing",
+        why: "Check which directions felt more suitable to stakeholders before locking UI.",
+      },
+    ],
+    insights: [
+      {
+        finding: "The core job wasn’t “a prettier website” — it was consolidating manual onboarding into one path.",
+        decision: "Treat every screen as a replacement for a manual form or handoff, not a marketing page.",
+      },
+      {
+        finding: "Different internal roles felt different pains; Jane kept the primary path from fracturing.",
+        decision: "Design the main onboarding spine for Jane; capture other roles as data/relationships in the system model.",
+      },
+      {
+        finding: "Preference tests surfaced suitability early — before over-investing in one visual direction.",
+        decision: "Use preference rounds to choose direction, then deepen wireframes on the winner.",
+      },
+    ],
+    journey: [
+      {
+        stage: "Manual today",
+        detail: "Onboarding information scattered across forms and handoffs.",
+      },
+      {
+        stage: "Consult + listen",
+        detail: "Client problem-sourcing and internal interviews map where friction actually sits.",
+      },
+      {
+        stage: "Digitize spine",
+        detail: "Manual forms become a guided onboarding web flow with stored records.",
+      },
+      {
+        stage: "Handover",
+        detail: "Team receives the experience and data model; post-handover ship status unclear.",
+      },
+    ],
+    fidelity: [
+      {
+        step: "Problem framing",
+        detail: "Consult notes + interview themes → consolidate-onboarding brief.",
+      },
+      {
+        step: "Persona + journey",
+        detail: "Jane as primary user; path from intake to stored record.",
+      },
+      {
+        step: "Wireframes → web UI",
+        detail: "Form replacement flows for onboarding steps.",
+      },
+      {
+        step: "Data model",
+        detail: "Database structure for operational users, patients, and nurses.",
+      },
+    ],
+    reflection:
+      "Artifacts stay private under NDA — the public story is the process: consult, interview, persona, digitize the manual spine, preference-test direction, handover. That’s the transferable craft.",
+  },
+  {
+    id: "gxs",
+    slug: "gxs",
+    number: "04",
+    title: "GXS Bank",
+    org: "Product Design Intern",
+    context: "Existing digital banking product · team collaboration",
+    tags: ["Internship", "Mobile banking", "A/B", "Preference tests"],
+    summary:
+      "Joined an existing product, flagged gaps against real user workflows in shared Figma, helped run A/B and preference tests, wrote questionnaires, and consolidated findings.",
+    researchFocus:
+      "Workflow gap critique → collaborative Figma feedback → A/B & preference testing → questionnaire synthesis.",
+    problem:
+      "Live product flows didn’t always match how users actually completed banking tasks — gaps that show up in workflows, not isolated screens.",
+    constraint:
+      "Internship inside an existing system: tokens, shared Figma, cross-functional prioritization.",
+    outcome:
+      "Documented workflow gaps in shared Figma, supported A/B and preference tests on new screens, consolidated questionnaire findings for prioritization.",
+    role: "Product Design Intern — critique, testing support, research synthesis, UX microcopy",
+    timeline: "Sep 2024 — Jan 2025",
+    methods: [
+      { method: "Workflow gap analysis", why: "Compare designed flows to real task paths." },
+      { method: "Collaborative Figma critique", why: "Make feedback visible to the squad." },
+      { method: "A/B & preference tests", why: "Let users choose and behave — not just comment." },
+      { method: "Questionnaire design + synthesis", why: "Structured signal → themes the team can act on." },
+    ],
+    insights: [
+      {
+        finding: "Gaps lived between screens — handoffs and microcopy — more than in isolated UI blocks.",
+        decision: "Annotate end-to-end workflows in Figma so the team debates the same seams.",
+      },
+      {
+        finding: "Preference tests paired with A/B framed trade-offs more clearly for stakeholders.",
+        decision: "Support both methods and write questionnaires that produce comparable findings.",
+      },
+    ],
+    journey: [
+      { stage: "Observe", detail: "Map real workflows against current product paths." },
+      { stage: "Annotate", detail: "Log gaps in shared Figma." },
+      { stage: "Test", detail: "A/B and preference tests when candidate screens are ready." },
+      { stage: "Synthesize", detail: "Consolidate findings into priorities." },
+    ],
+    fidelity: [
+      { step: "Existing UI audit", detail: "Critique live flows against workflow reality." },
+      { step: "Shared Figma notes", detail: "Team-readable annotations." },
+      { step: "Test materials", detail: "Questionnaires and preference setups." },
+      { step: "Insight readout", detail: "Findings that feed prioritization." },
+    ],
+    reflection:
+      "Internship UX is less “own the file” and more “make the truth visible.” Shared critique and clean synthesis moved the product more than solo polish.",
+  },
+  {
+    id: "amazon",
+    slug: "amazon",
+    number: "05",
+    title: "Amazon redesign",
+    org: "Personal project",
+    context: "Flow redesign around a validated friction point",
+    tags: ["Research", "Competitive audit", "Flow redesign"],
+    summary:
+      "Spotted a real friction point, validated it wasn’t just personal taste, benchmarked competitors, then redesigned the flow.",
+    researchFocus:
+      "Personal friction → research validation → competitor benchmarks → redesigned flow.",
+    problem:
+      "A high-frequency shopping moment created avoidable friction — easy to dismiss as preference until research showed others hit the same wall.",
+    constraint:
+      "No internal data access; validation via secondary research, competitive teardown, and structured critique.",
+    outcome:
+      "A redesigned flow targeting the validated friction with clearer decision support, informed by competitor patterns.",
+    role: "Solo UX research + interaction design",
+    timeline: "Self-directed study",
+    methods: [
+      { method: "Friction journaling", why: "Capture the exact failure moment in real use." },
+      { method: "Secondary research", why: "Check whether the pain was shared." },
+      { method: "Competitive benchmarking", why: "See how peers handle the same decision moment." },
+      { method: "Flow redesign + wireframes", why: "Propose a tighter path once validated." },
+    ],
+    insights: [
+      {
+        finding: "The friction was decision support at commit — not aesthetics.",
+        decision: "Redesign around comparison and confidence, not a visual skin.",
+      },
+      {
+        finding: "Competitors used progressive disclosure instead of denser pages.",
+        decision: "Borrow structure patterns, not visual clones.",
+      },
+    ],
+    journey: [
+      { stage: "Intent", detail: "User arrives with a goal and incomplete certainty." },
+      { stage: "Friction", detail: "UI buries the signal needed to commit." },
+      { stage: "Validation", detail: "Research confirms others stall here." },
+      { stage: "Redesign", detail: "New flow surfaces the missing signal earlier." },
+    ],
+    fidelity: [
+      { step: "Problem brief", detail: "Named the friction with evidence." },
+      { step: "Benchmark boards", detail: "Competitor patterns for the decision moment." },
+      { step: "Wireframes", detail: "Alternate flows stress-tested against the brief." },
+      { step: "Hi-fi proposal", detail: "Polished redesign of the new decision path." },
+    ],
+    reflection:
+      "Personal projects only count when research proves the pain — validation turns a rant into a design argument.",
   },
 ]
 

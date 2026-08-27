@@ -61,7 +61,6 @@ public/       Static assets (images, models, PDFs)
 | `/resume` | Resume |
 | `/contact` | Contact form |
 | `/work/ui-ux` | UI/UX portfolio hub (research-first) |
-| `/work/wxp` | WXP × GovTech case study |
 | `/work/3d-design` | 3D playground index |
 | `/work/graphic-design` | Poster A Day gallery |
 | `/work/web-development` | Web dev workbench |

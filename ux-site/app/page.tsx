@@ -65,11 +65,11 @@ export default function HomePage() {
           <div>
             <SectionLabel>[ Selected // Work ]</SectionLabel>
             <h2 className="mt-4 font-serif text-[clamp(1.75rem,3.5vw,2.5rem)] font-medium tracking-[-0.02em] text-offblack">
-              Four cases. Research first.
-            </h2>
+            Selected work. Research first. Mobile-led.
+          </h2>
           </div>
           <p className="hidden max-w-xs text-right font-mono text-[10px] tracking-[0.1em] text-offblack/45 uppercase md:block">
-            Ninkatec · Amazon · GXS · Shopee
+            Serenity · Shopee · Ninkatec · GXS · Amazon
           </p>
         </div>
         <div className="border-t border-line">
