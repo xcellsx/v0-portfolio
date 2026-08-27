@@ -1,7 +1,6 @@
 /**
  * WXP × GovTech — Workplace Experience Product
- * Research-amplified case study. Replace placeholder metrics/quotes
- * when you dump final research artifacts and screens.
+ * Research-amplified case study content and structure.
  */
 
 export const wxpMeta = {
@@ -236,6 +235,4 @@ export const wxpOutcome = {
     title: "What I’d change next",
     body: "Instrument live post-booking navigation completion as a primary metric — not only booking conversion. The research proved the handoff mattered; production analytics should watch that seam continuously.",
   },
-  nextDumpNote:
-    "Ready for your artifacts: interview quotes, journey diagram, lo-fi boards, hi-fi screens, and final metrics. Drop them in and we’ll wire them into these slots.",
 } as const

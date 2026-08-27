@@ -1,6 +1,6 @@
 /**
  * UI/UX portfolio index — research-first case studies.
- * Dump additional projects here; the hub and selected-work picker read from this list.
+ * Add projects to `uxProjects`; the hub and selected-work picker read from this list.
  */
 
 export interface UxProjectCard {
@@ -13,7 +13,7 @@ export interface UxProjectCard {
   researchFocus: string
   summary: string
   href: string
-  status: "featured" | "ready" | "incoming"
+  status: "featured" | "ready"
   coverHint?: string
 }
 
@@ -63,23 +63,9 @@ export const uxProjects: UxProjectCard[] = [
     researchFocus:
       "Cognitive-load research and neurodivergent user needs that stripped corporate UI patterns.",
     summary:
-      "A generative task-chunking sanctuary — now with an explicit research → insight → interface chain.",
+      "A generative task-chunking sanctuary with an explicit research → insight → interface chain.",
     href: "/work/serenity",
     status: "ready",
     coverHint: "Cognitive load → Interface",
   },
 ]
-
-/** Slots for projects you’ll dump later — visible on the hub as incoming. */
-export const uxIncomingSlots = [
-  {
-    number: "03",
-    label: "Next case study",
-    hint: "Drop brief, research notes, journey, and fidelity artifacts — structure is ready.",
-  },
-  {
-    number: "04",
-    label: "Next case study",
-    hint: "Same research-first template: cold-read strip, insights wired to decisions, outcomes.",
-  },
-] as const

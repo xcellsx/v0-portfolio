@@ -26,6 +26,18 @@ Copy `.env.example` to `.env.local` and set your Formspree form ID for the conta
 NEXT_PUBLIC_FORMSPREE_FORM_ID=your_form_id
 ```
 
+## Deploy
+
+This is a standard Next.js App Router app. Deploy to Vercel (or any Node host):
+
+```bash
+npm install
+npm run build
+npx vercel --prod   # or connect the GitHub repo in the Vercel dashboard
+```
+
+Optional contact form: copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_FORMSPREE_FORM_ID`.
+
 ## Project structure
 
 ```

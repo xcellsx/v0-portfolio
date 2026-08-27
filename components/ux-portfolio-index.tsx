@@ -6,7 +6,6 @@ import { ContactSection } from "@/components/contact-section"
 import { CaseStudyBackLink } from "@/components/case-study-primitives"
 import { SectionLabel } from "@/components/section-label"
 import {
-  uxIncomingSlots,
   uxPortfolioIntro,
   uxProjects,
 } from "@/lib/ux-portfolio-data"
@@ -142,31 +141,6 @@ export function UxPortfolioIndex() {
             </li>
           ))}
         </ul>
-
-        <div
-          className={`mt-[clamp(2.5rem,6vh,4rem)] ${fadeInFromTopClass(projectsVisible)}`}
-          style={{ transitionDelay: "240ms" }}
-        >
-          <SectionLabel>[ Incoming — Ready For Your Dumps ]</SectionLabel>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            {uxIncomingSlots.map((slot) => (
-              <div
-                key={slot.number}
-                className="border border-dashed border-offblack/20 px-5 py-6"
-              >
-                <p className="font-mono text-[11px] tracking-[0.14em] text-offblack/35">
-                  {slot.number}
-                </p>
-                <p className="mt-2 font-serif text-lg font-medium tracking-[-0.02em] text-offblack/70">
-                  {slot.label}
-                </p>
-                <p className="mt-2 font-sans text-sm leading-relaxed text-offblack/50">
-                  {slot.hint}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
       <ContactSection />

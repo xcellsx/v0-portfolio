@@ -3,13 +3,18 @@
 import { ContactSection } from "@/components/contact-section"
 import { CaseStudyBackLink, SpecMatrix } from "@/components/case-study-primitives"
 import {
-  ArtifactSlot,
   ColdReadStrip,
   FidelityLadder,
   JourneyStages,
   MethodWhyList,
   ResearchInsightGrid,
 } from "@/components/ux-case-study-primitives"
+import {
+  WxpFidelityFrames,
+  WxpFidelityStrip,
+  WxpHeroProduct,
+  WxpJourneyDiagram,
+} from "@/components/wxp-visuals"
 import { SectionLabel } from "@/components/section-label"
 import {
   wxpColdRead,
@@ -57,21 +62,12 @@ export function WxpCaseStudy() {
         </div>
 
         <div
-          className={`mt-[clamp(2.5rem,6vh,4rem)] grid gap-4 sm:grid-cols-3 ${fadeInFromTopClass(heroVisible)}`}
+          className={`mt-[clamp(2.5rem,6vh,4rem)] grid gap-4 lg:grid-cols-3 ${fadeInFromTopClass(heroVisible)}`}
           style={{ transitionDelay: "120ms" }}
         >
-          <ArtifactSlot
-            label="Hero visual"
-            hint="Drop final product mockup or research wall photo here."
-          />
-          <ArtifactSlot
-            label="Journey map"
-            hint="Export of the employee journey — intent → arrive."
-          />
-          <ArtifactSlot
-            label="Fidelity strip"
-            hint="Lo-fi → mid-fi → hi-fi side-by-side stills."
-          />
+          <WxpHeroProduct />
+          <WxpJourneyDiagram />
+          <WxpFidelityStrip />
         </div>
       </section>
 
@@ -115,7 +111,6 @@ export function WxpCaseStudy() {
         </div>
       </section>
 
-      {/* Amplified research — the spine of this portfolio track */}
       <section
         ref={researchRef}
         className="border-t border-offblack/10 px-[clamp(1.5rem,4vw,5rem)] py-[clamp(3rem,8vh,5rem)]"
@@ -217,12 +212,10 @@ export function WxpCaseStudy() {
           <FidelityLadder steps={wxpFidelity.steps} />
         </div>
         <div
-          className={`mt-8 grid gap-4 sm:grid-cols-3 ${fadeInFromTopClass(fidelityVisible)}`}
+          className={`mt-8 ${fadeInFromTopClass(fidelityVisible)}`}
           style={{ transitionDelay: "160ms" }}
         >
-          <ArtifactSlot label="Lo-fi board" hint="Wireframes / paper flows proving sequence." />
-          <ArtifactSlot label="Mid-fi prototype" hint="Clickable test build + naming annotations." />
-          <ArtifactSlot label="Hi-fi UI" hint="Final screens + accessible component states." />
+          <WxpFidelityFrames />
         </div>
       </section>
 
@@ -309,9 +302,6 @@ export function WxpCaseStudy() {
           </p>
           <p className="mt-3 font-sans text-sm leading-[1.7] text-offblack/80">
             {wxpOutcome.reflection.body}
-          </p>
-          <p className="mt-6 border-l border-terracotta/40 pl-4 font-mono text-[11px] leading-relaxed tracking-[0.06em] text-offblack/50">
-            {wxpOutcome.nextDumpNote}
           </p>
         </div>
       </section>
