@@ -332,52 +332,88 @@ export const caseStudies: CaseStudy[] = [
     id: "shopee",
     slug: "shopee",
     number: "04",
-    title: "Shopee design test",
-    org: "Design challenge · mobile",
-    context: "Timed problem-first case on a mobile commerce experience",
-    tags: ["Mobile", "Design test", "Prioritization"],
+    title: "Shopee redesign",
+    org: "UI/UX · app redesign exercise",
+    context: "1-week redesign of Shopee’s mobile app — price clarity, variants, and product detail presentation",
+    tags: ["Mobile", "Checkout", "1 week"],
     summary:
-      "Problem-first approach under time pressure — with feedback that I’d tried to fix too many issues at once. That lesson now shapes how I scope every case.",
+      "Price didn’t feel consistent into checkout, plus smaller UI frictions — I redesigned for upfront price clarity, clearer variant control, and in-page product info, then learned checkout users rarely want to change variants there.",
     researchFocus:
-      "Rapid issue inventory → mentor critique → depth on one mobile friction instead of shallow fixes across many.",
+      "Web review search + my own walkthrough of the app (thin research; no formal persona beyond myself as shopper).",
     problem:
-      "The challenge surfaced multiple legitimate mobile UX issues. Treating all of them as equal diluted the case.",
+      "Prices appeared to jump across screens into checkout (subtotal was often correct but key values stayed hidden), and product/variant details were easy to miss or hard to edit once you were deep in the flow.",
     constraint:
-      "Design-test timebox: limited research depth; judgment mattered more than volume of proposed screens.",
+      "One-week solo redesign; no usability test; Figma file kept private; referenced web patterns more than mobile e-commerce conventions.",
     outcome:
-      "A durable practice change — pick the highest-leverage mobile problem, go deep, and park the rest as an explicit backlog.",
-    role: "Candidate · end-to-end design test",
-    timeline: "Challenge window",
+      "Mocked: original price up front, more obvious/editable variants even on checkout, and product info on the page (image + variant selection) instead of a bottom sheet. Biggest learning from the checkout angle — people already on checkout usually don’t want to change variant. Also: I should have benchmarked mobile e-commerce apps, not web.",
+    role: "UI/UX designer (redesign exercise)",
+    timeline: "1 week",
     methods: [
-      { method: "Rapid problem framing", why: "Show thinking under time pressure on a mobile flow." },
-      { method: "Issue inventory", why: "List friction points before proposing UI." },
-      { method: "Prioritization (post-feedback)", why: "Pick one issue and defend why it comes first." },
-      { method: "Deep-flow redesign", why: "Spend the wireframe budget where impact is highest." },
+      {
+        method: "Review mining (web search)",
+        why: "Pull recurring shopper complaints about price/checkout clarity.",
+      },
+      {
+        method: "Personal walkthrough",
+        why: "Validate friction hands-on as a shopper — where price and variants feel wrong.",
+      },
+      {
+        method: "Figma redesign",
+        why: "Propose upfront pricing, variant confirmation/edit, and in-page product detail instead of a sheet.",
+      },
     ],
     insights: [
       {
-        finding: "Mentor feedback: fixing too many issues at once diluted the case.",
-        decision: "Force a single primary problem statement; park the rest as backlog.",
+        finding: "The math was often fine — the trust break was hidden values making price feel like it jumped.",
+        decision: "Surface the original / expected number earlier instead of only revealing clarity at subtotal.",
       },
       {
-        finding: "Breadth reads as energy; depth reads as judgment.",
-        decision: "Cases lead with one ordeal, one decision chain, one outcome.",
+        finding: "Making variants editable on checkout fights convention (cart is usually the edit place).",
+        decision: "Outcome learning: checkout users rarely want to change variant — put energy where they still will.",
+      },
+      {
+        finding: "Bottom-sheet product info hid image/variant context when decisions were still forming.",
+        decision: "Keep image updates and variant selection on the main UI during selection.",
       },
     ],
     journey: [
-      { stage: "Scan", detail: "Inventory issues in the mobile prompt experience." },
-      { stage: "Overreach", detail: "Earlier instinct: address everything visible." },
-      { stage: "Feedback", detail: "Mentorship flags depth vs. breadth." },
-      { stage: "Reframe", detail: "One problem, deep solution, explicit deferrals." },
+      {
+        stage: "Browse / select",
+        detail: "Product info and variants need to stay visible — not tucked in a sheet.",
+      },
+      {
+        stage: "Price trust",
+        detail: "Hidden line items make the number feel unstable even when subtotal is right.",
+      },
+      {
+        stage: "Checkout",
+        detail: "Users are committing — variant edits here are uncommon; clarity matters more than edit power.",
+      },
+      {
+        stage: "Retrospective",
+        detail: "Benchmark mobile commerce patterns next time, not web checkout habits.",
+      },
     ],
     fidelity: [
-      { step: "Issue map", detail: "All frictions listed honestly." },
-      { step: "Priority cut", detail: "One primary mobile problem selected." },
-      { step: "Deep wireframes", detail: "Full attention on the chosen flow." },
-      { step: "Backlog note", detail: "Deferred issues documented — not ignored." },
+      {
+        step: "Walkthrough notes",
+        detail: "Price jumps + minor UI frictions logged from real app use.",
+      },
+      {
+        step: "Figma redesign",
+        detail: "Upfront price, in-page product/variant UI, clearer checkout variant treatment (file private).",
+      },
+      {
+        step: "No test round",
+        detail: "No usability test — outcome judgment from redesign logic + later reflection.",
+      },
+      {
+        step: "Reference miss",
+        detail: "Should have used mobile e-commerce apps as the primary benchmark.",
+      },
     ],
     reflection:
-      "Same lesson as Amazon: stay focused on the problem — don’t change one thing and create a mess of extras. Depth on one issue beats a sprawl of fixes.",
+      "Same focus lesson as Amazon: don’t over-solve adjacent UI. And specifically here — reference mobile e-commerce, not web, when the product is an app.",
   },
 {
     id: "amazon",
