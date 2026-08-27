@@ -10,7 +10,7 @@ export default function HomePage() {
         <div className="relative max-w-4xl">
           <SectionLabel>[ UI // UX Portfolio ]</SectionLabel>
           <h1 className="reveal mt-6 font-serif text-[clamp(3rem,8vw,5.5rem)] font-medium leading-[0.95] tracking-[-0.03em] text-offblack">
-            {site.brand}
+            {site.name}
           </h1>
           <p className="reveal reveal-delay-1 mt-6 max-w-xl font-serif text-[clamp(1.35rem,2.8vw,1.85rem)] font-medium leading-snug tracking-[-0.02em] text-terracotta">
             {site.tagline}
@@ -65,11 +65,11 @@ export default function HomePage() {
           <div>
             <SectionLabel>[ Selected // Work ]</SectionLabel>
             <h2 className="mt-4 font-serif text-[clamp(1.75rem,3.5vw,2.5rem)] font-medium tracking-[-0.02em] text-offblack">
-            Selected work. Research first. Mobile-led.
-          </h2>
+              Selected work. Five problems, worked through.
+            </h2>
           </div>
           <p className="hidden max-w-xs text-right font-mono text-[10px] tracking-[0.1em] text-offblack/45 uppercase md:block">
-            Serenity · Shopee · Ninkatec · GXS · Amazon
+            GXS · Ninkatec · Serenity · Shopee · Amazon
           </p>
         </div>
         <div className="border-t border-line">
