@@ -17,9 +17,12 @@ export interface CaseStudy {
   timeline: string
   methods: { method: string; why: string }[]
   insights: { finding: string; decision: string }[]
-  journey: { stage: string; detail: string }[]
+  /** Omit or leave empty when no persona/journey work was done. */
+  journey?: { stage: string; detail: string }[]
   fidelity: { step: string; detail: string }[]
   reflection: string
+  liveUrl?: string
+  figmaUrl?: string
 }
 
 export const site = {
@@ -243,62 +246,74 @@ export const caseStudies: CaseStudy[] = [
     title: "Serenity",
     org: "Personal project",
     context:
-      "AI task helper for people who feel overwhelmed — live web prototype + Figma mockups",
-    tags: ["UI / UX", "AI", "Live prototype"],
+      "1-month end-to-end build (design + AI with Claude/Cursor) — Figma workflow + web deploy of a mobile-meant experience",
+    tags: ["UI / UX", "AI", "Live prototype", "Figma"],
     summary:
-      "A calm task flow that turns a messy brain-dump into small next steps — for anyone who feels overwhelmed by typical productivity apps.",
+      "Built an end-to-end task app aimed at neurodivergent planning/organising/completing pain — then learned in interviews that thin research left the design hard to defend.",
     researchFocus:
-      "Overwhelm + cognitive load → strip noisy chrome → dump → parse → one checklist at a time.",
+      "Light desk research (Google + Notion comparisons + small conversations) → build first → interview feedback: not ND-friendly enough, choices under-backed.",
     problem:
-      "When people feel overwhelmed, most productivity apps add more structure (tags, calendars, alerts) before they’ve even captured the thought — which makes starting harder.",
+      "Neurodivergent users often struggle with planning, organising, and completing tasks — and many productivity tools (Notion-like density) add setup cost before any progress.",
     constraint:
-      "Personal build: design for mobile first, ship a usable web prototype + Figma mockups without overselling a clinical niche.",
+      "One-month solo sprint; built with AI (Claude + Cursor); mobile experience shipped as a web deploy; some core features still not in the build; no formal usability testing.",
     outcome:
-      "Live site + Figma mockups for a three-step loop (dump → ambient parse → simple checklist). Shown as a mobile product via phone-framed screens and a clear “designed for mobile” note on the web prototype.",
-    role: "Solo designer & builder",
-    timeline: "Personal sprint",
+      "Full workflow in Figma + a live web prototype. Interview feedback flagged that it didn’t feel neurodivergent-friendly and that design choices lacked research backing — which is now the case’s main lesson.",
+    role: "End-to-end designer & builder (UI/UX + AI implementation with Claude / Cursor)",
+    timeline: "1 month",
+    liveUrl: "https://serenity-delta-livid.vercel.app/",
     methods: [
       {
-        method: "Pattern teardown",
-        why: "Spot which app patterns (alerts, taxonomy-first forms) make overwhelm worse.",
+        method: "Desk research (Google)",
+        why: "Quick scan of ND planning/organisation friction and existing tool patterns.",
       },
       {
-        method: "Story mapping",
-        why: "Map from “too much in my head” to one doable next step.",
+        method: "Small conversations + Notion comparison",
+        why: "Gut-check whether dense workspace tools add friction for people who already struggle to start.",
       },
       {
-        method: "Prototype + Figma",
-        why: "Test the loop in a live build while keeping hi-fi mockups for the mobile framing.",
+        method: "Build in Figma + ship web",
+        why: "Move fast on a mobile-meant flow; accept incomplete features over waiting for perfect research.",
+      },
+      {
+        method: "Interview feedback (post-build)",
+        why: "External readers said it wasn’t ND-friendly and that choices weren’t research-backed — the real validation moment.",
       },
     ],
     insights: [
       {
-        finding: "Overwhelm users stall when the UI asks for categories before capture.",
-        decision: "One unconstrained dump field — structure comes after.",
+        finding: "Building without a persona/journey left decisions hard to explain in interviews.",
+        decision: "Next projects: map pain points and a primary user path before hi-fi.",
       },
       {
-        finding: "Instant lists can still feel like pressure.",
-        decision: "A short processing beat so the system visibly does the chunking.",
+        finding: "Light Notion comparisons aren’t enough to claim an ND-friendly product.",
+        decision: "Treat “ND-friendly” as a claim that needs evidence — or soften the positioning until research exists.",
       },
       {
-        finding: "Extra chrome (nav, badges, profiles) adds noise when someone already feels overloaded.",
-        decision: "Keep the shell quiet and predictable.",
+        finding: "A live prototype still helps — but feedback without prior research hits harder.",
+        decision: "Keep shipping demos; don’t skip the research spine that makes them defensible.",
       },
     ],
-    journey: [
-      { stage: "Overwhelm", detail: "Too many thoughts, no calm place to put them." },
-      { stage: "Dump", detail: "One field — no tags, no setup tax." },
-      { stage: "Offload", detail: "System chunks the mess while the UI stays quiet." },
-      { stage: "Act", detail: "Small checklist items — one next step at a time." },
-    ],
+    journey: [],
     fidelity: [
-      { step: "Figma mockups", detail: "Mobile frames for the core loop." },
-      { step: "Live web prototype", detail: "Clickable build for walkthroughs (phone viewport / framed shots in portfolio)." },
-      { step: "Hi-fi UI", detail: "Calm checklist cards, minimal chrome." },
-      { step: "Portfolio note", detail: "Explicit: designed for mobile; web is the demo surface." },
+      {
+        step: "Figma workflow",
+        detail: "End-to-end product flow documented in Figma (link to add).",
+      },
+      {
+        step: "Web deploy (mobile-meant)",
+        detail: "Live prototype on the web even though the experience is framed for mobile; some core features not applied yet.",
+      },
+      {
+        step: "No formal test plan",
+        detail: "No usability testing round — signal came later from interview feedback instead.",
+      },
+      {
+        step: "Gap owned",
+        detail: "No persona / journey map in this sprint — called out explicitly.",
+      },
     ],
     reflection:
-      "I dialed back a narrower clinical framing to a broader “overwhelmed” audience — clearer, more honest, easier to talk about in interviews.",
+      "The lasting takeaway: always conduct research and map pain points first. Shipping fast with AI is useful; defending UX without evidence isn’t.",
   },
 {
     id: "shopee",

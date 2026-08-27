@@ -100,6 +100,30 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
               <span key={tag}>[ {tag} ]</span>
             ))}
           </div>
+          {(study.liveUrl || study.figmaUrl) && (
+            <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2">
+              {study.liveUrl ? (
+                <a
+                  href={study.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border-b border-offblack pb-0.5 font-mono text-[11px] tracking-[0.12em] text-offblack uppercase transition-colors hover:border-terracotta hover:text-terracotta"
+                >
+                  Live prototype →
+                </a>
+              ) : null}
+              {study.figmaUrl ? (
+                <a
+                  href={study.figmaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border-b border-offblack/25 pb-0.5 font-mono text-[11px] tracking-[0.12em] text-offblack/70 uppercase transition-colors hover:border-terracotta hover:text-terracotta"
+                >
+                  Figma →
+                </a>
+              ) : null}
+            </div>
+          )}
         </div>
 
         <div className="reveal reveal-delay-1 mt-10 grid gap-0 border-t border-line lg:grid-cols-3">
@@ -171,24 +195,40 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
 
       <section className="px-[clamp(1.5rem,4vw,5rem)] py-14">
         <SectionLabel>[ Journey // Moments ]</SectionLabel>
-        <h2 className="mt-4 max-w-xl font-serif text-[clamp(1.5rem,3vw,2.15rem)] font-medium tracking-[-0.02em]">
-          Moments that changed the design.
-        </h2>
-        <div className="mt-8 grid gap-0 border-t border-line sm:grid-cols-2 xl:grid-cols-4">
-          {study.journey.map((node, index) => (
-            <div
-              key={node.stage}
-              className={`border-b border-line py-6 xl:border-b-0 ${
-                index > 0 ? "xl:border-l xl:border-line xl:px-5" : "xl:pr-5"
-              } ${index % 2 === 1 ? "sm:border-l sm:border-line sm:pl-5" : "sm:pr-5"}`}
-            >
-              <p className="font-mono text-[10px] tracking-[0.14em] text-terracotta uppercase">
-                {node.stage}
-              </p>
-              <p className="mt-3 font-sans text-sm leading-relaxed text-offblack/70">{node.detail}</p>
+        {study.journey && study.journey.length > 0 ? (
+          <>
+            <h2 className="mt-4 max-w-xl font-serif text-[clamp(1.5rem,3vw,2.15rem)] font-medium tracking-[-0.02em]">
+              Moments that changed the design.
+            </h2>
+            <div className="mt-8 grid gap-0 border-t border-line sm:grid-cols-2 xl:grid-cols-4">
+              {study.journey.map((node, index) => (
+                <div
+                  key={node.stage}
+                  className={`border-b border-line py-6 xl:border-b-0 ${
+                    index > 0 ? "xl:border-l xl:border-line xl:px-5" : "xl:pr-5"
+                  } ${index % 2 === 1 ? "sm:border-l sm:border-line sm:pl-5" : "sm:pr-5"}`}
+                >
+                  <p className="font-mono text-[10px] tracking-[0.14em] text-terracotta uppercase">
+                    {node.stage}
+                  </p>
+                  <p className="mt-3 font-sans text-sm leading-relaxed text-offblack/70">
+                    {node.detail}
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </>
+        ) : (
+          <>
+            <h2 className="mt-4 max-w-xl font-serif text-[clamp(1.5rem,3vw,2.15rem)] font-medium tracking-[-0.02em]">
+              No persona / journey map — yet.
+            </h2>
+            <p className="mt-4 max-w-2xl border-t border-line pt-6 font-sans text-sm leading-relaxed text-offblack/70">
+              This sprint skipped persona and journey work. That gap showed up later in
+              feedback: without a mapped user path, design choices were harder to defend.
+            </p>
+          </>
+        )}
       </section>
 
       <section className="border-t border-line px-[clamp(1.5rem,4vw,5rem)] py-14">
