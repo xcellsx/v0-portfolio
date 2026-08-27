@@ -187,11 +187,11 @@ export function SerenityCaseStudy() {
                 The Cognitive Cost of Order.
               </h2>
               <blockquote className="mt-6 border-l border-offblack/15 pl-5 font-sans text-sm leading-[1.7] text-offblack/80">
-                Traditional productivity systems fail neurodivergent (ADHD/Autism) brains
+                Traditional productivity systems fail people who already feel overwhelmed
                 because they rely on heavy visual friction. Red notification dots, infinite
-                nested calendar menus, and manual micro-input forms create immediate executive
-                dysfunction and task paralysis. The problem isn&apos;t a lack of organization;
-                it&apos;s the steep energy tax required to establish it.
+                nested calendar menus, and manual micro-input forms create immediate task
+                paralysis. The problem isn&apos;t a lack of organization; it&apos;s the steep
+                energy tax required to establish it.
               </blockquote>
             </div>
           </div>

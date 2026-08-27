@@ -19,7 +19,7 @@ export const selectedProjects: SelectedProject[] = [
     toolkit: ["figma", "ai agent"],
     tags: ["UI / UX", "AI INTEGRATION"],
     description:
-      "An AI-driven mental wellness sanctuary engineered to alleviate task anxiety and executive dysfunction through structured, calming task-charting frameworks.",
+      "A calm AI task helper for people who feel overwhelmed — brain-dump to chunked checklists, designed for mobile with a live web prototype.",
     mockups: ["/images/projects/serenity/screen.png"],
     learnMoreHref: "/work/serenity",
     liveUrl: "https://serenity-delta-livid.vercel.app/",

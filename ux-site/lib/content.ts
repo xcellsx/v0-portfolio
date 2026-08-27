@@ -72,63 +72,64 @@ export const caseStudies: CaseStudy[] = [
     slug: "serenity",
     number: "01",
     title: "Serenity",
-    org: "Personal · mobile product",
-    context: "AI task architecture for executive dysfunction — designed as a native mobile experience",
-    tags: ["Mobile", "UI / UX", "AI", "Research"],
+    org: "Personal project",
+    context:
+      "Mobile-meant AI task helper for people who feel overwhelmed — live web prototype + Figma mockups",
+    tags: ["Mobile-meant", "UI / UX", "AI", "Live prototype"],
     summary:
-      "A mobile-first sanctuary that turns chaotic brain-dumps into calm, chunked checklists — research on cognitive load drove every interface cut.",
+      "A calm task flow that turns a messy brain-dump into small next steps — for anyone who feels overwhelmed by typical productivity apps.",
     researchFocus:
-      "Cognitive-load research → strip corporate chrome → brain-dump → ambient parse → crystalline checklist.",
+      "Overwhelm + cognitive load → strip noisy chrome → dump → parse → one checklist at a time.",
     problem:
-      "Neurodivergent users abandoned productivity apps because organizing created more executive dysfunction than the tasks themselves.",
+      "When people feel overwhelmed, most productivity apps add more structure (tags, calendars, alerts) before they’ve even captured the thought — which makes starting harder.",
     constraint:
-      "Ship a calm mobile-first experience without recreating dashboard patterns users already rejected.",
+      "Personal build: design for mobile first, ship a usable web prototype + Figma mockups without overselling a clinical niche.",
     outcome:
-      "A three-step mobile loop — unconstrained input, ambient processing, singular micro-actions — with chrome stripped to protect energy.",
-    role: "Lead end-to-end product designer & UI engineer",
-    timeline: "4-week sprint",
+      "Live site + Figma mockups for a three-step loop (dump → ambient parse → simple checklist). Shown as a mobile product via phone-framed screens and a clear “designed for mobile” note on the web prototype.",
+    role: "Solo designer & builder",
+    timeline: "Personal sprint",
     methods: [
       {
-        method: "Cognitive-load / pattern teardown",
-        why: "Name which UI patterns (alerts, taxonomy-first forms) tax working memory.",
+        method: "Pattern teardown",
+        why: "Spot which app patterns (alerts, taxonomy-first forms) make overwhelm worse.",
       },
       {
         method: "Story mapping",
-        why: "Map the emotional arc from chaotic thought to one doable next step.",
+        why: "Map from “too much in my head” to one doable next step.",
       },
       {
-        method: "Prototype walkthroughs",
-        why: "Test whether an ambient wait felt calmer than instant checklist dumps.",
+        method: "Prototype + Figma",
+        why: "Test the loop in a live build while keeping hi-fi mockups for the mobile framing.",
       },
     ],
     insights: [
       {
-        finding: "Capture fails when the UI demands categories first.",
-        decision: "Single unconstrained brain-dump field — structure comes after parsing.",
+        finding: "Overwhelm users stall when the UI asks for categories before capture.",
+        decision: "One unconstrained dump field — structure comes after.",
       },
       {
-        finding: "Instant results still felt like pressure.",
-        decision: "Intentional processing moment so the system visibly does the hard part.",
+        finding: "Instant lists can still feel like pressure.",
+        decision: "A short processing beat so the system visibly does the chunking.",
       },
       {
-        finding: "Corporate chrome restarts the stress loop.",
-        decision: "Remove persistent nav chrome; keep layout rigid and predictable.",
+        finding: "Extra chrome (nav, badges, profiles) adds noise when someone already feels overloaded.",
+        decision: "Keep the shell quiet and predictable.",
       },
     ],
     journey: [
-      { stage: "Overwhelm", detail: "User holds a messy pile of thoughts with nowhere safe to put them." },
-      { stage: "Dump", detail: "One field — no tags, no projects, no formatting tax." },
-      { stage: "Offload", detail: "Ambient processing signals the system is chunking the work." },
-      { stage: "Act", detail: "One micro-action at a time — checklist without alert theater." },
+      { stage: "Overwhelm", detail: "Too many thoughts, no calm place to put them." },
+      { stage: "Dump", detail: "One field — no tags, no setup tax." },
+      { stage: "Offload", detail: "System chunks the mess while the UI stays quiet." },
+      { stage: "Act", detail: "Small checklist items — one next step at a time." },
     ],
     fidelity: [
-      { step: "Research → principles", detail: "Non-negotiables: no red dots, no first-open taxonomy." },
-      { step: "Mobile flow wires", detail: "Three-step loop prototyped for thumb reach and calm pacing." },
-      { step: "Hi-fi UI", detail: "Frosted checklist cards, shape markers over color alerts." },
-      { step: "Live prototype", detail: "Web build for visualization; product framed as native mobile." },
+      { step: "Figma mockups", detail: "Mobile frames for the core loop." },
+      { step: "Live web prototype", detail: "Clickable build for walkthroughs (phone viewport / framed shots in portfolio)." },
+      { step: "Hi-fi UI", detail: "Calm checklist cards, minimal chrome." },
+      { step: "Portfolio note", detail: "Explicit: designed for mobile; web is the demo surface." },
     ],
     reflection:
-      "Mobile UX here wasn’t smaller desktop — it was fewer decisions per screen. Research gave permission to delete.",
+      "I dialed back a narrower clinical framing to a broader “overwhelmed” audience — clearer, more honest, easier to talk about in interviews.",
   },
   {
     id: "shopee",
@@ -278,50 +279,78 @@ export const caseStudies: CaseStudy[] = [
     number: "04",
     title: "GXS Bank",
     org: "Product Design Intern",
-    context: "Existing digital banking product · team collaboration",
-    tags: ["Internship", "Mobile banking", "A/B", "Preference tests"],
+    context: "Money Lock discovery + onboarding · UX testing on Lock and investment flows",
+    tags: ["Internship", "Onboarding", "Money Lock", "UX testing"],
     summary:
-      "Joined an existing product, flagged gaps against real user workflows in shared Figma, helped run A/B and preference tests, wrote questionnaires, and consolidated findings.",
+      "Surfaced that Money Lock — a core money feature — was missing from the home experience, folded activation into onboarding, and ran UX testing on the new Lock flow plus investment-portfolio flows.",
     researchFocus:
-      "Workflow gap critique → collaborative Figma feedback → A/B & preference testing → questionnaire synthesis.",
+      "Home/IA gap on Money Lock → onboarding + activation path → UX tests on Lock + investment portfolio (plus broader app research).",
     problem:
-      "Live product flows didn’t always match how users actually completed banking tasks — gaps that show up in workflows, not isolated screens.",
+      "Money Lock was a core feature, but it didn’t show up on the home page — so users could miss it entirely before they ever reached activation.",
     constraint:
-      "Internship inside an existing system: tokens, shared Figma, cross-functional prioritization.",
+      "Existing banking product; internship scope; limited public screens for the onboarding/activation work.",
     outcome:
-      "Documented workflow gaps in shared Figma, supported A/B and preference tests on new screens, consolidated questionnaire findings for prioritization.",
-    role: "Product Design Intern — critique, testing support, research synthesis, UX microcopy",
+      "Proposed onboarding adjustments to introduce Money Lock and how to activate it; ran UX testing on the new Lock flow and on investment-portfolio flows. Broader app research sat alongside as supporting context.",
+    role: "Product Design Intern",
     timeline: "Sep 2024 — Jan 2025",
     methods: [
-      { method: "Workflow gap analysis", why: "Compare designed flows to real task paths." },
-      { method: "Collaborative Figma critique", why: "Make feedback visible to the squad." },
-      { method: "A/B & preference tests", why: "Let users choose and behave — not just comment." },
-      { method: "Questionnaire design + synthesis", why: "Structured signal → themes the team can act on." },
+      {
+        method: "Feature / home audit",
+        why: "Catch when a core capability is invisible from the main entry surface.",
+      },
+      {
+        method: "Onboarding flow redesign",
+        why: "Introduce Money Lock and activation steps where new users actually learn the product.",
+      },
+      {
+        method: "UX testing (Lock + investments)",
+        why: "Validate the new Lock path and investment-portfolio flows with users.",
+      },
+      {
+        method: "Broader app research",
+        why: "Background signal on the product overall — supporting, not the headline story.",
+      },
     ],
     insights: [
       {
-        finding: "Gaps lived between screens — handoffs and microcopy — more than in isolated UI blocks.",
-        decision: "Annotate end-to-end workflows in Figma so the team debates the same seams.",
+        finding: "Core features can still be “missing” if home doesn’t surface them.",
+        decision: "Treat Money Lock as a discovery + activation problem, not only a settings detail.",
       },
       {
-        finding: "Preference tests paired with A/B framed trade-offs more clearly for stakeholders.",
-        decision: "Support both methods and write questionnaires that produce comparable findings.",
+        finding: "Onboarding is where activation habits form.",
+        decision: "Fold Money Lock intro + how-to-activate into the onboarding path.",
+      },
+      {
+        finding: "Testing across Lock and investment flows showed where the new path still wobbled.",
+        decision: "Use UX test notes to refine sequencing before calling the flow done.",
       },
     ],
     journey: [
-      { stage: "Observe", detail: "Map real workflows against current product paths." },
-      { stage: "Annotate", detail: "Log gaps in shared Figma." },
-      { stage: "Test", detail: "A/B and preference tests when candidate screens are ready." },
-      { stage: "Synthesize", detail: "Consolidate findings into priorities." },
+      { stage: "Land on home", detail: "User never sees Money Lock called out." },
+      { stage: "Onboard", detail: "New path introduces Lock and how to activate it." },
+      { stage: "Activate", detail: "User understands what Lock does and how to turn it on." },
+      { stage: "Test", detail: "UX tests on Lock flow + investment portfolio flows." },
     ],
     fidelity: [
-      { step: "Existing UI audit", detail: "Critique live flows against workflow reality." },
-      { step: "Shared Figma notes", detail: "Team-readable annotations." },
-      { step: "Test materials", detail: "Questionnaires and preference setups." },
-      { step: "Insight readout", detail: "Findings that feed prioritization." },
+      {
+        step: "Gap callout",
+        detail: "Money Lock missing from home — documented for the team.",
+      },
+      {
+        step: "Onboarding + activation",
+        detail: "Flow adjustments (screens not shown publicly).",
+      },
+      {
+        step: "UX testing",
+        detail: "New Lock flow + investment portfolio flows.",
+      },
+      {
+        step: "Supporting research",
+        detail: "General app research as backdrop.",
+      },
     ],
     reflection:
-      "Internship UX is less “own the file” and more “make the truth visible.” Shared critique and clean synthesis moved the product more than solo polish.",
+      "More detail coming — this version is the honest gist: discovery gap → onboarding/activation → test Lock + investments. Screens for the onboarding piece stay out of the public case for now.",
   },
   {
     id: "amazon",
@@ -329,50 +358,58 @@ export const caseStudies: CaseStudy[] = [
     number: "05",
     title: "Amazon redesign",
     org: "Personal project",
-    context: "Flow redesign around a validated friction point",
-    tags: ["Research", "Competitive audit", "Flow redesign"],
+    context: "Checkout fragmentation inside one product experience",
+    tags: ["Checkout", "Flow redesign", "Documentation debt"],
     summary:
-      "Spotted a real friction point, validated it wasn’t just personal taste, benchmarked competitors, then redesigned the flow.",
+      "The core issue was multiple checkout flows living inside the same product. I explored a redesign, but it sprawled — this case is as much about scoping and documentation as the UI.",
     researchFocus:
-      "Personal friction → research validation → competitor benchmarks → redesigned flow.",
+      "Spot fragmented checkout paths → attempt consolidation redesign → learn that without tight scope + docs, the work gets too big.",
     problem:
-      "A high-frequency shopping moment created avoidable friction — easy to dismiss as preference until research showed others hit the same wall.",
+      "Amazon’s experience carried multiple checkout flows for related jobs — users (and the designer) had to navigate inconsistent paths instead of one clear commit spine.",
     constraint:
-      "No internal data access; validation via secondary research, competitive teardown, and structured critique.",
+      "Personal project with no internal access; easy to over-redesign when “fix checkout” expands into the whole purchase graph.",
     outcome:
-      "A redesigned flow targeting the validated friction with clearer decision support, informed by competitor patterns.",
-    role: "Solo UX research + interaction design",
-    timeline: "Self-directed study",
+      "Partial redesign exploration. Honest takeaway: the attempt was too large, and the case needs tighter documentation of what was in/out of scope.",
+    role: "Solo UX / UI exploration",
+    timeline: "Self-directed",
     methods: [
-      { method: "Friction journaling", why: "Capture the exact failure moment in real use." },
-      { method: "Secondary research", why: "Check whether the pain was shared." },
-      { method: "Competitive benchmarking", why: "See how peers handle the same decision moment." },
-      { method: "Flow redesign + wireframes", why: "Propose a tighter path once validated." },
+      {
+        method: "Flow mapping",
+        why: "Lay out the multiple checkout paths side by side.",
+      },
+      {
+        method: "Consolidation redesign",
+        why: "Try to reduce path sprawl into a clearer commit experience.",
+      },
+      {
+        method: "Scope check (retrospective)",
+        why: "Admit where the redesign ballooned past a defendable brief.",
+      },
     ],
     insights: [
       {
-        finding: "The friction was decision support at commit — not aesthetics.",
-        decision: "Redesign around comparison and confidence, not a visual skin.",
+        finding: "Multiple checkout flows in one product create learning tax and error risk.",
+        decision: "Aim for one primary checkout spine with intentional variants — not parallel mini-checkouts.",
       },
       {
-        finding: "Competitors used progressive disclosure instead of denser pages.",
-        decision: "Borrow structure patterns, not visual clones.",
+        finding: "“Fix checkout” is a trap scope — it swallows adjacent commerce UI fast.",
+        decision: "Next pass: document a single flow boundary before drawing more screens.",
       },
     ],
     journey: [
-      { stage: "Intent", detail: "User arrives with a goal and incomplete certainty." },
-      { stage: "Friction", detail: "UI buries the signal needed to commit." },
-      { stage: "Validation", detail: "Research confirms others stall here." },
-      { stage: "Redesign", detail: "New flow surfaces the missing signal earlier." },
+      { stage: "Enter purchase", detail: "User hits one of several checkout-shaped paths." },
+      { stage: "Diverge", detail: "Same product, different rules/UI depending on entry." },
+      { stage: "Redesign attempt", detail: "Consolidation exploration grows too wide." },
+      { stage: "Retrospective", detail: "Need clearer docs + a smaller next cut." },
     ],
     fidelity: [
-      { step: "Problem brief", detail: "Named the friction with evidence." },
-      { step: "Benchmark boards", detail: "Competitor patterns for the decision moment." },
-      { step: "Wireframes", detail: "Alternate flows stress-tested against the brief." },
-      { step: "Hi-fi proposal", detail: "Polished redesign of the new decision path." },
+      { step: "Flow inventory", detail: "Multiple checkout paths identified." },
+      { step: "Redesign exploration", detail: "Partial UI/flow proposals — incomplete as a ship story." },
+      { step: "Doc gap", detail: "Case marked as needing better before/after documentation." },
+      { step: "Next cut", detail: "Re-scope to one checkout variant and rewrite the brief." },
     ],
     reflection:
-      "Personal projects only count when research proves the pain — validation turns a rant into a design argument.",
+      "I’m keeping this case because the failure mode is useful: redesign without a sharp scope (and without solid documentation) turns into “too much.” I’ll tighten the write-up when I redo the docs.",
   },
 ]
 

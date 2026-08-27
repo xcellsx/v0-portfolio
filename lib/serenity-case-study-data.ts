@@ -74,33 +74,33 @@ export const serenityComponents = [
 export const serenityLive = {
   url: "https://serenity-delta-livid.vercel.app/",
   mobileNote:
-    "Web prototype for visualisation — the product is designed as a native mobile build.",
+    "Designed for mobile — this web build is the demo surface (view in a phone frame / narrow viewport).",
 } as const
 
 /** Research amplification — insights wired to interface decisions. */
 export const serenityColdRead = {
   problem:
-    "Neurodivergent users abandoned productivity apps because the act of organizing created more executive dysfunction than the tasks themselves.",
+    "People who feel overwhelmed often abandon productivity apps because organizing (tags, calendars, alerts) becomes harder than the tasks themselves.",
   constraint:
-    "Ship a calm mobile-first sanctuary in a four-week sprint without recreating corporate dashboard patterns users already rejected.",
+    "Ship a calm mobile-meant experience — live web prototype + Figma — without recreating noisy dashboard patterns.",
   outcome:
     "A brain-dump → ambient parse → crystalline checklist flow that removes notification chrome and manual micro-categorization.",
 } as const
 
 export const serenityResearch = {
   sectionLabel: "[ Section 02 // User Research ]",
-  headline: "Cognitive load was the product problem.",
+  headline: "Overwhelm was the product problem.",
   framing:
     "Research wasn’t a pre-design ritual — it set the non-negotiables: zero red dots, no nested calendars on first open, and one unconstrained input before any structure.",
   questions: [
     "Where does task paralysis actually start — capture, planning, or execution?",
-    "Which UI patterns tax working memory for ADHD / autistic users?",
+    "Which UI patterns make overwhelm worse (alerts, taxonomy-first forms, dense chrome)?",
     "What micro-moment of calm is required before users will trust automated chunking?",
   ],
   methods: [
     {
-      method: "Desk research + clinical pattern review",
-      why: "Ground interface decisions in known executive-dysfunction friction (notifications, color-coded overload, forced taxonomy).",
+      method: "Desk research + pattern teardown",
+      why: "Ground interface decisions in known overwhelm friction (notifications, color-coded overload, forced taxonomy).",
       n: "Literature + existing app teardown",
     },
     {
