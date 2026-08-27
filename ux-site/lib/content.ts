@@ -75,78 +75,91 @@ export const caseStudies: CaseStudy[] = [
     number: "01",
     title: "GXS Bank",
     org: "Product Design Intern",
-    context: "Money Lock discovery + onboarding · UX testing on Lock and investment flows",
-    tags: ["Internship", "Onboarding", "Money Lock", "UX testing"],
+    context:
+      "Tagged to copywriting; also collaborated across product-design sub-teams on Money Lock flows and GXS Invest UI testing",
+    tags: ["Internship", "Money Lock", "GXS Invest", "UserTesting"],
     summary:
-      "Surfaced that Money Lock — a core money feature — was missing from the home experience, folded activation into onboarding, and ran UX testing on the new Lock flow plus investment-portfolio flows.",
+      "Supported Money Lock interaction/flow fit against existing app patterns and helped produce preference/A-B directions for Lock (incl. logo) and GXS Invest — then built and ran tests before rotating off before results landed.",
     researchFocus:
-      "Home/IA gap on Money Lock → onboarding + activation path → UX tests on Lock + investment portfolio (plus broader app research).",
+      "Two briefs: (1) does the new Money Lock workflow gel with existing flows? (2) feedback on new GXS Invest UI — answered via UserTesting + preference sessions.",
     problem:
-      "Money Lock was a core feature, but it didn’t show up on the home page — so users could miss it entirely before they ever reached activation.",
+      "Two live design questions: Money Lock’s new post-intro screens risked feeling disconnected from existing app patterns (and Lock wasn’t a home-screen feature), and GXS Invest needed a clear read on which UI presentation made more sense.",
     constraint:
-      "Existing banking product; internship scope; limited public screens for the onboarding/activation work.",
+      "16-week internship; formally tagged to copywriting while contributing across product-design sub-departments; no public artifacts; left before test results came back.",
     outcome:
-      "Proposed onboarding adjustments to introduce Money Lock and how to activate it; ran UX testing on the new Lock flow and on investment-portfolio flows. Broader app research sat alongside as supporting context.",
-    role: "Product Design Intern",
-    timeline: "Sep 2024 — Jan 2025",
+      "Delivered flow/interaction work to align Money Lock with existing patterns, preference/A-B options (incl. Money Lock logo), a full Money Lock workflow test in UserTesting, and a mini feedback session on Invest information presentation. Likely the team shipped a preferred option from feedback — I wasn’t there for the readout.",
+    role: "Product Design Intern (copywriting seat · cross-team product design support)",
+    timeline: "4 months (16 weeks)",
     methods: [
       {
-        method: "Feature / home audit",
-        why: "Catch when a core capability is invisible from the main entry surface.",
+        method: "Money Lock flow / interaction alignment",
+        why: "Check whether screens after Money Lock introduction matched how the rest of the app already behaved.",
       },
       {
-        method: "Onboarding flow redesign",
-        why: "Introduce Money Lock and activation steps where new users actually learn the product.",
+        method: "Preference / A-B directions (Lock + logo)",
+        why: "Give the designer comparable options — including Money Lock logo variants — instead of one untested UI.",
       },
       {
-        method: "UX testing (Lock + investments)",
-        why: "Validate the new Lock path and investment-portfolio flows with users.",
+        method: "UserTesting — full Money Lock workflow",
+        why: "Run an end-to-end test of the Lock experience, not only a single screen critique.",
       },
       {
-        method: "Broader app research",
-        why: "Background signal on the product overall — supporting, not the headline story.",
+        method: "GXS Invest preference + mini feedback",
+        why: "Two UI directions + a short session on whether information presentation made sense.",
       },
     ],
     insights: [
       {
-        finding: "Core features can still be “missing” if home doesn’t surface them.",
-        decision: "Treat Money Lock as a discovery + activation problem, not only a settings detail.",
+        finding: "A new feature can feel “foreign” even when the concept is sound — especially when it isn’t on the home screen.",
+        decision: "Prioritise interaction and post-intro screens that rhyme with existing flows.",
       },
       {
-        finding: "Onboarding is where activation habits form.",
-        decision: "Fold Money Lock intro + how-to-activate into the onboarding path.",
+        finding: "Designers needed options, not only opinions — preference/A-B pairs (and logo variants) made feedback actionable.",
+        decision: "Ship two comparable directions into test rather than debating one polished mock.",
       },
       {
-        finding: "Testing across Lock and investment flows showed where the new path still wobbled.",
-        decision: "Use UX test notes to refine sequencing before calling the flow done.",
+        finding: "Leaving before results is normal in internships — the craft is still building a clean test.",
+        decision: "Document the setup well enough that the team can decide without you in the room.",
       },
     ],
     journey: [
-      { stage: "Land on home", detail: "User never sees Money Lock called out." },
-      { stage: "Onboard", detail: "New path introduces Lock and how to activate it." },
-      { stage: "Activate", detail: "User understands what Lock does and how to turn it on." },
-      { stage: "Test", detail: "UX tests on Lock flow + investment portfolio flows." },
+      {
+        stage: "Brief",
+        detail: "Designer unsure Lock gels with existing flows; Invest needs UI feedback.",
+      },
+      {
+        stage: "Align Lock",
+        detail: "Work the interactions/screens after Money Lock is introduced so they match app patterns.",
+      },
+      {
+        stage: "Options",
+        detail: "Two directions for preference/A-B — including Money Lock logo exploration.",
+      },
+      {
+        stage: "Test + handoff",
+        detail: "Full Lock workflow in UserTesting + Invest mini feedback; results after my stint.",
+      },
     ],
     fidelity: [
       {
-        step: "Gap callout",
-        detail: "Money Lock missing from home — documented for the team.",
+        step: "Flow / interaction work",
+        detail: "Money Lock post-intro screens shaped to sit with existing app patterns (no public screens).",
       },
       {
-        step: "Onboarding + activation",
-        detail: "Flow adjustments (screens not shown publicly).",
+        step: "Preference / A-B sets",
+        detail: "Two design directions for Lock (and logo) plus Invest UI variants.",
       },
       {
-        step: "UX testing",
-        detail: "New Lock flow + investment portfolio flows.",
+        step: "UserTesting script + session",
+        detail: "End-to-end Money Lock workflow test built in UserTesting.",
       },
       {
-        step: "Supporting research",
-        detail: "General app research as backdrop.",
+        step: "Invest mini feedback",
+        detail: "Quick read on whether information presentation made sense.",
       },
     ],
     reflection:
-      "More detail coming — this version is the honest gist: discovery gap → onboarding/activation → test Lock + investments. Screens for the onboarding piece stay out of the public case for now.",
+      "Having a clear design system and structure matters — it’s what lets a new flow feel native instead of bolted on. I wouldn’t screenshot the live bank app for the portfolio without permission; the case stands on process, tests run, and the system lesson.",
   },
 {
     id: "ninkatec",
