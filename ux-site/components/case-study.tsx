@@ -2,44 +2,6 @@ import Link from "next/link"
 import type { CaseStudy } from "@/lib/content"
 import { SectionLabel } from "@/components/site-chrome"
 
-export function ColdRead({
-  problem,
-  constraint,
-  outcome,
-}: {
-  problem: string
-  constraint: string
-  outcome: string
-}) {
-  const cells = [
-    { label: "Problem", body: problem },
-    { label: "Constraint", body: constraint },
-    { label: "Outcome", body: outcome },
-  ]
-
-  return (
-    <section className="border-y border-line px-[clamp(1.5rem,4vw,5rem)] py-10">
-      <SectionLabel>[ Cold Read // 30 Seconds ]</SectionLabel>
-      <p className="mt-3 max-w-2xl font-sans text-sm text-offblack/60">
-        Problem, constraint, outcome — before the scroll. Metrics optional; judgment required.
-      </p>
-      <div className="mt-8 grid gap-0 border-t border-line md:grid-cols-3">
-        {cells.map((cell, index) => (
-          <div
-            key={cell.label}
-            className={`py-6 md:px-6 ${index > 0 ? "md:border-l md:border-line" : "md:pl-0"}`}
-          >
-            <p className="font-mono text-[10px] tracking-[0.14em] text-terracotta uppercase">
-              {cell.label}
-            </p>
-            <p className="mt-3 font-sans text-sm leading-[1.65] text-offblack/80">{cell.body}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  )
-}
-
 export function ProjectCard({ project }: { project: CaseStudy }) {
   return (
     <Link
@@ -54,17 +16,14 @@ export function ProjectCard({ project }: { project: CaseStudy }) {
               {project.title}
             </h2>
             <span className="font-mono text-[10px] tracking-[0.1em] text-offblack/45 uppercase">
-              {project.org}
+              {project.role}
             </span>
           </div>
-          <p className="max-w-2xl font-sans text-sm leading-relaxed text-offblack/70">
-            {project.summary}
-          </p>
-          <p className="max-w-2xl font-sans text-sm leading-relaxed text-offblack/85">
+          <p className="max-w-2xl font-sans text-sm leading-relaxed text-offblack">
             <span className="font-mono text-[10px] tracking-[0.1em] text-terracotta uppercase">
-              Research ·{" "}
+              Outcome ·{" "}
             </span>
-            {project.researchFocus}
+            {project.outcome}
           </p>
           <div className="flex flex-wrap gap-x-4 gap-y-2 pt-1 font-mono text-[10px] tracking-[0.12em] text-offblack/50 uppercase">
             {project.tags.map((tag) => (
@@ -83,31 +42,25 @@ export function ProjectCard({ project }: { project: CaseStudy }) {
 export function CaseStudyView({ study }: { study: CaseStudy }) {
   return (
     <article>
+      {/* Hero: case // role + single outcome */}
       <section className="px-[clamp(1.5rem,4vw,5rem)] pt-4 pb-12">
         <LinkBack />
         <div className="reveal mt-8 max-w-3xl space-y-5">
-          <SectionLabel>
-            {`[ Case ${study.number} // ${study.org} ]`}
-          </SectionLabel>
-          <h1 className="font-serif text-[clamp(2.4rem,5.5vw,4rem)] font-medium leading-[1.05] tracking-[-0.02em] text-terracotta">
-            {study.title}
-          </h1>
-          <p className="max-w-2xl font-sans text-sm leading-relaxed text-offblack/70">
-            {study.context}
+          <SectionLabel>{`[ Case ${study.number} // ${study.role} ]`}</SectionLabel>
+          <p className="font-mono text-[10px] tracking-[0.14em] text-terracotta uppercase">
+            Outcome
           </p>
-          <div className="flex flex-wrap gap-x-4 gap-y-2 font-mono text-[10px] tracking-[0.12em] text-offblack/50 uppercase">
-            {study.tags.map((tag) => (
-              <span key={tag}>[ {tag} ]</span>
-            ))}
-          </div>
+          <h1 className="font-serif text-[clamp(1.75rem,4vw,2.75rem)] font-medium leading-[1.15] tracking-[-0.02em] text-offblack">
+            {study.outcome}
+          </h1>
           {(study.liveUrl || study.figmaUrl) && (
-            <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2">
+            <div className="flex flex-wrap gap-x-6 gap-y-2 pt-1">
               {study.liveUrl ? (
                 <a
                   href={study.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border-b border-offblack pb-0.5 font-mono text-[11px] tracking-[0.12em] text-offblack uppercase transition-colors hover:border-terracotta hover:text-terracotta"
+                  className="border-b border-offblack pb-0.5 font-mono text-[11px] tracking-[0.12em] uppercase transition-colors hover:border-terracotta hover:text-terracotta"
                 >
                   Live prototype →
                 </a>
@@ -126,132 +79,98 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
           )}
         </div>
 
-        <div className="reveal reveal-delay-1 mt-10 grid gap-0 border-t border-line lg:grid-cols-3">
-          <MetaCard label="Role" body={study.role} />
-          <MetaCard label="Timeline" body={study.timeline} bordered />
-          <MetaCard label="Research focus" body={study.researchFocus} bordered />
+        {/* Company / department / timeline / tags */}
+        <div className="reveal reveal-delay-1 mt-10 border-t border-line pt-8">
+          <h2 className="font-serif text-[clamp(1.5rem,3vw,2rem)] font-medium tracking-[-0.02em] text-terracotta">
+            {study.company}
+          </h2>
+          <p className="mt-2 font-mono text-[11px] tracking-[0.12em] text-offblack/55 uppercase">
+            {study.department}
+            <span className="text-offblack/30"> · </span>
+            {study.timeline}
+          </p>
+          <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 font-mono text-[10px] tracking-[0.12em] text-offblack/50 uppercase">
+            {study.tags.map((tag) => (
+              <span key={tag}>[ {tag} ]</span>
+            ))}
+          </div>
         </div>
       </section>
 
-      <ColdRead
-        problem={study.problem}
-        constraint={study.constraint}
-        outcome={study.outcome}
-      />
-
-      <section className="px-[clamp(1.5rem,4vw,5rem)] py-14">
-        <SectionLabel>[ Methods // Why These ]</SectionLabel>
-        <h2 className="mt-4 font-serif text-[clamp(1.5rem,3vw,2.15rem)] font-medium tracking-[-0.02em]">
-          Research before pixels.
-        </h2>
-        <div className="mt-8 border-t border-line">
-          {study.methods.map((row) => (
+      {/* Problems */}
+      <section className="border-t border-line px-[clamp(1.5rem,4vw,5rem)] py-12">
+        <SectionLabel>[ Problem ]</SectionLabel>
+        <div className="mt-8 space-y-0 border-t border-line">
+          {study.problems.map((problem) => (
             <div
-              key={row.method}
-              className="grid gap-2 border-b border-line py-5 sm:grid-cols-[minmax(10rem,32%)_1fr] sm:gap-8"
+              key={problem.id}
+              className="grid gap-3 border-b border-line py-6 sm:grid-cols-[4rem_1fr]"
             >
-              <p className="font-mono text-[11px] tracking-[0.08em] text-offblack uppercase">
-                {row.method}
+              <p className="font-mono text-[11px] tracking-[0.14em] text-terracotta uppercase">
+                [{problem.id}]
               </p>
-              <p className="font-sans text-sm leading-relaxed text-offblack/70">{row.why}</p>
+              <p className="font-sans text-sm leading-relaxed text-offblack/85 sm:text-base">
+                {problem.statement}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="border-t border-line bg-paper-deep/35 px-[clamp(1.5rem,4vw,5rem)] py-14">
-        <SectionLabel>[ Insights // Decisions ]</SectionLabel>
-        <div className="mt-8 space-y-0 border-t border-line">
-          {study.insights.map((insight, index) => (
-            <div
-              key={insight.finding}
-              className="grid gap-5 border-b border-line py-7 lg:grid-cols-[5rem_1fr]"
+      {/* Research */}
+      <section className="border-t border-line bg-paper-deep/30 px-[clamp(1.5rem,4vw,5rem)] py-12">
+        <SectionLabel>[ Research ]</SectionLabel>
+        <ul className="mt-8 space-y-0 border-t border-line">
+          {study.research.map((item) => (
+            <li
+              key={item}
+              className="border-b border-line py-4 font-sans text-sm leading-relaxed text-offblack/80"
             >
-              <p className="font-mono text-[11px] tracking-[0.14em] text-terracotta uppercase">
-                I-{String(index + 1).padStart(2, "0")}
-              </p>
-              <div className="grid gap-5 sm:grid-cols-2">
-                <div>
-                  <p className="font-mono text-[10px] tracking-[0.12em] text-offblack/45 uppercase">
-                    Finding
+              {item}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Per-problem: insights, decisions, constraints, done, outcome */}
+      <section className="border-t border-line px-[clamp(1.5rem,4vw,5rem)] py-12">
+        <SectionLabel>[ Insights // Decisions // Constraints // Done ]</SectionLabel>
+        <div className="mt-10 space-y-12">
+          {study.streams.map((stream) => {
+            const problem = study.problems.find((p) => p.id === stream.problemId)
+            return (
+              <div key={stream.problemId} className="border border-line">
+                <div className="border-b border-line bg-paper-deep/40 px-5 py-4 sm:px-6">
+                  <p className="font-mono text-[10px] tracking-[0.14em] text-terracotta uppercase">
+                    Problem [{stream.problemId}]
                   </p>
-                  <p className="mt-2 font-sans text-sm leading-relaxed text-offblack">
-                    {insight.finding}
-                  </p>
+                  {problem ? (
+                    <p className="mt-2 font-sans text-sm leading-relaxed text-offblack/70">
+                      {problem.statement}
+                    </p>
+                  ) : null}
                 </div>
-                <div>
-                  <p className="font-mono text-[10px] tracking-[0.12em] text-terracotta uppercase">
-                    Decision
+                <div className="grid gap-0 sm:grid-cols-2">
+                  <StreamCell label="Insights" body={stream.insights} />
+                  <StreamCell label="Decisions" body={stream.decisions} />
+                  <StreamCell label="Constraints" body={stream.constraints} />
+                  <StreamCell label="What was done" body={stream.whatWasDone} />
+                </div>
+                <div className="border-t border-line px-5 py-5 sm:px-6">
+                  <p className="font-mono text-[10px] tracking-[0.14em] text-terracotta uppercase">
+                    Outcome · Problem [{stream.problemId}]
                   </p>
-                  <p className="mt-2 font-sans text-sm leading-relaxed text-offblack">
-                    {insight.decision}
+                  <p className="mt-2 font-serif text-lg font-medium leading-snug tracking-[-0.02em] text-offblack">
+                    {stream.outcome}
                   </p>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </section>
 
-      <section className="px-[clamp(1.5rem,4vw,5rem)] py-14">
-        <SectionLabel>[ Journey // Moments ]</SectionLabel>
-        {study.journey && study.journey.length > 0 ? (
-          <>
-            <h2 className="mt-4 max-w-xl font-serif text-[clamp(1.5rem,3vw,2.15rem)] font-medium tracking-[-0.02em]">
-              Moments that changed the design.
-            </h2>
-            <div className="mt-8 grid gap-0 border-t border-line sm:grid-cols-2 xl:grid-cols-4">
-              {study.journey.map((node, index) => (
-                <div
-                  key={node.stage}
-                  className={`border-b border-line py-6 xl:border-b-0 ${
-                    index > 0 ? "xl:border-l xl:border-line xl:px-5" : "xl:pr-5"
-                  } ${index % 2 === 1 ? "sm:border-l sm:border-line sm:pl-5" : "sm:pr-5"}`}
-                >
-                  <p className="font-mono text-[10px] tracking-[0.14em] text-terracotta uppercase">
-                    {node.stage}
-                  </p>
-                  <p className="mt-3 font-sans text-sm leading-relaxed text-offblack/70">
-                    {node.detail}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </>
-        ) : (
-          <>
-            <h2 className="mt-4 max-w-xl font-serif text-[clamp(1.5rem,3vw,2.15rem)] font-medium tracking-[-0.02em]">
-              No persona / journey map — yet.
-            </h2>
-            <p className="mt-4 max-w-2xl border-t border-line pt-6 font-sans text-sm leading-relaxed text-offblack/70">
-              This sprint skipped persona and journey work. That gap showed up later in
-              feedback: without a mapped user path, design choices were harder to defend.
-            </p>
-          </>
-        )}
-      </section>
-
-      <section className="border-t border-line px-[clamp(1.5rem,4vw,5rem)] py-14">
-        <SectionLabel>[ Fidelity // Ladder ]</SectionLabel>
-        <h2 className="mt-4 max-w-xl font-serif text-[clamp(1.5rem,3vw,2.15rem)] font-medium tracking-[-0.02em]">
-          Wireframes before polish.
-        </h2>
-        <div className="mt-8 border-t border-line">
-          {study.fidelity.map((row, index) => (
-            <div
-              key={row.step}
-              className="grid gap-3 border-b border-line py-5 sm:grid-cols-[4rem_minmax(8rem,24%)_1fr]"
-            >
-              <p className="font-mono text-sm tracking-[0.12em] text-offblack/30">
-                {String(index + 1).padStart(2, "0")}
-              </p>
-              <p className="font-sans text-sm font-medium text-offblack">{row.step}</p>
-              <p className="font-sans text-sm leading-relaxed text-offblack/70">{row.detail}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
+      {/* Reflection */}
       <section className="border-t border-line bg-[linear-gradient(120deg,rgba(174,34,23,0.06),transparent_55%)] px-[clamp(1.5rem,4vw,5rem)] py-14">
         <SectionLabel>[ Reflection ]</SectionLabel>
         <p className="mt-5 max-w-3xl font-serif text-[clamp(1.25rem,2.5vw,1.75rem)] font-medium leading-snug tracking-[-0.02em] text-offblack">
@@ -262,19 +181,11 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
   )
 }
 
-function MetaCard({
-  label,
-  body,
-  bordered = false,
-}: {
-  label: string
-  body: string
-  bordered?: boolean
-}) {
+function StreamCell({ label, body }: { label: string; body: string }) {
   return (
-    <div className={`py-5 ${bordered ? "lg:border-l lg:border-line lg:px-6" : "lg:pr-6"}`}>
-      <p className="font-mono text-[10px] tracking-[0.14em] text-terracotta uppercase">{label}</p>
-      <p className="mt-2 font-sans text-sm leading-relaxed text-offblack/70">{body}</p>
+    <div className="border-b border-line px-5 py-5 last:border-b-0 sm:border-r sm:px-6 sm:odd:[&:nth-last-child(-n+2)]:border-b-0 sm:even:border-r-0">
+      <p className="font-mono text-[10px] tracking-[0.12em] text-offblack/45 uppercase">{label}</p>
+      <p className="mt-2 font-sans text-sm leading-relaxed text-offblack/80">{body}</p>
     </div>
   )
 }

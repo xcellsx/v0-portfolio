@@ -1,25 +1,34 @@
-export type ProjectStatus = "featured" | "shipped"
+export interface CaseProblem {
+  id: string
+  statement: string
+}
+
+/** Per-problem block: insights, decisions, constraints, work done, outcome. */
+export interface CaseStream {
+  problemId: string
+  insights: string
+  decisions: string
+  constraints: string
+  whatWasDone: string
+  outcome: string
+}
 
 export interface CaseStudy {
   id: string
   slug: string
   number: string
+  /** Project / product name shown in lists */
   title: string
-  org: string
-  context: string
-  tags: string[]
-  summary: string
-  researchFocus: string
-  problem: string
-  constraint: string
-  outcome: string
   role: string
+  company: string
+  department: string
   timeline: string
-  methods: { method: string; why: string }[]
-  insights: { finding: string; decision: string }[]
-  /** Omit or leave empty when no persona/journey work was done. */
-  journey?: { stage: string; detail: string }[]
-  fidelity: { step: string; detail: string }[]
+  tags: string[]
+  /** Single headline outcome — the thing that should stick */
+  outcome: string
+  problems: CaseProblem[]
+  research: string[]
+  streams: CaseStream[]
   reflection: string
   liveUrl?: string
   figmaUrl?: string
@@ -66,425 +75,241 @@ export const site = {
 } as const
 
 /**
- * Order: GXS (shipped/external) → Ninkatec (0→1 client) → Serenity → Shopee → Amazon
+ * Order: GXS → Ninkatec → Serenity → Shopee → Amazon
+ * Structure: Outcome → meta → Problems → Research → per-problem streams → Reflection
  */
 export const caseStudies: CaseStudy[] = [
-{
+  {
     id: "gxs",
     slug: "gxs",
     number: "01",
     title: "GXS Bank",
-    org: "Product Design Intern",
-    context:
-      "Tagged to copywriting; also collaborated across product-design sub-teams on Money Lock flows and GXS Invest UI testing",
-    tags: ["Internship", "Money Lock", "GXS Invest", "UserTesting"],
-    summary:
-      "Supported Money Lock interaction/flow fit against existing app patterns and helped produce preference/A-B directions for Lock (incl. logo) and GXS Invest — then built and ran tests before rotating off before results landed.",
-    researchFocus:
-      "Two briefs: (1) does the new Money Lock workflow gel with existing flows? (2) feedback on new GXS Invest UI — answered via UserTesting + preference sessions.",
-    problem:
-      "Two live design questions: Money Lock’s new post-intro screens risked feeling disconnected from existing app patterns (and Lock wasn’t a home-screen feature), and GXS Invest needed a clear read on which UI presentation made more sense.",
-    constraint:
-      "16-week internship; formally tagged to copywriting while contributing across product-design sub-departments; no public artifacts; left before test results came back.",
+    role: "Product Design Intern",
+    company: "GXS Bank",
+    department: "Product Design",
+    timeline: "4 months · 16 weeks",
+    tags: ["Money Lock", "GXS Invest", "UserTesting", "Preference test"],
     outcome:
-      "Delivered flow/interaction work to align Money Lock with existing patterns, preference/A-B options (incl. Money Lock logo), a full Money Lock workflow test in UserTesting, and a mini feedback session on Invest information presentation. Likely the team shipped a preferred option from feedback — I wasn’t there for the readout.",
-    role: "Product Design Intern (copywriting seat · cross-team product design support)",
-    timeline: "4 months (16 weeks)",
-    methods: [
+      "Built and ran the Money Lock end-to-end UserTesting workflow, and shipped preference/A-B directions for Lock (incl. logo) and GXS Invest — then handed off before results landed.",
+    problems: [
       {
-        method: "Money Lock flow / interaction alignment",
-        why: "Check whether screens after Money Lock introduction matched how the rest of the app already behaved.",
+        id: "1",
+        statement:
+          "Designer was unsure the new Money Lock workflow gelled with existing app flows — Lock wasn’t on the home screen, and post-intro interactions risked feeling foreign.",
       },
       {
-        method: "Preference / A-B directions (Lock + logo)",
-        why: "Give the designer comparable options — including Money Lock logo variants — instead of one untested UI.",
-      },
-      {
-        method: "UserTesting — full Money Lock workflow",
-        why: "Run an end-to-end test of the Lock experience, not only a single screen critique.",
-      },
-      {
-        method: "GXS Invest preference + mini feedback",
-        why: "Two UI directions + a short session on whether information presentation made sense.",
+        id: "2",
+        statement:
+          "Designer needed feedback on the new GXS Invest UI — which presentation of information made more sense.",
       },
     ],
-    insights: [
-      {
-        finding: "A new feature can feel “foreign” even when the concept is sound — especially when it isn’t on the home screen.",
-        decision: "Prioritise interaction and post-intro screens that rhyme with existing flows.",
-      },
-      {
-        finding: "Designers needed options, not only opinions — preference/A-B pairs (and logo variants) made feedback actionable.",
-        decision: "Ship two comparable directions into test rather than debating one polished mock.",
-      },
-      {
-        finding: "Leaving before results is normal in internships — the craft is still building a clean test.",
-        decision: "Document the setup well enough that the team can decide without you in the room.",
-      },
+    research: [
+      "Full Money Lock workflow test built in UserTesting.",
+      "Preference / A-B directions for Money Lock UI and logo.",
+      "Mini feedback session on GXS Invest information presentation.",
     ],
-    journey: [
+    streams: [
       {
-        stage: "Brief",
-        detail: "Designer unsure Lock gels with existing flows; Invest needs UI feedback.",
+        problemId: "1",
+        insights:
+          "A new feature can feel bolted-on when post-intro screens don’t rhyme with existing patterns — especially when it isn’t discoverable from home.",
+        decisions:
+          "Prioritise interaction and screens after Money Lock is introduced so they match how the rest of the app already behaves; pair UI options (incl. logo) for preference testing instead of one untested direction.",
+        constraints:
+          "Existing banking product; Lock not a home-screen feature; internship seat formally tagged to copywriting while supporting product-design sub-teams; no public artifacts.",
+        whatWasDone:
+          "Worked Money Lock post-intro interactions/screens for flow fit; produced preference/A-B sets including logo variants; built an end-to-end Money Lock test in UserTesting.",
+        outcome:
+          "Test + preference kit ready for the team to decide on Lock fit and visual direction — I rotated off before the readout.",
       },
       {
-        stage: "Align Lock",
-        detail: "Work the interactions/screens after Money Lock is introduced so they match app patterns.",
-      },
-      {
-        stage: "Options",
-        detail: "Two directions for preference/A-B — including Money Lock logo exploration.",
-      },
-      {
-        stage: "Test + handoff",
-        detail: "Full Lock workflow in UserTesting + Invest mini feedback; results after my stint.",
-      },
-    ],
-    fidelity: [
-      {
-        step: "Flow / interaction work",
-        detail: "Money Lock post-intro screens shaped to sit with existing app patterns (no public screens).",
-      },
-      {
-        step: "Preference / A-B sets",
-        detail: "Two design directions for Lock (and logo) plus Invest UI variants.",
-      },
-      {
-        step: "UserTesting script + session",
-        detail: "End-to-end Money Lock workflow test built in UserTesting.",
-      },
-      {
-        step: "Invest mini feedback",
-        detail: "Quick read on whether information presentation made sense.",
+        problemId: "2",
+        insights:
+          "Invest needed comparable UI options and a quick read on whether information hierarchy made sense — not only polish on a single mock.",
+        decisions:
+          "Help produce two design directions for preference/A-B and run a mini feedback session on information presentation.",
+        constraints:
+          "Short feedback format; same internship handoff timing — results after my stint.",
+        whatWasDone:
+          "Two Invest UI directions for preference testing; mini session on whether the presentation of information made sense.",
+        outcome:
+          "Feedback inputs left with the squad; assumed a preferred option shipped from testing — I wasn’t there for confirmation.",
       },
     ],
     reflection:
-      "Having a clear design system and structure matters — it’s what lets a new flow feel native instead of bolted on. I wouldn’t screenshot the live bank app for the portfolio without permission; the case stands on process, tests run, and the system lesson.",
+      "Clear design system and structure matter — they’re what make a new flow feel native. I wouldn’t screenshot the live bank app without permission; this case stands on the tests built and the handoff.",
   },
-{
+  {
     id: "ninkatec",
     slug: "ninkatec",
     number: "02",
     title: "Ninkatec onboarding",
-    org: "School · client project",
-    context: "0→1 onboarding web experience consolidating a mostly manual workflow",
-    tags: ["0→1", "Client consult", "Persona", "Preference test"],
-    summary:
-      "Designed an onboarding web experience that replaced scattered manual forms — grounded in client consults, internal interviews, and a primary persona (Jane).",
-    researchFocus:
-      "Client problem-sourcing consult → internal pain-point interviews → Jane persona → preference testing on direction.",
-    problem:
-      "Onboarding lived in manual workflows — fragmented forms and handoffs made it hard to consolidate patient, nurse, and operational information in one place.",
-    constraint:
-      "Four-month school engagement with a real client: digitize without breaking trust, and stay NDA-safe in how process is shared publicly.",
-    outcome:
-      "Handed over an onboarding web flow backed by a structured database for staff, patients, and nurses. Live production status after handover is unknown.",
     role: "Designer",
+    company: "Ninkatec",
+    department: "School · client project",
     timeline: "4 months",
-    methods: [
+    tags: ["0→1", "Client consult", "Persona", "Preference test"],
+    outcome:
+      "Handed over an onboarding web experience that replaced scattered manual forms, with a database for staff, patients, and nurses.",
+    problems: [
       {
-        method: "Client consult (problem sourcing)",
-        why: "Align on the real onboarding pain before proposing screens.",
-      },
-      {
-        method: "Internal interviews",
-        why: "Hear pain points across roles inside the company — not only the briefing slide.",
-      },
-      {
-        method: "Persona — Jane (primary user)",
-        why: "Keep the flow honest to the main platform user rather than designing for everyone equally.",
-      },
-      {
-        method: "Preference testing",
-        why: "Check which directions felt more suitable to stakeholders before locking UI.",
+        id: "1",
+        statement:
+          "Onboarding lived in mostly manual workflows — fragmented forms and handoffs made consolidation hard.",
       },
     ],
-    insights: [
-      {
-        finding: "The core job wasn’t “a prettier website” — it was consolidating manual onboarding into one path.",
-        decision: "Treat every screen as a replacement for a manual form or handoff, not a marketing page.",
-      },
-      {
-        finding: "Different internal roles felt different pains; Jane kept the primary path from fracturing.",
-        decision: "Design the main onboarding spine for Jane; capture other roles as data/relationships in the system model.",
-      },
-      {
-        finding: "Preference tests surfaced suitability early — before over-investing in one visual direction.",
-        decision: "Use preference rounds to choose direction, then deepen wireframes on the winner.",
-      },
+    research: [
+      "Client consult for initial problem sourcing.",
+      "Internal company interviews on pain points across roles.",
+      "Primary persona: Jane (mock) as main platform user.",
+      "Preference testing on design direction.",
     ],
-    journey: [
+    streams: [
       {
-        stage: "Manual today",
-        detail: "Onboarding information scattered across forms and handoffs.",
-      },
-      {
-        stage: "Consult + listen",
-        detail: "Client problem-sourcing and internal interviews map where friction actually sits.",
-      },
-      {
-        stage: "Digitize spine",
-        detail: "Manual forms become a guided onboarding web flow with stored records.",
-      },
-      {
-        stage: "Handover",
-        detail: "Team receives the experience and data model; post-handover ship status unclear.",
-      },
-    ],
-    fidelity: [
-      {
-        step: "Problem framing",
-        detail: "Consult notes + interview themes → consolidate-onboarding brief.",
-      },
-      {
-        step: "Persona + journey",
-        detail: "Jane as primary user; path from intake to stored record.",
-      },
-      {
-        step: "Wireframes → web UI",
-        detail: "Form replacement flows for onboarding steps.",
-      },
-      {
-        step: "Data model",
-        detail: "Database structure for operational users, patients, and nurses.",
+        problemId: "1",
+        insights:
+          "The job wasn’t a prettier site — it was replacing manual forms with one trustworthy path; Jane kept the spine from fracturing across roles.",
+        decisions:
+          "Design the main onboarding flow for Jane; capture other roles in the data model; use preference tests to pick direction before deepening UI.",
+        constraints:
+          "Four-month school engagement; real client; NDA limits what artifacts can be shown publicly.",
+        whatWasDone:
+          "Converted manual forms into an onboarding web flow; structured a DB for operational users, patients, and nurses; preference-tested direction.",
+        outcome:
+          "Handover completed. Live production status after handover unknown.",
       },
     ],
     reflection:
-      "Artifacts stay private under NDA — the public story is the process: consult, interview, persona, digitize the manual spine, preference-test direction, handover. That’s the transferable craft.",
+      "Artifacts stay private under NDA. The transferable craft is consult → interview → persona → digitize the manual spine → preference-test → handover.",
   },
-{
+  {
     id: "serenity",
     slug: "serenity",
     number: "03",
     title: "Serenity",
-    org: "Personal project",
-    context:
-      "1-month end-to-end build (design + AI with Claude/Cursor) — Figma workflow + web deploy of a mobile-meant experience",
-    tags: ["UI / UX", "AI", "Live prototype", "Figma"],
-    summary:
-      "Built an end-to-end task app aimed at neurodivergent planning/organising/completing pain — then learned in interviews that thin research left the design hard to defend.",
-    researchFocus:
-      "Light desk research (Google + Notion comparisons + small conversations) → build first → interview feedback: not ND-friendly enough, choices under-backed.",
-    problem:
-      "Neurodivergent users often struggle with planning, organising, and completing tasks — and many productivity tools (Notion-like density) add setup cost before any progress.",
-    constraint:
-      "One-month solo sprint; built with AI (Claude + Cursor); mobile experience shipped as a web deploy; some core features still not in the build; no formal usability testing.",
-    outcome:
-      "Full workflow in Figma + a live web prototype. Interview feedback flagged that it didn’t feel neurodivergent-friendly and that design choices lacked research backing — which is now the case’s main lesson.",
-    role: "End-to-end designer & builder (UI/UX + AI implementation with Claude / Cursor)",
+    role: "End-to-end designer & builder (Claude + Cursor)",
+    company: "Personal project",
+    department: "Independent",
     timeline: "1 month",
+    tags: ["UI / UX", "AI", "Live prototype", "Figma"],
+    outcome:
+      "Shipped a Figma workflow + live web prototype of a mobile-meant task app — and learned from interviews that thin research left ND-friendly claims hard to defend.",
+    problems: [
+      {
+        id: "1",
+        statement:
+          "Neurodivergent users often struggle with planning, organising, and completing tasks — dense tools (e.g. Notion-like) add setup cost before progress.",
+      },
+    ],
+    research: [
+      "Light desk research (Google).",
+      "Small conversations + Notion comparisons.",
+      "No persona / journey map.",
+      "No formal usability test — signal came from later interview feedback.",
+    ],
+    streams: [
+      {
+        problemId: "1",
+        insights:
+          "Building without persona/journey made decisions hard to explain; light Notion comparisons aren’t enough to claim an ND-friendly product.",
+        decisions:
+          "Ship the demo anyway (Figma + web); treat interview critique as the real validation — research and pain-point mapping must come first next time.",
+        constraints:
+          "One-month solo sprint with AI; mobile experience on web; some core features not in the build yet.",
+        whatWasDone:
+          "End-to-end product workflow in Figma; deployed web prototype; incomplete feature set accepted to move fast.",
+        outcome:
+          "Live prototype exists. Interview feedback: not ND-friendly enough; design choices under-backed by research.",
+      },
+    ],
     liveUrl: "https://serenity-delta-livid.vercel.app/",
-    methods: [
-      {
-        method: "Desk research (Google)",
-        why: "Quick scan of ND planning/organisation friction and existing tool patterns.",
-      },
-      {
-        method: "Small conversations + Notion comparison",
-        why: "Gut-check whether dense workspace tools add friction for people who already struggle to start.",
-      },
-      {
-        method: "Build in Figma + ship web",
-        why: "Move fast on a mobile-meant flow; accept incomplete features over waiting for perfect research.",
-      },
-      {
-        method: "Interview feedback (post-build)",
-        why: "External readers said it wasn’t ND-friendly and that choices weren’t research-backed — the real validation moment.",
-      },
-    ],
-    insights: [
-      {
-        finding: "Building without a persona/journey left decisions hard to explain in interviews.",
-        decision: "Next projects: map pain points and a primary user path before hi-fi.",
-      },
-      {
-        finding: "Light Notion comparisons aren’t enough to claim an ND-friendly product.",
-        decision: "Treat “ND-friendly” as a claim that needs evidence — or soften the positioning until research exists.",
-      },
-      {
-        finding: "A live prototype still helps — but feedback without prior research hits harder.",
-        decision: "Keep shipping demos; don’t skip the research spine that makes them defensible.",
-      },
-    ],
-    journey: [],
-    fidelity: [
-      {
-        step: "Figma workflow",
-        detail: "End-to-end product flow documented in Figma (link to add).",
-      },
-      {
-        step: "Web deploy (mobile-meant)",
-        detail: "Live prototype on the web even though the experience is framed for mobile; some core features not applied yet.",
-      },
-      {
-        step: "No formal test plan",
-        detail: "No usability testing round — signal came later from interview feedback instead.",
-      },
-      {
-        step: "Gap owned",
-        detail: "No persona / journey map in this sprint — called out explicitly.",
-      },
-    ],
     reflection:
-      "The lasting takeaway: always conduct research and map pain points first. Shipping fast with AI is useful; defending UX without evidence isn’t.",
+      "Always conduct research and map pain points first. Shipping fast with AI is useful; defending UX without evidence isn’t.",
   },
-{
+  {
     id: "shopee",
     slug: "shopee",
     number: "04",
     title: "Shopee redesign",
-    org: "UI/UX · app redesign exercise",
-    context: "1-week redesign of Shopee’s mobile app — price clarity, variants, and product detail presentation",
-    tags: ["Mobile", "Checkout", "1 week"],
-    summary:
-      "Price didn’t feel consistent into checkout, plus smaller UI frictions — I redesigned for upfront price clarity, clearer variant control, and in-page product info, then learned checkout users rarely want to change variants there.",
-    researchFocus:
-      "Web review search + my own walkthrough of the app (thin research; no formal persona beyond myself as shopper).",
-    problem:
-      "Prices appeared to jump across screens into checkout (subtotal was often correct but key values stayed hidden), and product/variant details were easy to miss or hard to edit once you were deep in the flow.",
-    constraint:
-      "One-week solo redesign; no usability test; Figma file kept private; referenced web patterns more than mobile e-commerce conventions.",
-    outcome:
-      "Mocked: original price up front, more obvious/editable variants even on checkout, and product info on the page (image + variant selection) instead of a bottom sheet. Biggest learning from the checkout angle — people already on checkout usually don’t want to change variant. Also: I should have benchmarked mobile e-commerce apps, not web.",
-    role: "UI/UX designer (redesign exercise)",
+    role: "UI/UX designer",
+    company: "Shopee",
+    department: "App redesign exercise",
     timeline: "1 week",
-    methods: [
+    tags: ["Mobile", "Checkout", "1 week"],
+    outcome:
+      "Redesigned for upfront price clarity and clearer product/variant presentation — then learned checkout users rarely want to change variants there, and I should have benchmarked mobile commerce, not web.",
+    problems: [
       {
-        method: "Review mining (web search)",
-        why: "Pull recurring shopper complaints about price/checkout clarity.",
-      },
-      {
-        method: "Personal walkthrough",
-        why: "Validate friction hands-on as a shopper — where price and variants feel wrong.",
-      },
-      {
-        method: "Figma redesign",
-        why: "Propose upfront pricing, variant confirmation/edit, and in-page product detail instead of a sheet.",
+        id: "1",
+        statement:
+          "Price felt inconsistent into checkout (subtotal often correct, but key values stayed hidden) plus smaller UI frictions around variants and product detail.",
       },
     ],
-    insights: [
-      {
-        finding: "The math was often fine — the trust break was hidden values making price feel like it jumped.",
-        decision: "Surface the original / expected number earlier instead of only revealing clarity at subtotal.",
-      },
-      {
-        finding: "Making variants editable on checkout fights convention (cart is usually the edit place).",
-        decision: "Outcome learning: checkout users rarely want to change variant — put energy where they still will.",
-      },
-      {
-        finding: "Bottom-sheet product info hid image/variant context when decisions were still forming.",
-        decision: "Keep image updates and variant selection on the main UI during selection.",
-      },
+    research: [
+      "Web search on reviews.",
+      "Personal walkthrough of the app (myself as shopper).",
+      "No formal test.",
     ],
-    journey: [
+    streams: [
       {
-        stage: "Browse / select",
-        detail: "Product info and variants need to stay visible — not tucked in a sheet.",
-      },
-      {
-        stage: "Price trust",
-        detail: "Hidden line items make the number feel unstable even when subtotal is right.",
-      },
-      {
-        stage: "Checkout",
-        detail: "Users are committing — variant edits here are uncommon; clarity matters more than edit power.",
-      },
-      {
-        stage: "Retrospective",
-        detail: "Benchmark mobile commerce patterns next time, not web checkout habits.",
-      },
-    ],
-    fidelity: [
-      {
-        step: "Walkthrough notes",
-        detail: "Price jumps + minor UI frictions logged from real app use.",
-      },
-      {
-        step: "Figma redesign",
-        detail: "Upfront price, in-page product/variant UI, clearer checkout variant treatment (file private).",
-      },
-      {
-        step: "No test round",
-        detail: "No usability test — outcome judgment from redesign logic + later reflection.",
-      },
-      {
-        step: "Reference miss",
-        detail: "Should have used mobile e-commerce apps as the primary benchmark.",
+        problemId: "1",
+        insights:
+          "Trust broke on hidden values, not bad math; editable variants on checkout fight convention; bottom sheets hid image/variant context too early.",
+        decisions:
+          "Surface the original number upfront; make variants more obvious (even on checkout); put product info on the page (image + variants) instead of a bottom sheet.",
+        constraints:
+          "One-week solo redesign; Figma kept private; referenced web patterns more than mobile e-commerce apps.",
+        whatWasDone:
+          "Figma redesign covering price upfront, variant confirmation/edit, and in-page product/variant UI.",
+        outcome:
+          "Strongest learning landed on checkout behaviour — people already there don’t usually want to change variant. Reference mobile e-commerce next time.",
       },
     ],
     reflection:
-      "Same focus lesson as Amazon: don’t over-solve adjacent UI. And specifically here — reference mobile e-commerce, not web, when the product is an app.",
+      "Same focus lesson as Amazon: don’t over-solve adjacent UI. Benchmark mobile commerce apps, not web checkout habits.",
   },
-{
+  {
     id: "amazon",
     slug: "amazon",
     number: "05",
     title: "Amazon redesign",
-    org: "Personal · consumer UX",
-    context: "≤1 week mock redesign — add-to-cart / checkout consistency across product variants",
-    tags: ["Checkout", "Wireframes", "Interview feedback"],
-    summary:
-      "Different add-to-cart UIs for variants of the same item — I tried to unify checkout, add stock indicators, trim upfront text, then got interview feedback that I’d wandered off the real web checkout patterns.",
-    researchFocus:
-      "Almost none — spotted friction in-product, jumped to wireframes/mockups; research debt showed up in interview critique.",
-    problem:
-      "The same product used different UIs for adding variants to cart — checkout felt inconsistent, with high upfront text load and weak stock clarity.",
-    constraint:
-      "Personal sprint of about a week or less; no formal research, persona, journey, or usability test — Figma wireframes/mockups only.",
-    outcome:
-      "Wireframed a more uniform checkout, stock indicators, a tightened checkout section, and less text upfront. Interview feedback: the redesign didn’t follow the existing web checkout experience closely enough, and a low-stock indicator alone would have been sufficient for part of the ask.",
-    role: "Solo consumer UX / UI exploration",
+    role: "Consumer UX / UI exploration",
+    company: "Amazon",
+    department: "Personal project",
     timeline: "≤ 1 week",
-    methods: [
+    tags: ["Checkout", "Wireframes", "Interview feedback"],
+    outcome:
+      "Wireframed a more uniform variant/checkout path with stock indicators and less upfront text — interview feedback said I’d drifted from the live web checkout, and a low-stock indicator may have been enough.",
+    problems: [
       {
-        method: "In-product friction spot",
-        why: "Notice variant add-to-cart UIs diverging for the same item.",
-      },
-      {
-        method: "Wireframes / mockups",
-        why: "Unify checkout, add stock indicators, adjust checkout section, reduce upfront copy for cognitive load.",
-      },
-      {
-        method: "Interview critique (post-hoc)",
-        why: "External feedback on whether the redesign respected the live checkout model.",
+        id: "1",
+        statement:
+          "Different UIs for adding variants of the same item to cart — checkout felt inconsistent, with high upfront text load and weak stock clarity.",
       },
     ],
-    insights: [
-      {
-        finding: "Variant add-to-cart inconsistency is a real friction — but “fix everything nearby” isn’t the same brief.",
-        decision: "Next time: one primary problem statement before touching adjacent checkout chrome.",
-      },
-      {
-        finding: "Interviewers flagged drift from the existing web checkout experience.",
-        decision: "Benchmark against the live pattern first; change only what the problem requires.",
-      },
-      {
-        finding: "A low-stock indicator may have been enough for the inventory clarity piece.",
-        decision: "Prefer the smallest shippable fix when research is thin.",
-      },
+    research: [
+      "Almost none — friction spotted in-product, then straight to wireframes/mockups.",
+      "No persona / journey / usability test.",
+      "Validation via interview critique.",
     ],
-    journey: [],
-    fidelity: [
+    streams: [
       {
-        step: "Wireframes",
-        detail: "Uniform checkout path, stock indicators, adjusted checkout section, less upfront text.",
-      },
-      {
-        step: "Mockups",
-        detail: "Hi-fi exploration in Figma (link to add).",
-      },
-      {
-        step: "No test round",
-        detail: "Validation came from interview feedback, not a usability study.",
-      },
-      {
-        step: "Scope miss",
-        detail: "Changed more surface area than the core variant/cart inconsistency required.",
+        problemId: "1",
+        insights:
+          "Variant inconsistency is real, but “fix everything nearby” isn’t the same brief; interviewers flagged drift from existing web checkout; low-stock indicator alone may cover the inventory piece.",
+        decisions:
+          "Attempted uniform checkout, stock indicators, adjusted checkout section, reduced upfront copy — then accepted the critique to scope smaller next time.",
+        constraints:
+          "≤1 week personal sprint; thin research; Figma only.",
+        whatWasDone:
+          "Wireframes/mockups for uniform checkout, stock indicators, checkout adjustments, less upfront text.",
+        outcome:
+          "Useful interview feedback: follow the live checkout model; prefer the smallest fix when research is thin.",
       },
     ],
     reflection:
-      "Same lesson as Shopee: stay focused on the problem — don’t fix one friction and leave a mess of extra changes. Thin research made that overreach easier.",
-  }
+      "Same lesson as Shopee: stay focused on the problem — don’t fix one friction and leave a mess of extra changes.",
+  },
 ]
 
 export function getCaseStudy(slug: string) {
