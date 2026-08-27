@@ -377,66 +377,77 @@ export const caseStudies: CaseStudy[] = [
       { step: "Backlog note", detail: "Deferred issues documented — not ignored." },
     ],
     reflection:
-      "Good mobile UX isn’t covering every wound — it’s choosing the one that matters most and healing it well.",
+      "Same lesson as Amazon: stay focused on the problem — don’t change one thing and create a mess of extras. Depth on one issue beats a sprawl of fixes.",
   },
 {
     id: "amazon",
     slug: "amazon",
     number: "05",
     title: "Amazon redesign",
-    org: "Personal project",
-    context: "Checkout fragmentation inside one product experience",
-    tags: ["Checkout", "Flow redesign", "Documentation debt"],
+    org: "Personal · consumer UX",
+    context: "≤1 week mock redesign — add-to-cart / checkout consistency across product variants",
+    tags: ["Checkout", "Wireframes", "Interview feedback"],
     summary:
-      "The core issue was multiple checkout flows living inside the same product. I explored a redesign, but it sprawled — this case is as much about scoping and documentation as the UI.",
+      "Different add-to-cart UIs for variants of the same item — I tried to unify checkout, add stock indicators, trim upfront text, then got interview feedback that I’d wandered off the real web checkout patterns.",
     researchFocus:
-      "Spot fragmented checkout paths → attempt consolidation redesign → learn that without tight scope + docs, the work gets too big.",
+      "Almost none — spotted friction in-product, jumped to wireframes/mockups; research debt showed up in interview critique.",
     problem:
-      "Amazon’s experience carried multiple checkout flows for related jobs — users (and the designer) had to navigate inconsistent paths instead of one clear commit spine.",
+      "The same product used different UIs for adding variants to cart — checkout felt inconsistent, with high upfront text load and weak stock clarity.",
     constraint:
-      "Personal project with no internal access; easy to over-redesign when “fix checkout” expands into the whole purchase graph.",
+      "Personal sprint of about a week or less; no formal research, persona, journey, or usability test — Figma wireframes/mockups only.",
     outcome:
-      "Partial redesign exploration. Honest takeaway: the attempt was too large, and the case needs tighter documentation of what was in/out of scope.",
-    role: "Solo UX / UI exploration",
-    timeline: "Self-directed",
+      "Wireframed a more uniform checkout, stock indicators, a tightened checkout section, and less text upfront. Interview feedback: the redesign didn’t follow the existing web checkout experience closely enough, and a low-stock indicator alone would have been sufficient for part of the ask.",
+    role: "Solo consumer UX / UI exploration",
+    timeline: "≤ 1 week",
     methods: [
       {
-        method: "Flow mapping",
-        why: "Lay out the multiple checkout paths side by side.",
+        method: "In-product friction spot",
+        why: "Notice variant add-to-cart UIs diverging for the same item.",
       },
       {
-        method: "Consolidation redesign",
-        why: "Try to reduce path sprawl into a clearer commit experience.",
+        method: "Wireframes / mockups",
+        why: "Unify checkout, add stock indicators, adjust checkout section, reduce upfront copy for cognitive load.",
       },
       {
-        method: "Scope check (retrospective)",
-        why: "Admit where the redesign ballooned past a defendable brief.",
+        method: "Interview critique (post-hoc)",
+        why: "External feedback on whether the redesign respected the live checkout model.",
       },
     ],
     insights: [
       {
-        finding: "Multiple checkout flows in one product create learning tax and error risk.",
-        decision: "Aim for one primary checkout spine with intentional variants — not parallel mini-checkouts.",
+        finding: "Variant add-to-cart inconsistency is a real friction — but “fix everything nearby” isn’t the same brief.",
+        decision: "Next time: one primary problem statement before touching adjacent checkout chrome.",
       },
       {
-        finding: "“Fix checkout” is a trap scope — it swallows adjacent commerce UI fast.",
-        decision: "Next pass: document a single flow boundary before drawing more screens.",
+        finding: "Interviewers flagged drift from the existing web checkout experience.",
+        decision: "Benchmark against the live pattern first; change only what the problem requires.",
+      },
+      {
+        finding: "A low-stock indicator may have been enough for the inventory clarity piece.",
+        decision: "Prefer the smallest shippable fix when research is thin.",
       },
     ],
-    journey: [
-      { stage: "Enter purchase", detail: "User hits one of several checkout-shaped paths." },
-      { stage: "Diverge", detail: "Same product, different rules/UI depending on entry." },
-      { stage: "Redesign attempt", detail: "Consolidation exploration grows too wide." },
-      { stage: "Retrospective", detail: "Need clearer docs + a smaller next cut." },
-    ],
+    journey: [],
     fidelity: [
-      { step: "Flow inventory", detail: "Multiple checkout paths identified." },
-      { step: "Redesign exploration", detail: "Partial UI/flow proposals — incomplete as a ship story." },
-      { step: "Doc gap", detail: "Case marked as needing better before/after documentation." },
-      { step: "Next cut", detail: "Re-scope to one checkout variant and rewrite the brief." },
+      {
+        step: "Wireframes",
+        detail: "Uniform checkout path, stock indicators, adjusted checkout section, less upfront text.",
+      },
+      {
+        step: "Mockups",
+        detail: "Hi-fi exploration in Figma (link to add).",
+      },
+      {
+        step: "No test round",
+        detail: "Validation came from interview feedback, not a usability study.",
+      },
+      {
+        step: "Scope miss",
+        detail: "Changed more surface area than the core variant/cart inconsistency required.",
+      },
     ],
     reflection:
-      "I’m keeping this case because the failure mode is useful: redesign without a sharp scope (and without solid documentation) turns into “too much.” I’ll tighten the write-up when I redo the docs.",
+      "Same lesson as Shopee: stay focused on the problem — don’t fix one friction and leave a mess of extra changes. Thin research made that overreach easier.",
   }
 ]
 
