@@ -26,6 +26,10 @@ Copy `.env.example` to `.env.local` and set your Formspree form ID for the conta
 NEXT_PUBLIC_FORMSPREE_FORM_ID=your_form_id
 ```
 
+## Independent UI/UX site
+
+A completely separate research-first portfolio lives in [`ux-site/`](./ux-site/) (Ninkatec, Amazon, GXS, Shopee). Deploy it on its own by setting the Vercel root directory to `ux-site`.
+
 ## Deploy
 
 This is a standard Next.js App Router app. Deploy to Vercel (or any Node host):

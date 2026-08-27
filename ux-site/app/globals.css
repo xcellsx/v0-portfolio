@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #10243a;
+  --ink-soft: #3a5168;
+  --paper: #eef3f7;
+  --paper-deep: #e2eaf1;
+  --signal: #0f7a6c;
+  --signal-deep: #0a574e;
+  --mist: #c5d5e2;
+  --line: rgba(16, 36, 58, 0.12);
+  --glow: rgba(15, 122, 108, 0.14);
+  --background: var(--paper);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --font-sans: var(--font-source-sans), system-ui, sans-serif;
+  --font-display: var(--font-syne), system-ui, sans-serif;
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-signal: var(--signal);
+  --color-signal-deep: var(--signal-deep);
+  --color-mist: var(--mist);
+  --color-line: var(--line);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--signal) 28%, white);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .atmosphere {
+    background:
+      radial-gradient(ellipse 90% 60% at 100% -10%, var(--glow), transparent 55%),
+      radial-gradient(ellipse 70% 50% at -10% 30%, rgba(16, 36, 58, 0.06), transparent 50%),
+      linear-gradient(180deg, #f4f7fa 0%, var(--paper) 40%, #e8eef4 100%);
+  }
+
+  .reveal {
+    animation: rise 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .reveal-delay-1 {
+    animation-delay: 120ms;
+  }
+
+  .reveal-delay-2 {
+    animation-delay: 220ms;
+  }
+
+  .reveal-delay-3 {
+    animation-delay: 320ms;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal-delay-1,
+    .reveal-delay-2,
+    .reveal-delay-3 {
+      animation: none;
+    }
+  }
+}
