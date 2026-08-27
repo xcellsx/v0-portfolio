@@ -17,7 +17,7 @@ export async function generateMetadata({
   if (!study) return { title: site.title }
   return {
     title: `${study.title} — ${site.title}`,
-    description: study.summary,
+    description: study.outcome,
   }
 }
 
