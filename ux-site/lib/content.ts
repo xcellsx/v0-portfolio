@@ -87,7 +87,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Product Design Intern",
     company: "GXS Bank",
     department: "Product Design",
-    timeline: "4 months · 16 weeks",
+    timeline: "17 Sep — 6 Jan",
     tags: ["Money Lock", "GXS Invest", "UserTesting", "Preference test"],
     outcome:
       "Built and ran the Money Lock end-to-end UserTesting workflow, and shipped preference/A-B directions for Lock (incl. logo) and GXS Invest — then handed off before results landed.",
