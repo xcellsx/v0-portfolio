@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
 
 const navItems = [
   { label: "About", href: "/about" },
-  { label: "UI/UX", href: "/work/serenity" },
+  { label: "UI/UX", href: "/work/ui-ux" },
   { label: "Graphic Design", href: "/work/graphic-design" },
   { label: "3D", href: "/work/3d-design" },
   { label: "Web Development", href: "/work/web-development" },
@@ -122,7 +122,7 @@ export function LandingContent() {
         <p
           className={`max-w-xl font-sans text-[clamp(0.875rem,1.5vw,1rem)] leading-relaxed text-offblack/80 ${fadeClass(showBio)}`}
         >
-          Designing intuitive user flows, modeling architectural spaces and organic 3D visuals,
+          Designing research-led user flows, modeling architectural spaces and organic 3D visuals,
           and developing responsive front-end applications.
         </p>
       </div>

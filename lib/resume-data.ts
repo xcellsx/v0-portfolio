@@ -69,6 +69,12 @@ export const resumeSkills = [
 
 export const resumeBuilds = [
   {
+    filename: "WXP_WORKPLACE_EXPERIENCE",
+    tag: "UI/UX",
+    description: "Research-led workplace product case study.",
+    href: "/work/wxp",
+  },
+  {
     filename: "SERENITY_APPLICATION",
     tag: "REACT/AI",
     description: "Full-stack AI task architecture concept.",
@@ -84,12 +90,6 @@ export const resumeBuilds = [
     tag: "R3F/RXT",
     description: "3D responsive WebGL interaction layer.",
     href: "/work/the-keepsake",
-  },
-  {
-    filename: "CAYRA_REDESIGN_V1",
-    tag: "F360/BLN",
-    description: "3D simulation, CAD layout & structural study.",
-    href: "/work/cayra",
   },
 ] as const
 

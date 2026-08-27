@@ -13,8 +13,19 @@ export interface SelectedProject {
 
 export const selectedProjects: SelectedProject[] = [
   {
-    id: "serenity",
+    id: "wxp",
     number: "01",
+    title: "WXP × GovTech",
+    toolkit: ["figma"],
+    tags: ["UI / UX", "USER RESEARCH"],
+    description:
+      "Workplace Experience Product — research-led booking and wayfinding for hybrid public-sector teams. Insights wired to journey and lo-fi → hi-fi decisions.",
+    mockups: ["/images/projects/wxp/cover.svg"],
+    learnMoreHref: "/work/wxp",
+  },
+  {
+    id: "serenity",
+    number: "02",
     title: "Serenity",
     toolkit: ["figma", "ai agent"],
     tags: ["UI / UX", "AI INTEGRATION"],
@@ -25,7 +36,7 @@ export const selectedProjects: SelectedProject[] = [
   },
   {
     id: "twin-pagoda",
-    number: "02",
+    number: "03",
     title: "Twin Pagoda",
     toolkit: ["figma", "typescript", "blender"],
     tags: ["WEB DEVELOPMENT", "3D"],
@@ -34,22 +45,6 @@ export const selectedProjects: SelectedProject[] = [
     mockups: ["/images/twin-pagodas/tp.png"],
     learnMoreHref: "/work/twin-pagodas",
     liveUrl: "https://twin-pagoda-page.vercel.app/",
-  },
-  {
-    id: "poster-a-day",
-    number: "03",
-    title: "Poster A Day",
-    toolkit: ["affinity", "blender"],
-    tags: ["GRAPHIC DESIGN", "3D DESIGN"],
-    description:
-      "A visual laboratory documenting rapid experimentation across diverse graphic styles, tactile texture mapping, and experimental digital effects.",
-    mockups: [
-      "/images/projects/poster-a-day/chrome.png",
-      "/images/projects/poster-a-day/butter.png",
-      "/images/projects/poster-a-day/distort.png",
-    ],
-    mockupLayout: "gallery",
-    learnMoreHref: "/work/graphic-design",
   },
 ]
 

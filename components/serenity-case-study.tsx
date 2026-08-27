@@ -3,10 +3,17 @@
 import Image from "next/image"
 import { ContactSection } from "@/components/contact-section"
 import { CaseStudyBackLink, CaseStudyLiveActions } from "@/components/case-study-primitives"
+import {
+  ColdReadStrip,
+  MethodWhyList,
+  ResearchInsightGrid,
+} from "@/components/ux-case-study-primitives"
 import { SectionLabel } from "@/components/section-label"
 import {
+  serenityColdRead,
   serenityComponents,
   serenityLive,
+  serenityResearch,
   serenitySpecMatrix,
   serenitySteps,
 } from "@/lib/serenity-case-study-data"
@@ -112,7 +119,7 @@ export function SerenityCaseStudy() {
         ref={heroRef}
         className="px-[clamp(1.5rem,4vw,5rem)] pt-[clamp(2rem,5vh,4rem)] pb-[clamp(3rem,8vh,5rem)]"
       >
-        <CaseStudyBackLink href="/" visible={heroVisible} />
+        <CaseStudyBackLink href="/work/ui-ux" label="UI/UX Index" visible={heroVisible} />
 
         <div className={`space-y-6 ${fadeInFromTopClass(heroVisible)}`}>
           <SectionLabel>[ UI // UX ]</SectionLabel>
@@ -143,6 +150,12 @@ export function SerenityCaseStudy() {
           />
         </div>
       </section>
+
+      <ColdReadStrip
+        problem={serenityColdRead.problem}
+        constraint={serenityColdRead.constraint}
+        outcome={serenityColdRead.outcome}
+      />
 
       <section
         ref={matrixRef}
@@ -182,6 +195,60 @@ export function SerenityCaseStudy() {
               </blockquote>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="border-t border-offblack/10 px-[clamp(1.5rem,4vw,5rem)] py-[clamp(3rem,8vh,5rem)]">
+        <div className="mb-[clamp(2rem,5vh,3rem)] space-y-4">
+          <SectionLabel>{serenityResearch.sectionLabel}</SectionLabel>
+          <h2 className="max-w-3xl font-serif text-[clamp(1.5rem,3vw,2.25rem)] font-medium leading-[1.2] tracking-[-0.02em]">
+            {serenityResearch.headline}
+          </h2>
+          <p className="max-w-2xl font-sans text-sm leading-relaxed text-offblack/70">
+            {serenityResearch.framing}
+          </p>
+        </div>
+
+        <div className="mb-[clamp(2.5rem,6vh,4rem)]">
+          <p className="mb-4 font-mono text-[10px] tracking-[0.14em] text-offblack/45 uppercase">
+            Research questions
+          </p>
+          <ul className="space-y-3 border-t border-offblack/10 pt-4">
+            {serenityResearch.questions.map((q) => (
+              <li
+                key={q}
+                className="border-b border-offblack/10 pb-3 font-sans text-sm leading-[1.65] text-offblack/80"
+              >
+                {q}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mb-[clamp(2.5rem,6vh,4rem)]">
+          <p className="mb-4 font-mono text-[10px] tracking-[0.14em] text-offblack/45 uppercase">
+            Methods — why these, not others
+          </p>
+          <MethodWhyList methods={serenityResearch.methods} />
+        </div>
+
+        <div>
+          <p className="mb-2 font-mono text-[10px] tracking-[0.14em] text-offblack/45 uppercase">
+            Insights wired to decisions
+          </p>
+          <ResearchInsightGrid insights={serenityResearch.insights} />
+        </div>
+
+        <div className="mt-[clamp(2.5rem,6vh,4rem)] border border-offblack/10 bg-[linear-gradient(120deg,rgba(174,34,23,0.06),transparent_55%)] px-[clamp(1.25rem,3vw,2rem)] py-[clamp(1.75rem,4vh,2.5rem)]">
+          <p className="font-mono text-[10px] tracking-[0.14em] text-terracotta uppercase">
+            {serenityResearch.tension.label}
+          </p>
+          <h3 className="mt-3 font-serif text-[clamp(1.35rem,2.5vw,1.85rem)] font-medium tracking-[-0.02em] text-offblack">
+            {serenityResearch.tension.title}
+          </h3>
+          <p className="mt-4 max-w-3xl font-sans text-sm leading-[1.7] text-offblack/80">
+            {serenityResearch.tension.body}
+          </p>
         </div>
       </section>
 

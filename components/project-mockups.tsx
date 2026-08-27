@@ -8,6 +8,7 @@ interface ProjectMockupsProps {
 }
 
 const SINGLE_IMAGE_CLASS: Record<string, string> = {
+  wxp: "h-auto max-h-[min(54vh,640px)] w-full max-w-7xl object-contain",
   serenity:
     "h-auto max-h-[min(54vh,640px)] w-full max-w-7xl object-contain",
   "twin-pagoda":
@@ -15,6 +16,7 @@ const SINGLE_IMAGE_CLASS: Record<string, string> = {
 }
 
 const SINGLE_IMAGE_STYLE: Record<string, React.CSSProperties> = {
+  wxp: { width: "100%", height: "auto" },
   serenity: { width: "100%", height: "auto" },
   "twin-pagoda": { width: "auto", height: "auto" },
 }
