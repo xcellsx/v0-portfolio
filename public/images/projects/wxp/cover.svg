@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" fill="none">
   <rect width="1200" height="750" fill="#F5F2EC"/>
   <rect x="0" y="0" width="1200" height="8" fill="#AE2217"/>
-  <text x="72" y="120" fill="#AE2217" font-family="Georgia, serif" font-size="28" letter-spacing="4">WXP × GOVTECH</text>
+  <text x="72" y="120" fill="#AE2217" font-family="Georgia, serif" font-size="28" letter-spacing="4">WXP x GOVTECH</text>
   <text x="72" y="200" fill="#1C1B18" font-family="Georgia, serif" font-size="56" font-weight="500">Workplace</text>
   <text x="72" y="268" fill="#1C1B18" font-family="Georgia, serif" font-size="56" font-weight="500">Experience Product</text>
-  <text x="72" y="340" fill="#1C1B18" fill-opacity="0.65" font-family="system-ui, sans-serif" font-size="20">Research ’ Journey ’ Lo-fi ’ Hi-fi</text>
+  <text x="72" y="340" fill="#1C1B18" fill-opacity="0.65" font-family="system-ui, sans-serif" font-size="20">Research - Journey - Lo-fi - Hi-fi</text>
   <g stroke="#1C1B18" stroke-opacity="0.15" stroke-width="1">
     <line x1="72" y1="420" x2="1128" y2="420"/>
     <line x1="72" y1="520" x2="1128" y2="520"/>
     <line x1="72" y1="620" x2="1128" y2="620"/>
   </g>
-  <text x="72" y="480" fill="#1C1B18" fill-opacity="0.45" font-family="ui-monospace, monospace" font-size="14" letter-spacing="2">01 INSIGHT · CONFIDENCE BEFORE FILTERS</text>
-  <text x="72" y="580" fill="#1C1B18" fill-opacity="0.45" font-family="ui-monospace, monospace" font-size="14" letter-spacing="2">02 JOURNEY · COMMIT ’ NAVIGATE HANDOFF</text>
-  <text x="72" y="680" fill="#1C1B18" fill-opacity="0.45" font-family="ui-monospace, monospace" font-size="14" letter-spacing="2">03 FIDELITY · LEARNING LADDER</text>
+  <text x="72" y="480" fill="#1C1B18" fill-opacity="0.45" font-family="ui-monospace, monospace" font-size="14" letter-spacing="2">01 INSIGHT - CONFIDENCE BEFORE FILTERS</text>
+  <text x="72" y="580" fill="#1C1B18" fill-opacity="0.45" font-family="ui-monospace, monospace" font-size="14" letter-spacing="2">02 JOURNEY - COMMIT TO NAVIGATE HANDOFF</text>
+  <text x="72" y="680" fill="#1C1B18" fill-opacity="0.45" font-family="ui-monospace, monospace" font-size="14" letter-spacing="2">03 FIDELITY - LEARNING LADDER</text>
 </svg>
