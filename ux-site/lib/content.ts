@@ -23,14 +23,16 @@ export interface CaseStudy {
 }
 
 export const site = {
-  brand: "Celine",
-  mark: "UX",
-  title: "Celine — UI/UX Portfolio",
+  brand: "celine.ux",
+  name: "Celine",
+  title: "celine.ux — UI/UX Portfolio",
   email: "celstudiosx@gmail.com",
   linkedin: "https://www.linkedin.com/in/celineghl/",
-  tagline: "Research before pixels.",
+  resumeHref: "/CV_Celine%20Goh%20Hui%20Ling_130626.pdf",
+  resumeDownload: "CV_Celine Goh Hui Ling_130626.pdf",
+  tagline: "UI/UX design, research first.",
   lede:
-    "Independent UI/UX practice focused on problem framing, validation, journey clarity, and flows that survive real users — not screen galleries.",
+    "An editorial portfolio of interface work — problem framing, validation, journeys, and wireframes before polish.",
   process: [
     {
       step: "01",

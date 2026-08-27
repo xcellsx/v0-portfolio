@@ -1,29 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #10243a;
-  --ink-soft: #3a5168;
-  --paper: #eef3f7;
-  --paper-deep: #e2eaf1;
-  --signal: #0f7a6c;
-  --signal-deep: #0a574e;
-  --mist: #c5d5e2;
-  --line: rgba(16, 36, 58, 0.12);
-  --glow: rgba(15, 122, 108, 0.14);
-  --background: var(--paper);
-  --foreground: var(--ink);
+  --offwhite: #f5f2ec;
+  --offblack: #1c1b18;
+  --terracotta: #ae2217;
+  --paper-deep: #ebe6dc;
+  --muted: rgba(28, 27, 24, 0.55);
+  --line: rgba(28, 27, 24, 0.12);
+  --background: var(--offwhite);
+  --foreground: var(--offblack);
 }
 
 @theme inline {
-  --font-sans: var(--font-source-sans), system-ui, sans-serif;
-  --font-display: var(--font-syne), system-ui, sans-serif;
-  --color-ink: var(--ink);
-  --color-ink-soft: var(--ink-soft);
-  --color-paper: var(--paper);
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
+  --color-offwhite: var(--offwhite);
+  --color-offblack: var(--offblack);
+  --color-terracotta: var(--terracotta);
   --color-paper-deep: var(--paper-deep);
-  --color-signal: var(--signal);
-  --color-signal-deep: var(--signal-deep);
-  --color-mist: var(--mist);
+  --color-muted: var(--muted);
   --color-line: var(--line);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -39,27 +35,31 @@
   }
 
   body {
-    background: var(--paper);
-    color: var(--ink);
+    background: var(--offwhite);
+    color: var(--offblack);
     font-family: var(--font-sans);
     text-rendering: optimizeLegibility;
   }
 
   ::selection {
-    background: color-mix(in oklab, var(--signal) 28%, white);
+    background: color-mix(in oklab, var(--terracotta) 22%, white);
   }
 }
 
 @layer utilities {
-  .font-display {
-    font-family: var(--font-display);
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
   }
 
   .atmosphere {
     background:
-      radial-gradient(ellipse 90% 60% at 100% -10%, var(--glow), transparent 55%),
-      radial-gradient(ellipse 70% 50% at -10% 30%, rgba(16, 36, 58, 0.06), transparent 50%),
-      linear-gradient(180deg, #f4f7fa 0%, var(--paper) 40%, #e8eef4 100%);
+      radial-gradient(ellipse 80% 55% at 100% 0%, rgba(174, 34, 23, 0.07), transparent 55%),
+      radial-gradient(ellipse 55% 40% at 0% 100%, rgba(28, 27, 24, 0.04), transparent 50%),
+      linear-gradient(180deg, #f7f4ef 0%, var(--offwhite) 45%, #efe9e0 100%);
   }
 
   .reveal {
@@ -81,7 +81,7 @@
   @keyframes rise {
     from {
       opacity: 0;
-      transform: translateY(14px);
+      transform: translateY(12px);
     }
     to {
       opacity: 1;

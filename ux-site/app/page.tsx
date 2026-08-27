@@ -1,63 +1,57 @@
 import Link from "next/link"
 import { ProjectCard } from "@/components/case-study"
-import { SectionEyebrow } from "@/components/site-chrome"
+import { SectionLabel } from "@/components/site-chrome"
 import { caseStudies, site } from "@/lib/content"
 
 export default function HomePage() {
   return (
     <>
-      <section className="relative overflow-hidden px-[clamp(1.25rem,4vw,4rem)] pt-[clamp(2rem,8vh,5rem)] pb-[clamp(3rem,10vh,6rem)]">
-        <div
-          className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-signal/10 blur-3xl"
-          aria-hidden
-        />
+      <section className="relative overflow-hidden px-[clamp(1.5rem,4vw,5rem)] pt-[clamp(2.5rem,8vh,5rem)] pb-[clamp(3rem,10vh,6rem)]">
         <div className="relative max-w-4xl">
-          <p className="reveal text-[11px] font-semibold tracking-[0.18em] text-signal uppercase">
-            Independent UI/UX portfolio
-          </p>
-          <h1 className="reveal reveal-delay-1 mt-5 font-display text-[clamp(3rem,9vw,6rem)] font-semibold leading-[0.92] tracking-[-0.045em] text-ink">
+          <SectionLabel>[ UI // UX Portfolio ]</SectionLabel>
+          <h1 className="reveal mt-6 font-serif text-[clamp(3rem,8vw,5.5rem)] font-medium leading-[0.95] tracking-[-0.03em] text-offblack">
             {site.brand}
-            <span className="text-signal">.</span>
-            <span className="block text-signal-deep">{site.mark}</span>
           </h1>
-          <p className="reveal reveal-delay-2 mt-6 max-w-xl font-display text-[clamp(1.35rem,3vw,1.85rem)] font-semibold leading-snug tracking-[-0.02em] text-ink">
+          <p className="reveal reveal-delay-1 mt-6 max-w-xl font-serif text-[clamp(1.35rem,2.8vw,1.85rem)] font-medium leading-snug tracking-[-0.02em] text-terracotta">
             {site.tagline}
           </p>
-          <p className="reveal reveal-delay-3 mt-4 max-w-xl text-base leading-relaxed text-ink-soft">
+          <p className="reveal reveal-delay-2 mt-4 max-w-xl font-sans text-sm leading-relaxed text-offblack/75 sm:text-base">
             {site.lede}
           </p>
-          <div className="reveal reveal-delay-3 mt-8 flex flex-wrap gap-3">
+          <div className="reveal reveal-delay-3 mt-9 flex flex-wrap gap-x-6 gap-y-3">
             <Link
               href="/approach"
-              className="bg-ink px-5 py-3 text-sm font-semibold text-paper transition-colors hover:bg-signal-deep"
+              className="border-b border-offblack pb-0.5 font-mono text-[11px] tracking-[0.12em] uppercase transition-colors hover:border-terracotta hover:text-terracotta"
             >
               How I work
             </Link>
             <a
               href="#work"
-              className="border border-ink/20 bg-paper/70 px-5 py-3 text-sm font-semibold text-ink transition-colors hover:border-signal hover:text-signal"
+              className="border-b border-offblack/25 pb-0.5 font-mono text-[11px] tracking-[0.12em] text-offblack/70 uppercase transition-colors hover:border-terracotta hover:text-terracotta"
             >
-              See case studies
+              Selected work
             </a>
           </div>
         </div>
       </section>
 
-      <section className="border-t border-line px-[clamp(1.25rem,4vw,4rem)] py-10">
-        <SectionEyebrow>Process spine</SectionEyebrow>
-        <div className="mt-6 grid gap-0 sm:grid-cols-2 lg:grid-cols-5">
+      <section className="border-t border-line px-[clamp(1.5rem,4vw,5rem)] py-[clamp(2.5rem,6vh,4rem)]">
+        <SectionLabel>[ Process // Spine ]</SectionLabel>
+        <div className="mt-8 grid gap-0 border-t border-line sm:grid-cols-2 lg:grid-cols-5">
           {site.process.map((item, index) => (
             <div
               key={item.step}
-              className={`border-t border-line py-5 sm:border-t-0 sm:px-4 lg:px-3 ${
+              className={`border-b border-line py-6 sm:border-b-0 lg:px-4 ${
                 index > 0 ? "lg:border-l lg:border-line" : "lg:pl-0"
               }`}
             >
-              <p className="font-display text-sm font-semibold text-signal">{item.step}</p>
-              <p className="mt-2 font-display text-lg font-semibold tracking-[-0.02em] text-ink">
+              <p className="font-mono text-[10px] tracking-[0.14em] text-terracotta uppercase">
+                {item.step}
+              </p>
+              <p className="mt-3 font-serif text-lg font-medium tracking-[-0.02em] text-offblack">
                 {item.title}
               </p>
-              <p className="mt-2 text-sm leading-relaxed text-ink-soft">{item.body}</p>
+              <p className="mt-2 font-sans text-sm leading-relaxed text-offblack/70">{item.body}</p>
             </div>
           ))}
         </div>
@@ -65,17 +59,17 @@ export default function HomePage() {
 
       <section
         id="work"
-        className="border-t border-line px-[clamp(1.25rem,4vw,4rem)] py-[clamp(3rem,8vh,5rem)]"
+        className="border-t border-line px-[clamp(1.5rem,4vw,5rem)] py-[clamp(3rem,8vh,5rem)]"
       >
-        <div className="mb-4 flex items-end justify-between gap-4">
+        <div className="mb-8 flex items-end justify-between gap-4">
           <div>
-            <SectionEyebrow>Selected work</SectionEyebrow>
-            <h2 className="mt-3 font-display text-[clamp(1.8rem,3.5vw,2.6rem)] font-semibold tracking-[-0.03em]">
+            <SectionLabel>[ Selected // Work ]</SectionLabel>
+            <h2 className="mt-4 font-serif text-[clamp(1.75rem,3.5vw,2.5rem)] font-medium tracking-[-0.02em] text-offblack">
               Four cases. Research first.
             </h2>
           </div>
-          <p className="hidden max-w-xs text-right text-sm text-ink-soft md:block">
-            Ninkatec · Amazon · GXS · Shopee — each led by problem framing and validation.
+          <p className="hidden max-w-xs text-right font-mono text-[10px] tracking-[0.1em] text-offblack/45 uppercase md:block">
+            Ninkatec · Amazon · GXS · Shopee
           </p>
         </div>
         <div className="border-t border-line">

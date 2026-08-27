@@ -1,17 +1,23 @@
 import type { Metadata } from "next"
-import { Source_Sans_3, Syne } from "next/font/google"
+import { DM_Sans, Playfair_Display, Space_Mono } from "next/font/google"
 import { SiteFooter, SiteHeader } from "@/components/site-chrome"
 import { site } from "@/lib/content"
 import "./globals.css"
 
-const syne = Syne({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-syne",
+  variable: "--font-playfair",
 })
 
-const sourceSans = Source_Sans_3({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-source-sans",
+  variable: "--font-dm-sans",
+})
+
+const spaceMono = Space_Mono({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-space-mono",
 })
 
 export const metadata: Metadata = {
@@ -22,7 +28,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${syne.variable} ${sourceSans.variable} antialiased`}>
+      <body
+        className={`${playfair.variable} ${dmSans.variable} ${spaceMono.variable} font-sans antialiased`}
+      >
         <div className="atmosphere flex min-h-screen flex-col">
           <SiteHeader />
           <main className="flex-1">{children}</main>
