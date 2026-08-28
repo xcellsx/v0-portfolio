@@ -61,6 +61,11 @@ function ProjectCard({
           <SectionLabel className="text-[10px] tracking-[0.14em]">
             [ Case Study // {project.title} ]
           </SectionLabel>
+          {project.badge ? (
+            <p className="mt-3 font-mono text-[10px] tracking-[0.12em] text-offblack/40 uppercase">
+              [ {project.badge} ]
+            </p>
+          ) : null}
 
           <h3 className="mt-4 font-serif text-[clamp(1.5rem,3vw,2rem)] font-medium leading-[1.15] tracking-[-0.02em] text-terracotta">
             {project.title}
@@ -72,16 +77,16 @@ function ProjectCard({
           <div className="mt-6 space-y-5">
             <div className="space-y-2 border-l-2 border-terracotta/40 pl-4">
               <p className="font-mono text-[10px] tracking-[0.12em] text-terracotta uppercase">
-                Problem
-              </p>
-              <p className="font-sans text-sm leading-[1.65] text-offblack/85">{project.problem}</p>
-            </div>
-
-            <div className="space-y-2 border-l-2 border-offblack/15 pl-4">
-              <p className="font-mono text-[10px] tracking-[0.12em] text-offblack/55 uppercase">
                 Outcome
               </p>
               <p className="font-sans text-sm leading-[1.65] text-offblack/85">{project.outcome}</p>
+            </div>
+
+            <div className="space-y-2 border-l-2 border-offblack/15 pl-4">
+              <p className="font-mono text-[10px] tracking-[0.12em] text-offblack/45 uppercase">
+                Problem
+              </p>
+              <p className="font-sans text-sm leading-[1.65] text-offblack/65">{project.problem}</p>
             </div>
           </div>
 
@@ -140,18 +145,46 @@ function ProjectCard({
                 />
               </Link>
             ) : null}
+            {project.figmaUrl ? (
+              <Link
+                href={project.figmaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 border border-offblack/20 px-3 py-2 font-mono text-[10px] tracking-[0.12em] uppercase transition-colors hover:border-terracotta hover:text-terracotta"
+              >
+                Figma
+                <ArrowUpRight
+                  className="size-3 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  strokeWidth={1.5}
+                />
+              </Link>
+            ) : null}
           </div>
         </div>
 
         <div className="flex items-center justify-center bg-offblack/[0.02] p-5 sm:p-6 lg:col-span-7">
-          <Image
-            src={project.previewImage}
-            alt={`${project.title} preview`}
-            width={project.previewWidth}
-            height={project.previewHeight}
-            className="h-auto w-full max-w-2xl object-contain"
-            sizes="(max-width: 1024px) 100vw, 45vw"
-          />
+          {project.previewImage ? (
+            <Image
+              src={project.previewImage}
+              alt={`${project.title} preview`}
+              width={project.previewWidth ?? 1200}
+              height={project.previewHeight ?? 800}
+              className="h-auto w-full max-w-2xl object-contain"
+              sizes="(max-width: 1024px) 100vw, 45vw"
+            />
+          ) : (
+            <div className="flex min-h-[16rem] w-full flex-col justify-between gap-8 lg:min-h-[22rem]">
+              <SectionLabel className="text-[10px] tracking-[0.14em]">
+                [ {project.previewKicker ?? "Process // No public screens"} ]
+              </SectionLabel>
+              <p className="font-serif text-[clamp(2rem,4vw,3.25rem)] font-medium leading-[1.05] tracking-[-0.03em] text-offblack/80">
+                {project.title}
+              </p>
+              <p className="max-w-sm font-sans text-sm leading-[1.65] text-offblack/55">
+                {project.subtitle}
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </article>
@@ -186,7 +219,7 @@ export function UiUxIndex() {
             Interface Lab
           </h1>
           <PageIntroLedger
-            description="How I move from user pain points to shipped interfaces — with problem framing and measurable outcomes at every step."
+            description="How I move from user pain points to shipped interfaces — outcome first, then the framing that got there."
             stats={[
               { label: "Volume", value: uiUxMeta.volume },
               { label: "Archive", value: uiUxMeta.quantity },
@@ -219,8 +252,8 @@ export function UiUxIndex() {
         <div className="mb-8 space-y-3">
           <SectionLabel>[ Projects // Case Studies ]</SectionLabel>
           <p className="max-w-2xl font-sans text-sm leading-[1.65] text-offblack/75">
-            Each entry highlights the problem I was solving and the outcome delivered — with a
-            full breakdown inside.
+            Each entry leads with the outcome, then the problem behind it — full breakdown
+            inside.
           </p>
         </div>
 

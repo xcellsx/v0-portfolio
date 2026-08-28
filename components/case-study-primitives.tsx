@@ -82,11 +82,13 @@ export function SpecMatrix({
 export function CaseStudyLiveActions({
   liveUrl,
   liveNote,
+  figmaUrl,
 }: {
   liveUrl?: string
   liveNote?: string
+  figmaUrl?: string
 }) {
-  if (!liveUrl) return null
+  if (!liveUrl && !figmaUrl) return null
 
   return (
     <div className="flex flex-col gap-3">
@@ -95,18 +97,83 @@ export function CaseStudyLiveActions({
           {liveNote}
         </p>
       ) : null}
-      <Link
-        href={liveUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group inline-flex w-fit items-center gap-2 border border-offblack/20 px-4 py-2 font-mono text-[11px] tracking-[0.12em] uppercase transition-colors hover:border-terracotta hover:bg-terracotta hover:text-offwhite"
-      >
-        Run Live Build
-        <ArrowUpRight
-          className="size-3 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-          strokeWidth={1.5}
-        />
-      </Link>
+      <div className="flex flex-wrap gap-3">
+        {liveUrl ? (
+          <Link
+            href={liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex w-fit items-center gap-2 border border-offblack/20 px-4 py-2 font-mono text-[11px] tracking-[0.12em] uppercase transition-colors hover:border-terracotta hover:bg-terracotta hover:text-offwhite"
+          >
+            Run Live Build
+            <ArrowUpRight
+              className="size-3 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              strokeWidth={1.5}
+            />
+          </Link>
+        ) : null}
+        {figmaUrl ? (
+          <Link
+            href={figmaUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex w-fit items-center gap-2 border border-offblack/20 px-4 py-2 font-mono text-[11px] tracking-[0.12em] uppercase transition-colors hover:border-terracotta hover:text-terracotta"
+          >
+            View Figma
+            <ArrowUpRight
+              className="size-3 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              strokeWidth={1.5}
+            />
+          </Link>
+        ) : null}
+      </div>
+    </div>
+  )
+}
+
+export function OutcomeLead({
+  problem,
+  outcome,
+  visible,
+}: {
+  problem: { headline: string; summary: string; detail?: string }
+  outcome: { headline: string; summary: string; metrics: readonly string[] }
+  visible: boolean
+}) {
+  return (
+    <div
+      className={`grid gap-5 md:grid-cols-2 ${fadeInFromTopClass(visible)}`}
+      style={{ transitionDelay: "100ms" }}
+    >
+      <div className="space-y-3 border border-offblack/10 bg-offblack/[0.02] p-5 sm:p-6">
+        <p className="font-mono text-[10px] tracking-[0.14em] text-terracotta uppercase">
+          [ Outcome ]
+        </p>
+        <h2 className="font-serif text-[clamp(1.25rem,2.5vw,1.75rem)] font-medium leading-[1.2] tracking-[-0.02em] text-terracotta">
+          {outcome.headline}
+        </h2>
+        <p className="font-sans text-sm leading-[1.65] text-offblack/80">{outcome.summary}</p>
+        <ul className="accent-list space-y-2 pl-4">
+          {outcome.metrics.map((metric) => (
+            <li key={metric} className="font-sans text-sm leading-[1.6] text-offblack/75">
+              {metric}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="space-y-3 border border-offblack/10 p-5 sm:p-6">
+        <p className="font-mono text-[10px] tracking-[0.14em] text-offblack/55 uppercase">
+          [ Problem ]
+        </p>
+        <h2 className="font-serif text-[clamp(1.25rem,2.5vw,1.75rem)] font-medium leading-[1.2] tracking-[-0.02em]">
+          {problem.headline}
+        </h2>
+        <p className="font-sans text-sm leading-[1.65] text-offblack/80">{problem.summary}</p>
+        {problem.detail ? (
+          <p className="font-sans text-sm leading-[1.65] text-offblack/60 italic">{problem.detail}</p>
+        ) : null}
+      </div>
     </div>
   )
 }

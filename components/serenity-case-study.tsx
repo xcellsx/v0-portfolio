@@ -7,15 +7,19 @@ import {
   CaseStudyGraphic,
   CaseStudyLiveActions,
   DeepDiveRows,
+  OutcomeLead,
   SpecMatrix,
 } from "@/components/case-study-primitives"
 import { SectionLabel } from "@/components/section-label"
 import {
   serenityBreakdown,
   serenityComponents,
+  serenityHifi,
+  serenityJourney,
   serenityLive,
   serenityOutcome,
   serenityProblem,
+  serenityResearch,
   serenitySteps,
 } from "@/lib/serenity-case-study-data"
 import { fadeInFromTopClass } from "@/lib/scroll-reveal"
@@ -53,41 +57,89 @@ function StepCopy({ step }: { step: (typeof serenitySteps)[number] }) {
   )
 }
 
-function ProblemOutcomeCards({ visible }: { visible: boolean }) {
+function ResearchSection({ visible }: { visible: boolean }) {
   return (
-    <div
-      className={`grid gap-5 md:grid-cols-2 ${fadeInFromTopClass(visible)}`}
-      style={{ transitionDelay: "100ms" }}
-    >
-      <div className="space-y-3 border border-offblack/10 p-5 sm:p-6">
-        <p className="font-mono text-[10px] tracking-[0.14em] text-terracotta uppercase">
-          [ Problem ]
-        </p>
-        <h2 className="font-serif text-[clamp(1.25rem,2.5vw,1.75rem)] font-medium leading-[1.2] tracking-[-0.02em]">
-          {serenityProblem.headline}
+    <div className={`space-y-8 ${fadeInFromTopClass(visible)}`}>
+      <div className="space-y-4">
+        <SectionLabel>[ Research // Discovery ]</SectionLabel>
+        <h2 className="max-w-3xl font-serif text-[clamp(1.5rem,3vw,2.25rem)] font-medium leading-[1.2] tracking-[-0.02em]">
+          {serenityResearch.headline}
         </h2>
-        <p className="font-sans text-sm leading-[1.65] text-offblack/80">{serenityProblem.summary}</p>
-        <p className="font-sans text-sm leading-[1.65] text-offblack/60 italic">
-          {serenityProblem.detail}
+        <p className="max-w-2xl font-sans text-sm leading-[1.65] text-offblack/75">
+          {serenityResearch.summary}
         </p>
       </div>
 
-      <div className="space-y-3 border border-offblack/10 bg-offblack/[0.02] p-5 sm:p-6">
-        <p className="font-mono text-[10px] tracking-[0.14em] text-offblack/55 uppercase">
-          [ Outcome ]
-        </p>
-        <h2 className="font-serif text-[clamp(1.25rem,2.5vw,1.75rem)] font-medium leading-[1.2] tracking-[-0.02em] text-terracotta">
-          {serenityOutcome.headline}
-        </h2>
-        <p className="font-sans text-sm leading-[1.65] text-offblack/80">{serenityOutcome.summary}</p>
-        <ul className="accent-list space-y-2 pl-4">
-          {serenityOutcome.metrics.map((metric) => (
-            <li key={metric} className="font-sans text-sm leading-[1.6] text-offblack/75">
-              {metric}
-            </li>
-          ))}
-        </ul>
+      <div className="grid gap-5 md:grid-cols-3">
+        {serenityResearch.methods.map((column) => (
+          <div key={column.label} className="space-y-3 border border-offblack/10 p-5">
+            <p className="font-mono text-[10px] tracking-[0.14em] text-terracotta uppercase">
+              [ {column.label} ]
+            </p>
+            <ul className="accent-list space-y-2 pl-4">
+              {column.items.map((item) => (
+                <li key={item} className="font-sans text-sm leading-[1.6] text-offblack/75">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
+
+      <blockquote className="border-l border-terracotta/50 pl-5">
+        <p className="font-sans text-sm leading-[1.7] text-offblack/85">{serenityResearch.lesson}</p>
+      </blockquote>
+    </div>
+  )
+}
+
+function JourneySection({ visible }: { visible: boolean }) {
+  return (
+    <div className={fadeInFromTopClass(visible)}>
+      <div className="mb-[clamp(2rem,5vh,3rem)] space-y-4">
+        <SectionLabel>[ Journey // Completing a Task ]</SectionLabel>
+        <h2 className="max-w-3xl font-serif text-[clamp(1.5rem,3vw,2.25rem)] font-medium leading-[1.2] tracking-[-0.02em]">
+          {serenityJourney.headline}
+        </h2>
+        <p className="max-w-2xl font-sans text-sm leading-[1.65] text-offblack/75">
+          {serenityJourney.summary}
+        </p>
+      </div>
+
+      <div className="hidden border-b border-offblack/10 pb-3 lg:grid lg:grid-cols-[4.5rem_minmax(9rem,18%)_1fr_1fr] lg:gap-6">
+        <p className="font-mono text-[10px] tracking-[0.12em] text-offblack/40 uppercase">#</p>
+        <p className="font-mono text-[10px] tracking-[0.12em] text-offblack/40 uppercase">Stage</p>
+        <p className="font-mono text-[10px] tracking-[0.12em] text-offblack/40 uppercase">User</p>
+        <p className="font-mono text-[10px] tracking-[0.12em] text-offblack/40 uppercase">Product</p>
+      </div>
+
+      {serenityJourney.stages.map((stage) => (
+        <article
+          key={stage.index}
+          className="grid gap-3 border-b border-offblack/10 py-5 lg:grid-cols-[4.5rem_minmax(9rem,18%)_1fr_1fr] lg:gap-6 lg:items-start"
+        >
+          <p className="font-mono text-xs tracking-[0.14em] text-terracotta uppercase">{stage.index}</p>
+          <div>
+            <p className="font-serif text-lg font-medium leading-tight tracking-[-0.01em]">{stage.stage}</p>
+            <p className="mt-1 font-mono text-[10px] tracking-[0.12em] text-offblack/45 uppercase">
+              [ {stage.emotion} ]
+            </p>
+          </div>
+          <p className="font-sans text-sm leading-[1.65] text-offblack/80">
+            <span className="mb-1 block font-mono text-[10px] tracking-[0.12em] text-offblack/40 uppercase lg:hidden">
+              User
+            </span>
+            {stage.user}
+          </p>
+          <p className="font-sans text-sm leading-[1.65] text-offblack/65">
+            <span className="mb-1 block font-mono text-[10px] tracking-[0.12em] text-offblack/40 uppercase lg:hidden">
+              Product
+            </span>
+            {stage.product}
+          </p>
+        </article>
+      ))}
     </div>
   )
 }
@@ -95,6 +147,8 @@ function ProblemOutcomeCards({ visible }: { visible: boolean }) {
 export function SerenityCaseStudy() {
   const { ref: heroRef, isVisible: heroVisible } = useScrollReveal()
   const { ref: breakdownRef, isVisible: breakdownVisible } = useScrollReveal()
+  const { ref: researchRef, isVisible: researchVisible } = useScrollReveal()
+  const { ref: journeyRef, isVisible: journeyVisible } = useScrollReveal()
   const { ref: flowRef, isVisible: flowVisible } = useScrollReveal()
 
   return (
@@ -116,11 +170,16 @@ export function SerenityCaseStudy() {
           <CaseStudyLiveActions
             liveUrl={serenityLive.url}
             liveNote={serenityLive.mobileNote}
+            figmaUrl={serenityLive.figmaUrl}
           />
         </div>
 
         <div className="mt-[clamp(2rem,5vh,3rem)]">
-          <ProblemOutcomeCards visible={heroVisible} />
+          <OutcomeLead
+            problem={serenityProblem}
+            outcome={serenityOutcome}
+            visible={heroVisible}
+          />
         </div>
 
         <div
@@ -155,20 +214,33 @@ export function SerenityCaseStudy() {
       </section>
 
       <section
+        ref={researchRef}
+        className="border-t border-offblack/10 px-[clamp(1.5rem,4vw,5rem)] py-[clamp(3rem,8vh,5rem)]"
+      >
+        <ResearchSection visible={researchVisible} />
+      </section>
+
+      <section
+        ref={journeyRef}
+        className="border-t border-offblack/10 px-[clamp(1.5rem,4vw,5rem)] py-[clamp(3rem,8vh,5rem)]"
+      >
+        <JourneySection visible={journeyVisible} />
+      </section>
+
+      <section
         ref={flowRef}
         className="border-t border-offblack/10 px-[clamp(1.5rem,4vw,5rem)] py-[clamp(3rem,8vh,5rem)]"
       >
         <div className={`mb-[clamp(2rem,5vh,3rem)] space-y-4 ${fadeInFromTopClass(flowVisible)}`}>
-          <SectionLabel>[ Core User Flow ]</SectionLabel>
+          <SectionLabel>[ Interface // High Fidelity ]</SectionLabel>
           <p className="font-mono text-[11px] tracking-[0.14em] text-offblack/55 uppercase">
             [ Protocol // Automated Chunking ]
           </p>
           <h2 className="max-w-3xl font-serif text-[clamp(1.5rem,3vw,2.25rem)] font-medium leading-[1.2] tracking-[-0.02em]">
-            Directing the Engine, Guarding the Interface.
+            {serenityHifi.headline}
           </h2>
           <p className="max-w-2xl font-sans text-sm leading-[1.65] text-offblack/75">
-            Three screens carry the entire product — each designed to reduce decision fatigue at
-            that stage of the journey.
+            {serenityHifi.summary}
           </p>
         </div>
 
