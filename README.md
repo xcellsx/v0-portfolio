@@ -47,6 +47,7 @@ public/       Static assets (images, models, PDFs)
 | `/work/3d-design` | 3D playground index |
 | `/work/graphic-design` | Poster A Day gallery |
 | `/work/web-development` | Web dev workbench |
+| `/work/ui-ux` | UI/UX workflow & project index |
 | `/work/serenity` | Serenity case study |
 | `/work/the-keepsake` | Keepsake case study |
 | `/work/twin-pagodas` | Twin Pagodas case study |

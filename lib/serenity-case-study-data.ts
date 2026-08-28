@@ -1,3 +1,47 @@
+export const serenityProblem = {
+  headline: "The Cognitive Cost of Order.",
+  summary:
+    "Traditional productivity systems fail neurodivergent (ADHD/Autism) brains because they rely on heavy visual friction. Red notification dots, infinite nested calendar menus, and manual micro-input forms create immediate executive dysfunction and task paralysis.",
+  detail:
+    "The problem isn't a lack of organization — it's the steep energy tax required to establish it.",
+} as const
+
+export const serenityOutcome = {
+  headline: "Calm by Default.",
+  summary:
+    "Serenity replaces overwhelming productivity patterns with a single-input, AI-chunked workflow that outputs isolated micro-actions — each scoped to feel completable without dread.",
+  metrics: [
+    "One unconstrained text field replaces multi-step form entry",
+    "Ambient processing screen buys cognitive breathing room during AI parsing",
+    "Output cards show singular actions with auto-evaluated timeframes",
+  ],
+} as const
+
+export const serenityBreakdown = [
+  {
+    metric: "Problem",
+    specification:
+      "Neurodivergent users experience task paralysis when productivity tools demand heavy visual friction before any work begins.",
+  },
+  {
+    metric: "Solution",
+    specification:
+      "A generative task-chunking ecosystem — brain dump in, calm micro-actions out — with intentional processing pauses and stripped-back UI chrome.",
+  },
+  {
+    metric: "Role",
+    specification: "Lead End-to-End Product Designer & Front-End UI Engineer",
+  },
+  {
+    metric: "Stack",
+    specification: "Figma Variables, React Engine, Next.js State Arrays, Blender Geometry Nodes",
+  },
+  {
+    metric: "Timeline",
+    specification: "4-Week Hyper-Sprint (June 2026)",
+  },
+] as const
+
 export const serenitySpecMatrix = [
   {
     metric: "Project Identity",

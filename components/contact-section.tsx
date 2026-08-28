@@ -13,7 +13,7 @@ const connectLinks = [
 ]
 
 const indexLinks = [
-  { label: "UI/UX", href: "/work/serenity" },
+  { label: "UI/UX", href: "/work/ui-ux" },
   { label: "Graphic Design", href: "/work/graphic-design" },
   { label: "3D Design", href: "/work/3d-design" },
   { label: "Web Dev", href: "/work/web-development" },
