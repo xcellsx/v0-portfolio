@@ -170,7 +170,6 @@ export function SerenityCaseStudy() {
           <CaseStudyLiveActions
             liveUrl={serenityLive.url}
             liveNote={serenityLive.mobileNote}
-            figmaUrl={serenityLive.figmaUrl}
           />
         </div>
 

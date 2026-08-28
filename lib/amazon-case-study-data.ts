@@ -6,10 +6,6 @@ export const amazonCaseStudy: UiUxCaseStudyData = {
   eyebrow: "Speculative // Amazon",
   confidentiality:
     "Speculative redesign of Amazon.sg — not an Amazon engagement. Nothing from this sprint shipped.",
-  live: {
-    figmaUrl: "https://www.figma.com/design/ZWRkEGMMCHEK5pqT8pRxvn/UI-UX?node-id=20-2",
-    note: "Before / after on the Design page — buy-box, stock colour, and a quieter purchase column.",
-  },
   problem: {
     headline: "Same item, different doors into the cart.",
     summary:

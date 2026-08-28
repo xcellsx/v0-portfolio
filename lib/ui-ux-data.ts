@@ -26,7 +26,7 @@ export interface UiUxProject {
 
 export const uiUxMeta = {
   volume: "VOL_01",
-  quantity: "05 Case Studies",
+  quantity: "04 Case Studies",
   medium: "Figma · User Research · React Prototyping",
 } as const
 
@@ -78,8 +78,6 @@ export const uiUxProjects: UiUxProject[] = [
     previewHeight: 648,
     caseStudyHref: "/work/serenity",
     liveUrl: "https://serenity-delta-livid.vercel.app/",
-    figmaUrl:
-      "https://www.figma.com/design/jkBbEhpXIHpD2w1T6OAxbW/Serenity.--Copy-?node-id=2-8",
   },
   {
     id: "ninkatec",
@@ -106,7 +104,7 @@ export const uiUxProjects: UiUxProject[] = [
       "Full UserTesting protocol for Money Lock, two Invest directions (and logo variants) for preference review. Results landed after the internship ended.",
     role: "Product Design Intern",
     stack: ["UserTesting", "Preference Test", "UX Writing", "Design System"],
-    timeline: "16 Weeks — Sep 2024 to Jan 2025",
+    timeline: "24-Week Internship",
     previewKicker: "Internship // Artifacts withheld",
     badge: "Internship",
     caseStudyHref: "/work/gxs-bank",
@@ -125,24 +123,8 @@ export const uiUxProjects: UiUxProject[] = [
     previewKicker: "Speculative // Interview exercise",
     badge: "Speculative",
     caseStudyHref: "/work/amazon",
-    figmaUrl: "https://www.figma.com/design/ZWRkEGMMCHEK5pqT8pRxvn/UI-UX?node-id=20-2",
     previewImage: "/images/projects/amazon/after.png",
     previewWidth: 1600,
     previewHeight: 900,
-  },
-  {
-    id: "shopee",
-    title: "Shopee",
-    subtitle: "Price Honesty and Choice Overload on the Path to Pay",
-    problem:
-      "Two stacked frictions: too many near-identical choices on the PDP, then prices that change meaning from PDP to cart to checkout.",
-    outcome:
-      "Research board with SG/MY/TH evidence and an annotated walkthrough. Interface pass for price honesty — checkout stays for paying, not for swapping variants.",
-    role: "Speculative UI / UX",
-    stack: ["Heuristic Walkthrough", "Reviews", "Figma"],
-    timeline: "1-Week Sprint",
-    previewKicker: "Speculative // Interview exercise",
-    badge: "Speculative",
-    caseStudyHref: "/work/shopee",
   },
 ]

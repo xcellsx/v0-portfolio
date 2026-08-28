@@ -50,7 +50,7 @@ export const gxsCaseStudy: UiUxCaseStudyData = {
     },
     {
       metric: "Timeline",
-      specification: "16 weeks — September 2024 to January 2025.",
+      specification: "24-week internship.",
     },
   ],
   research: {

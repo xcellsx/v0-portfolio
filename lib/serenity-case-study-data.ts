@@ -124,8 +124,6 @@ export const serenityComponents = [
 
 export const serenityLive = {
   url: "https://serenity-delta-livid.vercel.app/",
-  figmaUrl:
-    "https://www.figma.com/design/jkBbEhpXIHpD2w1T6OAxbW/Serenity.--Copy-?node-id=2-8",
   mobileNote:
     "Web prototype for a mobile-first experience — some core features from Figma are not in the live build yet.",
 } as const
